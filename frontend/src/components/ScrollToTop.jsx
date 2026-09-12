@@ -1,0 +1,31 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+export default function ScrollToTop() {
+  const { pathname, search } = useLocation();
+
+  useEffect(() => {
+    // 1. Scroll main browser window to top
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    });
+
+    if (document.documentElement) {
+      document.documentElement.scrollTop = 0;
+    }
+
+    if (document.body) {
+      document.body.scrollTop = 0;
+    }
+
+    // 2. Also reset any internal scrollable containers (such as Admin main container)
+    const scrollableElements = document.querySelectorAll('main, .overflow-y-auto, .overflow-auto');
+    scrollableElements.forEach((el) => {
+      el.scrollTop = 0;
+    });
+  }, [pathname, search]);
+
+  return null;
+}
