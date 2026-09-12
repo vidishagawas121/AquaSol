@@ -9,7 +9,6 @@ A high-performance, maintenance-free **Static React Web Application** engineered
 * **Company**: Aqua-Sol Energy
 * **Registered Office**: Office No. 05, Ground Floor, Laxmi Kunj, Near Ganpati Mandir, Chandan Nagar, Pune - 411014, Maharashtra
 * **Helpline & WhatsApp**: +91 8275067701
-* **Alternate Phone**: +91 9822000000
 * **Official Email**: aquasolpune@gmail.com
 * **Official WhatsApp**: `https://wa.me/918275067701`
 * **Credentials**: Registered under Ministry of MSME, Govt. of India; Authorized PM Surya Ghar Vendor Partner.
