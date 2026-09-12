@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Award, MapPin, Phone, Mail, CheckCircle2, Sun, Target, Eye, Users, FileText } from 'lucide-react';
+import { ShieldCheck, Award, MapPin, Phone, Mail, CheckCircle2, Sun, Target, Eye, Users } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
 import msmeLogo from '../assets/msme_logo.png';
@@ -61,20 +61,6 @@ const AboutPage = () => {
                   <p className="text-[11px] text-slate-500">PM Surya Ghar liaison</p>
                 </div>
               </div>
-            </div>
-
-            {/* Official Brochure Download */}
-            <div className="pt-1">
-              <a
-                href="/brochures/Aquasol_Energy_Brochure.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                download="Aqua_Sol_Energy_Brochure.pdf"
-                className="inline-flex items-center gap-2.5 px-5 py-3 rounded-xl bg-brand-blue-50 hover:bg-brand-blue-100 text-brand-blue-700 border border-brand-blue-200 text-xs font-bold transition shadow-xs group"
-              >
-                <FileText className="w-4 h-4 text-brand-blue-600 group-hover:scale-110 transition-transform" />
-                <span>Download Official Company Brochure (PDF)</span>
-              </a>
             </div>
           </div>
 

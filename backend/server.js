@@ -76,15 +76,6 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Official Company Brochure Download Endpoint
-app.get('/api/brochure/download', (req, res) => {
-  const brochurePath = path.join(__dirname, 'uploads', 'brochures', 'Aquasol_Energy_Brochure.pdf');
-  res.download(brochurePath, 'Aqua_Sol_Energy_Brochure.pdf', (err) => {
-    if (err && !res.headersSent) {
-      res.status(404).json({ message: 'Brochure file not found on server.' });
-    }
-  });
-});
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
