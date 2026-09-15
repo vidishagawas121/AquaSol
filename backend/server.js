@@ -114,6 +114,26 @@ app.use('/uploads', express.static(staticUploadsDir));
 // Apply General Rate Limiter to API
 app.use('/api', apiLimiter);
 
+// Root Welcome Route
+app.get('/', (req, res) => {
+  res.json({
+    status: 'online',
+    message: 'Welcome to Aqua-Sol Energy Production API',
+    healthCheck: '/api/health',
+    endpoints: [
+      '/api/health',
+      '/api/products',
+      '/api/services',
+      '/api/solutions',
+      '/api/projects',
+      '/api/blogs',
+      '/api/faqs',
+      '/api/leads',
+      '/api/site-surveys',
+    ],
+  });
+});
+
 // Health Check
 app.get('/api/health', (req, res) => {
   res.json({
