@@ -42,6 +42,9 @@ export default {
       fontFamily: {
         sans: ['Outfit', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
+      screens: {
+        'xs': '420px',
+      },
     },
   },
   plugins: [],

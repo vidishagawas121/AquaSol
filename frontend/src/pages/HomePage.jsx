@@ -483,27 +483,27 @@ const HomePage = () => {
       </section>
 
       {/* 5. INTERACTIVE SOLAR CALCULATOR QUICK WIDGET */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-slate-900 rounded-3xl p-8 sm:p-12 text-white shadow-2xl border border-slate-800">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <section className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-8 lg:p-12 text-white shadow-2xl border border-slate-800">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
             {/* Calculator Controls */}
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-4 sm:space-y-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-amber-400">
                   Instant Pune Solar Estimator
                 </span>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                <h2 className="text-xl sm:text-3xl font-extrabold text-white mt-1">
                   How Much Can You Save With Solar?
                 </h2>
-                <p className="text-xs sm:text-sm text-slate-400 mt-2">
+                <p className="text-xs sm:text-sm text-slate-400 mt-2 leading-relaxed">
                   Adjust your average monthly electricity bill to calculate recommended system size, estimated annual generation, and government subsidy.
                 </p>
               </div>
 
-              <div className="space-y-2 bg-slate-800/80 p-5 rounded-2xl border border-slate-700">
-                <div className="flex items-center justify-between text-sm">
+              <div className="space-y-2 bg-slate-800/80 p-4 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-700">
+                <div className="flex items-center justify-between text-xs sm:text-sm">
                   <span className="text-slate-300 font-semibold">Your Monthly Electricity Bill:</span>
-                  <span className="text-xl font-bold text-brand-amber-400">₹{monthlyBill.toLocaleString('en-IN')}</span>
+                  <span className="text-lg sm:text-xl font-bold text-brand-amber-400">₹{monthlyBill.toLocaleString('en-IN')}</span>
                 </div>
                 <input
                   type="range"
@@ -514,63 +514,79 @@ const HomePage = () => {
                   onChange={(e) => setMonthlyBill(Number(e.target.value))}
                   className="w-full h-2 bg-slate-700 rounded-lg appearance-none cursor-pointer accent-brand-amber-500"
                 />
-                <div className="flex justify-between text-[11px] text-slate-500">
+                <div className="flex justify-between text-[10px] sm:text-[11px] text-slate-500">
                   <span>₹1,000/mo</span>
                   <span>₹7,500/mo</span>
                   <span>₹15,000+/mo</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-xs text-slate-400">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4 text-xs text-slate-400">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-brand-green-500" />
+                  <CheckCircle2 className="w-4 h-4 text-brand-green-500 shrink-0" />
                   <span>Based on MSEDCL tariffs</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-brand-green-500" />
+                  <CheckCircle2 className="w-4 h-4 text-brand-green-500 shrink-0" />
                   <span>Pune solar irradiance data</span>
                 </div>
               </div>
             </div>
 
             {/* Calculated Output Card */}
-            <div className="lg:col-span-6 bg-gradient-to-br from-slate-800 to-slate-900 p-6 sm:p-8 rounded-2xl border border-slate-700 space-y-6">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase">Recommended System</span>
-                  <p className="text-2xl sm:text-3xl font-extrabold text-white mt-1">{calcResult.kw} kW</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">Approx. {Math.round(calcResult.kw * 90)} sq. ft roof</p>
+            <div className="lg:col-span-6 bg-gradient-to-br from-slate-800 to-slate-900 p-3.5 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl border border-slate-700 space-y-4 sm:space-y-6">
+              <div className="grid grid-cols-2 gap-2 sm:gap-4">
+                <div className="bg-slate-900/80 p-2.5 xs:p-3 sm:p-4 rounded-xl border border-slate-700/60 overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Recommended System</span>
+                    <p className="text-base xs:text-lg sm:text-2xl lg:text-3xl font-extrabold text-white mt-0.5 sm:mt-1 leading-tight tracking-tight">
+                      {calcResult.kw} <span className="text-xs sm:text-base font-bold text-slate-300">kW</span>
+                    </p>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1 leading-tight">Approx. {Math.round(calcResult.kw * 90)} sq. ft roof</p>
                 </div>
 
-                <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase">Estimated Subsidy</span>
-                  <p className="text-2xl sm:text-3xl font-extrabold text-brand-amber-400 mt-1">₹{calcResult.subsidy.toLocaleString('en-IN')}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">PM Surya Ghar Direct Credit</p>
+                <div className="bg-slate-900/80 p-2.5 xs:p-3 sm:p-4 rounded-xl border border-slate-700/60 overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Estimated Subsidy</span>
+                    <p className="text-base xs:text-lg sm:text-2xl lg:text-3xl font-extrabold text-brand-amber-400 mt-0.5 sm:mt-1 leading-tight tracking-tight whitespace-nowrap">
+                      ₹{calcResult.subsidy.toLocaleString('en-IN')}
+                    </p>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1 leading-tight">PM Surya Ghar Direct Credit</p>
                 </div>
 
-                <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase">Annual Generation</span>
-                  <p className="text-xl sm:text-2xl font-bold text-white mt-1">{calcResult.units.toLocaleString('en-IN')} units</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">Clean electricity / year</p>
+                <div className="bg-slate-900/80 p-2.5 xs:p-3 sm:p-4 rounded-xl border border-slate-700/60 overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Annual Generation</span>
+                    <p className="text-sm xs:text-base sm:text-xl lg:text-2xl font-bold text-white mt-0.5 sm:mt-1 leading-tight tracking-tight">
+                      {calcResult.units.toLocaleString('en-IN')} <span className="text-[10px] sm:text-xs font-normal text-slate-300">units</span>
+                    </p>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1 leading-tight">Clean electricity / year</p>
                 </div>
 
-                <div className="bg-slate-900/80 p-4 rounded-xl border border-slate-700/60">
-                  <span className="text-[11px] font-semibold text-slate-400 uppercase">Annual Bill Savings</span>
-                  <p className="text-xl sm:text-2xl font-bold text-brand-green-500 mt-1">₹{calcResult.savings.toLocaleString('en-IN')}</p>
-                  <p className="text-[11px] text-slate-400 mt-0.5">Yearly savings in your pocket</p>
+                <div className="bg-slate-900/80 p-2.5 xs:p-3 sm:p-4 rounded-xl border border-slate-700/60 overflow-hidden flex flex-col justify-between">
+                  <div>
+                    <span className="text-[10px] sm:text-[11px] font-semibold text-slate-400 uppercase tracking-wider block truncate">Annual Bill Savings</span>
+                    <p className="text-sm xs:text-base sm:text-xl lg:text-2xl font-bold text-brand-green-500 mt-0.5 sm:mt-1 leading-tight tracking-tight whitespace-nowrap">
+                      ₹{calcResult.savings.toLocaleString('en-IN')}
+                    </p>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] text-slate-400 mt-1 leading-tight">Yearly savings in your pocket</p>
                 </div>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-3">
+              <div className="pt-1 sm:pt-2 flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                 <button
                   onClick={() => handleOpenQuote(`${calcResult.kw} kW Rooftop Solar System`)}
-                  className="flex-1 py-3 bg-brand-amber-500 hover:bg-brand-amber-600 text-white font-bold text-xs rounded-xl shadow transition text-center"
+                  className="flex-1 py-3 bg-brand-amber-500 hover:bg-brand-amber-600 text-white font-bold text-xs sm:text-sm rounded-xl shadow transition text-center active:scale-[0.99]"
                 >
                   Request Exact Engineering Quote
                 </button>
                 <Link
                   to="/solar-calculator"
-                  className="px-5 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs rounded-xl transition text-center"
+                  className="px-5 py-3 bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm rounded-xl transition text-center active:scale-[0.99]"
                 >
                   Full Detailed Calculator
                 </Link>

@@ -192,67 +192,67 @@ const SolarCalculatorPage = () => {
 
           {/* Results Output Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="bg-slate-900 text-white p-8 rounded-3xl border border-slate-800 shadow-2xl space-y-6">
+            <div className="bg-slate-900 text-white p-4 sm:p-8 rounded-2xl sm:rounded-3xl border border-slate-800 shadow-2xl space-y-5 sm:space-y-6">
               <div>
                 <span className="text-xs font-bold uppercase tracking-wider text-brand-amber-400">
                   Estimated Recommendation
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+                <h3 className="text-xl sm:text-3xl font-extrabold text-white mt-1 leading-tight">
                   {recommendedKw} kW Rooftop Solar Plant
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                   Tailored to offset your ₹{monthlyBill.toLocaleString('en-IN')}/month electricity bill.
                 </p>
               </div>
 
               {/* Key Metrics Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
-                  <span className="text-[11px] text-slate-400 font-medium">Govt. Subsidy</span>
-                  <p className="text-2xl font-black text-brand-amber-400 mt-0.5">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-4">
+                <div className="bg-slate-800/90 p-2.5 xs:p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700 overflow-hidden flex flex-col justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block truncate">Govt. Subsidy</span>
+                  <p className="text-base xs:text-lg sm:text-2xl font-black text-brand-amber-400 mt-0.5 tracking-tight whitespace-nowrap">
                     ₹{eligibleSubsidy.toLocaleString('en-IN')}
                   </p>
-                  <p className="text-[10px] text-slate-400">PM Surya Ghar DBT</p>
+                  <p className="text-[9px] xs:text-[10px] text-slate-400 mt-0.5 leading-tight">PM Surya Ghar DBT</p>
                 </div>
 
-                <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
-                  <span className="text-[11px] text-slate-400 font-medium">Annual Savings</span>
-                  <p className="text-2xl font-black text-emerald-400 mt-0.5">
+                <div className="bg-slate-800/90 p-2.5 xs:p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700 overflow-hidden flex flex-col justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block truncate">Annual Savings</span>
+                  <p className="text-base xs:text-lg sm:text-2xl font-black text-emerald-400 mt-0.5 tracking-tight whitespace-nowrap">
                     ₹{annualSavings.toLocaleString('en-IN')}
                   </p>
-                  <p className="text-[10px] text-slate-400">Estimated bill reduction</p>
+                  <p className="text-[9px] xs:text-[10px] text-slate-400 mt-0.5 leading-tight">Estimated bill reduction</p>
                 </div>
 
-                <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
-                  <span className="text-[11px] text-slate-400 font-medium">Payback Period</span>
-                  <p className="text-2xl font-black text-white mt-0.5">
-                    {paybackYears} Years
+                <div className="bg-slate-800/90 p-2.5 xs:p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700 overflow-hidden flex flex-col justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block truncate">Payback Period</span>
+                  <p className="text-base xs:text-lg sm:text-2xl font-black text-white mt-0.5 tracking-tight">
+                    {paybackYears} <span className="text-xs sm:text-sm font-normal text-slate-300">Years</span>
                   </p>
-                  <p className="text-[10px] text-slate-400">Then 21+ yrs free power</p>
+                  <p className="text-[9px] xs:text-[10px] text-slate-400 mt-0.5 leading-tight">Then 21+ yrs free power</p>
                 </div>
 
-                <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
-                  <span className="text-[11px] text-slate-400 font-medium">Annual Generation</span>
-                  <p className="text-xl font-bold text-white mt-0.5">
-                    {annualUnits.toLocaleString('en-IN')}
+                <div className="bg-slate-800/90 p-2.5 xs:p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700 overflow-hidden flex flex-col justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block truncate">Annual Generation</span>
+                  <p className="text-sm xs:text-base sm:text-xl font-bold text-white mt-0.5 tracking-tight">
+                    {annualUnits.toLocaleString('en-IN')} <span className="text-[10px] sm:text-xs font-normal text-slate-300">units</span>
                   </p>
-                  <p className="text-[10px] text-slate-400">Units (kWh) per year</p>
+                  <p className="text-[9px] xs:text-[10px] text-slate-400 mt-0.5 leading-tight">Units (kWh) / year</p>
                 </div>
 
-                <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
-                  <span className="text-[11px] text-slate-400 font-medium">25-Yr Net Savings</span>
-                  <p className="text-xl font-bold text-emerald-400 mt-0.5">
+                <div className="bg-slate-800/90 p-2.5 xs:p-3 sm:p-4 rounded-xl sm:rounded-2xl border border-slate-700 overflow-hidden flex flex-col justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block truncate">25-Yr Net Savings</span>
+                  <p className="text-sm xs:text-base sm:text-xl font-bold text-emerald-400 mt-0.5 tracking-tight whitespace-nowrap">
                     ₹{Math.max(0, lifetime25YrSavings).toLocaleString('en-IN')}
                   </p>
-                  <p className="text-[10px] text-slate-400">Lifetime wealth created</p>
+                  <p className="text-[9px] xs:text-[10px] text-slate-400 mt-0.5 leading-tight">Lifetime wealth created</p>
                 </div>
 
-                <div className="bg-slate-800/90 p-4 rounded-2xl border border-slate-700">
-                  <span className="text-[11px] text-slate-400 font-medium">CO2 Offset</span>
-                  <p className="text-xl font-bold text-emerald-400 mt-0.5">
-                    {co2MitigatedTons} Tons
+                <div className="bg-slate-800/90 p-2.5 xs:p-3 sm:p-4 rounded-xl border border-slate-700 overflow-hidden flex flex-col justify-between">
+                  <span className="text-[10px] sm:text-[11px] text-slate-400 font-medium block truncate">CO2 Offset</span>
+                  <p className="text-sm xs:text-base sm:text-xl font-bold text-emerald-400 mt-0.5 tracking-tight">
+                    {co2MitigatedTons} <span className="text-[10px] sm:text-xs font-normal text-slate-300">Tons</span>
                   </p>
-                  <p className="text-[10px] text-slate-400">Green environmental benefit</p>
+                  <p className="text-[9px] xs:text-[10px] text-slate-400 mt-0.5 leading-tight">Green benefit</p>
                 </div>
               </div>
 
