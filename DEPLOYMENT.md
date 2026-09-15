@@ -1,66 +1,45 @@
 # 🚀 Aqua-Sol Energy — Vercel Separate Deployment Guide
 
-This guide explains how to deploy **Aqua-Sol Energy** on **Vercel** as two separate, independently scaled projects:
+This guide explains how to deploy **Aqua-Sol Energy** on **Vercel** as two separate, independently managed projects:
 1. **Backend Project** (Express Serverless API on Vercel)
 2. **Frontend Project** (Vite + React Single-Page Application on Vercel CDN)
+
+> **💡 Zero Database Required**: Aqua-Sol Energy is architected to operate in **100% standalone zero-database mode**. Customer inquiries and site survey requests are dispatched directly to WhatsApp Web (`+91 8275067701`), and all company, service, and subsidy data is self-contained. **No MongoDB Atlas or external database setup is required!**
 
 ---
 
 ## 📑 Table of Contents
 1. [Prerequisites](#1-prerequisites)
-2. [Step 1: Set Up MongoDB Atlas (Cloud Database)](#step-1-set-up-mongodb-atlas-cloud-database)
-3. [Step 2: Deploy Backend to Vercel](#step-2-deploy-backend-to-vercel)
-4. [Step 3: Deploy Frontend to Vercel](#step-3-deploy-frontend-to-vercel)
-5. [Step 4: Connect Backend & Frontend](#step-4-connect-backend--frontend)
-6. [Step 5: Database Seeding (Optional)](#step-5-database-seeding-optional)
-7. [Troubleshooting & Common Issues](#troubleshooting--common-issues)
+2. [Step 1: Deploy Backend to Vercel](#step-1-deploy-backend-to-vercel)
+3. [Step 2: Deploy Frontend to Vercel](#step-2-deploy-frontend-to-vercel)
+4. [Step 3: Connect Frontend to Backend](#step-3-connect-frontend-to-backend)
+5. [Architecture Overview](#architecture-overview)
+6. [Troubleshooting & Common Questions](#troubleshooting--common-questions)
 
 ---
 
 ## 1. Prerequisites
 - A [Vercel Account](https://vercel.com/signup)
-- A [GitHub Account](https://github.com/) with this repository pushed to your GitHub
-- A free [MongoDB Atlas Account](https://www.mongodb.com/cloud/atlas/register)
+- A [GitHub Account](https://github.com/) with this repository pushed to your account
 
 ---
 
-## Step 1: Set Up MongoDB Atlas (Cloud Database)
-> Since Vercel uses serverless functions without persistent local disk or daemons, your MongoDB database must be hosted in the cloud.
-
-1. Log in to [MongoDB Atlas](https://cloud.mongodb.com/).
-2. Create a free shared cluster (M0 Free Tier).
-3. **Database Access**: Create a Database User (e.g. `aquasol_admin`) with a secure password.
-4. **Network Access**: 
-   - Click **Network Access** > **Add IP Address**.
-   - Choose **Allow Access From Anywhere (`0.0.0.0/0`)** because Vercel serverless functions have dynamic outgoing IP addresses.
-5. **Get Connection String**:
-   - Go to **Database** > **Connect** > **Drivers** (Node.js).
-   - Copy the URI, replacing `<password>` with your database user password:
-     ```
-     mongodb+srv://aquasol_admin:<password>@cluster0.abcde.mongodb.net/aqua_sol_energy?retryWrites=true&w=majority
-     ```
-
----
-
-## Step 2: Deploy Backend to Vercel
+## Step 1: Deploy Backend to Vercel
 
 1. Log into your [Vercel Dashboard](https://vercel.com/dashboard).
 2. Click **Add New...** > **Project**.
-3. Select your Aqua-Sol repository.
+3. Select your **AquaSol** repository.
 4. Name the project (e.g. `aqua-sol-backend`).
-5. In **Root Directory**, click **Edit** and choose:
+5. In **Root Directory**, click **Edit** and select:
    ```
    backend
    ```
-6. **Framework Preset**: Leave as **Other** (Vercel will detect `backend/vercel.json` and `backend/api/index.js`).
-7. Expand **Environment Variables** and add the following:
+6. **Framework Preset**: Leave as **Other** (Vercel automatically detects `vercel.json` and `api/index.js`).
+7. Expand **Environment Variables** (Optional, you can set `NODE_ENV=production`):
 
-| Key | Example Value | Description |
+| Key | Value | Description |
 | :--- | :--- | :--- |
 | `NODE_ENV` | `production` | Production mode |
-| `MONGODB_URI` | `mongodb+srv://...` | Your MongoDB Atlas connection URI |
-| `JWT_SECRET` | `super_secure_random_key_2026_xYz98` | 32+ character secret string |
-| `CLIENT_URL` | `http://localhost:5173` | *(Will update with frontend URL in Step 4)* |
 
 8. Click **Deploy**.
 9. Once deployment finishes, Vercel gives you your backend URL, for example:
@@ -77,19 +56,20 @@ This guide explains how to deploy **Aqua-Sol Energy** on **Vercel** as two separ
       "status": "online",
       "service": "Aqua-Sol Energy Production API",
       "location": "Pune, Maharashtra",
-      "environment": "vercel-serverless"
+      "environment": "vercel-serverless",
+      "database": "not required (standalone mode)"
     }
     ```
 
 ---
 
-## Step 3: Deploy Frontend to Vercel
+## Step 2: Deploy Frontend to Vercel
 
 1. Return to the [Vercel Dashboard](https://vercel.com/dashboard).
 2. Click **Add New...** > **Project**.
-3. Select the **same** GitHub repository.
+3. Select the **same** GitHub repository (`AquaSol`).
 4. Name this project (e.g. `aqua-sol-frontend`).
-5. In **Root Directory**, click **Edit** and choose:
+5. In **Root Directory**, click **Edit** and select:
    ```
    frontend
    ```
@@ -100,65 +80,49 @@ This guide explains how to deploy **Aqua-Sol Energy** on **Vercel** as two separ
 
 | Key | Example Value | Description |
 | :--- | :--- | :--- |
-| `VITE_API_BASE_URL` | `https://aqua-sol-backend.vercel.app` | Your deployed backend URL from Step 2 |
+| `VITE_API_BASE_URL` | `https://aqua-sol-backend.vercel.app` | Your deployed backend URL from Step 1 |
 
 8. Click **Deploy**.
-9. Once deployment finishes, you get your frontend URL, for example:
+9. Once deployment finishes, Vercel gives you your frontend URL, for example:
    ```
    https://aqua-sol-frontend.vercel.app
    ```
 
 ---
 
-## Step 4: Connect Backend & Frontend
+## Step 3: Connect Frontend to Backend
 
 1. Copy your frontend Vercel domain (e.g. `https://aqua-sol-frontend.vercel.app`).
 2. Go to your **Backend Project** in Vercel:
-   - Go to **Settings** > **Environment Variables**.
-   - Edit `CLIENT_URL` and add your frontend URL:
+   - Navigate to **Settings** > **Environment Variables**.
+   - Set `CLIENT_URL` to your frontend URL:
      ```
-     https://aqua-sol-frontend.vercel.app,http://localhost:5173
+     CLIENT_URL=https://aqua-sol-frontend.vercel.app
      ```
-3. Trigger a redeploy of the backend project (or go to **Deployments** > click the three dots on the latest deployment > **Redeploy**).
+   *(Note: Any `*.vercel.app` domain is also automatically permitted by the built-in CORS configuration).*
 
 ---
 
-## Step 5: Database Seeding (Optional)
-
-To seed initial products, services, solutions, blogs, faqs, and the admin account (`admin@aquasol.com` / `AquaSol@2026!`) into your MongoDB Atlas database:
-
-Run from your local terminal:
-```bash
-cd "d:\Aqua Sol\backend"
-# Set your MongoDB Atlas URI in backend/.env:
-# MONGODB_URI=mongodb+srv://...
-
-npm run seed
-```
-
----
-
-## 🛠️ Architecture & Vercel Files Overview
+## 🛠️ Architecture Overview
 
 ### Frontend (`frontend/`)
-- `vercel.json`: Implements Single-Page Application (SPA) rewrites `/(.*) -> /index.html` so that direct page links (like `/services` or `/contact`) work on reload without 404 errors.
+- `vercel.json`: Implements Single-Page Application (SPA) rewrites `/(.*) -> /index.html` so that direct URLs (like `/services`, `/contact`, `/pm-surya-ghar`) work on page reload without 404 errors.
 - `src/services/api.js`: Pre-configured Axios service connecting to `VITE_API_BASE_URL`.
 - `.env.example`: Reference for frontend environment variables.
 
 ### Backend (`backend/`)
 - `vercel.json`: Rewrites all incoming requests `/(.*)` to the serverless function `/api/index.js`.
 - `api/index.js`: Standard serverless export for Vercel Lambdas.
-- `config/db.js`: Implements connection caching across warm serverless invocations to avoid exhausting MongoDB Atlas connection limits.
-- `controllers/uploadController.js`: Detects Vercel serverless environment and safely uses `/tmp/uploads` to prevent read-only filesystem errors (`EROFS`).
-- `server.js`: Enables `trust proxy` for rate limiters behind Vercel load balancers, dynamically allows `*.vercel.app` CORS origins, and conditionally suppresses local port listening on Vercel.
+- `config/db.js`: Optional database connection with instant fallback to zero-database standalone mode when no `MONGODB_URI` is provided.
+- `controllers/uploadController.js`: Safe `/tmp/uploads` pathing for read-only serverless filesystems.
+- `server.js`: Enables `trust proxy` for edge rate-limiting, dynamically allows `*.vercel.app` CORS origins, and conditionally suppresses local port listening on Vercel.
 
 ---
 
-## 🔍 Troubleshooting & Common Issues
+## 🔍 Troubleshooting & Common Questions
 
-| Issue | Cause | Solution |
-| :--- | :--- | :--- |
-| **404 on page refresh** | SPA route not rewritten | Verify `frontend/vercel.json` exists with rewrite to `/index.html`. |
-| **CORS error in browser console** | Backend doesn't recognize frontend domain | In backend project on Vercel, set `CLIENT_URL` to include your frontend URL and redeploy. Any `*.vercel.app` domain is also automatically permitted. |
-| **MongoDB connection timeout (5000ms)** | Atlas IP whitelist blocking Vercel | In MongoDB Atlas, go to **Network Access** and make sure `0.0.0.0/0` (Allow from anywhere) is active. |
-| **API request hangs or fails** | Missing `MONGODB_URI` in Vercel | Check backend Vercel logs under **Runtime Logs** and ensure `MONGODB_URI` environment variable is set. |
+| Question | Answer |
+| :--- | :--- |
+| **Do I need to pay for or host a database?** | **No.** Aqua-Sol runs in standalone zero-database mode. Leads and surveys are dispatched directly to WhatsApp. |
+| **Why does refreshing a page give 404 on Vercel?** | Ensure `frontend/vercel.json` exists with the rewrite to `/index.html`. We have configured this already. |
+| **How does WhatsApp lead dispatch work?** | Form submissions compile pre-formatted WhatsApp messages and open `https://wa.me/918275067701`, ensuring instant lead delivery without any database downtime. |

@@ -10,12 +10,17 @@ if (!cached) {
 }
 
 const connectDB = async () => {
+  // If no MONGODB_URI is provided, Aqua-Sol operates in zero-database standalone mode
+  if (!process.env.MONGODB_URI) {
+    return null;
+  }
+
   // If already connected, reuse existing connection
   if (cached.conn && mongoose.connection.readyState === 1) {
     return cached.conn;
   }
 
-  const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/aqua_sol_energy';
+  const mongoUri = process.env.MONGODB_URI;
 
   if (!cached.promise) {
     const opts = {

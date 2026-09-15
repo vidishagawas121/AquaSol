@@ -31,8 +31,12 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Connect to Database on startup
-connectDB();
+// Connect to Database on startup (only if MONGODB_URI is provided)
+if (process.env.MONGODB_URI) {
+  connectDB();
+} else {
+  console.log('[Aqua-Sol Backend] Running in zero-database standalone mode (no MongoDB required).');
+}
 
 // Enable Trust Proxy for Vercel/reverse-proxy edge servers & rate limiters
 app.set('trust proxy', 1);
@@ -90,9 +94,9 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Ensure database connection is ready for incoming requests in serverless functions
+// Ensure database connection is ready for incoming requests if MONGODB_URI is set
 app.use(async (req, res, next) => {
-  if (req.path === '/api/health') return next();
+  if (req.path === '/api/health' || !process.env.MONGODB_URI) return next();
   try {
     await connectDB();
   } catch (err) {
@@ -118,6 +122,7 @@ app.get('/api/health', (req, res) => {
     service: 'Aqua-Sol Energy Production API',
     location: 'Pune, Maharashtra',
     environment: process.env.VERCEL ? 'vercel-serverless' : (process.env.NODE_ENV || 'development'),
+    database: process.env.MONGODB_URI ? 'connected' : 'not required (standalone mode)',
   });
 });
 
