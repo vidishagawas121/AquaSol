@@ -31,8 +31,11 @@ const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Connect to Database
+// Connect to Database on startup
 connectDB();
+
+// Enable Trust Proxy for Vercel/reverse-proxy edge servers & rate limiters
+app.set('trust proxy', 1);
 
 // Security & Utility Middleware
 app.use(
@@ -41,14 +44,41 @@ app.use(
   })
 );
 
+// Flexible CORS setup for Vercel deployments & preview environments
+const configuredClients = process.env.CLIENT_URL
+  ? process.env.CLIENT_URL.split(',').map((url) => url.trim().replace(/\/+$/, ''))
+  : [];
+
+const allowedOrigins = [
+  'http://localhost:5173',
+  'http://127.0.0.1:5173',
+  'http://localhost:3000',
+  ...configuredClients,
+].filter(Boolean);
+
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173',
-      'http://127.0.0.1:5173',
-      'http://localhost:3000',
-      process.env.CLIENT_URL,
-    ].filter(Boolean),
+    origin: (origin, callback) => {
+      // Allow requests with no origin (e.g. mobile apps, curl, postman)
+      if (!origin) return callback(null, true);
+
+      // Allow configured origins
+      if (allowedOrigins.includes(origin)) {
+        return callback(null, true);
+      }
+
+      // Allow any Vercel deployment preview / production domain (*.vercel.app)
+      if (origin.endsWith('.vercel.app')) {
+        return callback(null, true);
+      }
+
+      // In local development mode, allow all origins
+      if (process.env.NODE_ENV === 'development') {
+        return callback(null, true);
+      }
+
+      callback(new Error(`Origin ${origin} not allowed by CORS`));
+    },
     credentials: true,
   })
 );
@@ -60,8 +90,22 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Serve uploaded files statically
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Ensure database connection is ready for incoming requests in serverless functions
+app.use(async (req, res, next) => {
+  if (req.path === '/api/health') return next();
+  try {
+    await connectDB();
+  } catch (err) {
+    console.error('[DB Middleware Error]:', err.message);
+  }
+  next();
+});
+
+// Serve uploaded files statically (from /tmp in serverless or local uploads/ in standard node)
+const staticUploadsDir = process.env.VERCEL
+  ? path.join(path.sep, 'tmp', 'uploads')
+  : path.join(__dirname, 'uploads');
+app.use('/uploads', express.static(staticUploadsDir));
 
 // Apply General Rate Limiter to API
 app.use('/api', apiLimiter);
@@ -73,6 +117,7 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
     service: 'Aqua-Sol Energy Production API',
     location: 'Pune, Maharashtra',
+    environment: process.env.VERCEL ? 'vercel-serverless' : (process.env.NODE_ENV || 'development'),
   });
 });
 
@@ -97,9 +142,13 @@ app.use(notFound);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
-const server = app.listen(PORT, () => {
-  console.log(`[Aqua-Sol Backend] Running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
-});
+
+// In Vercel serverless, Vercel invokes the exported handler; do not run app.listen()
+if (!process.env.VERCEL && process.env.NODE_ENV !== 'test') {
+  app.listen(PORT, () => {
+    console.log(`[Aqua-Sol Backend] Running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+  });
+}
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
