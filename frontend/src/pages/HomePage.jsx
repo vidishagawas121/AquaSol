@@ -183,7 +183,7 @@ const HomePage = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Union Bank Loan Facility</span>
+                  <span>Nationalised Bank Loan Facility</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -270,9 +270,9 @@ const HomePage = () => {
                 <Building className="w-6 h-6" />
               </div>
               <div>
-                <h4 className="font-bold text-slate-900 text-base">Bank Loan Tie-Up Support</h4>
+                <h4 className="font-bold text-slate-900 text-base">Bank Loan Support</h4>
                 <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                  Seamless collateral-free solar financing support through Union Bank of India and nationalised lenders.
+                  Seamless collateral-free solar financing support through nationalised banks and leading lenders.
                 </p>
               </div>
             </div>

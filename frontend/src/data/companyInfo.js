@@ -15,7 +15,7 @@ export const companyInfo = {
   msmeRegistration: 'Registered under Micro, Small & Medium Enterprises (MSME), Govt of India',
   isOfficialVendor: true,
   vendorStatus: 'Authorized PM Surya Ghar Muft Bijli Yojana Vendor Partner',
-  bankTieUp: 'Special low-interest collateral-free solar loans in tie-up with Union Bank of India & Nationalised Banks',
+  bankTieUp: 'Special low-interest collateral-free solar loans with Nationalised Banks',
   googleMapsUrl: 'https://maps.google.com/?q=Chandan+Nagar+Pune+411014',
 
   pmSuryaGhar: {
@@ -44,7 +44,7 @@ export const companyInfo = {
       },
     ],
     officialPortalUrl: 'https://pmsuryaghar.gov.in',
-    loanPartnerInfo: 'Special tie-up assistance with Union Bank of India for low-interest collateral-free solar loans.',
+    loanPartnerInfo: 'Special tie-up assistance with Nationalised Banks for low-interest collateral-free solar loans.',
   },
 
   calculatorConfig: {

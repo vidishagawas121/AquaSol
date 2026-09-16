@@ -23,7 +23,7 @@ export const blogs = [
 To receive the subsidy, the solar system must be installed by an authorized vendor using DCR (Domestic Content Requirement) certified modules and BIS-approved inverters. Aqua-Sol Energy assists you throughout the MSEDCL net metering and portal approval steps.
 
 ### Low-Interest Solar Loan Facility
-In addition to the central subsidy, our partner **Union Bank of India** and nationalised banks offer collateral-free solar loans with subsidized interest rates. For most homeowners, the monthly loan EMI is less than the electricity bill savings!`,
+In addition to the central subsidy, leading **nationalised banks** offer collateral-free solar loans with subsidized interest rates. For most homeowners, the monthly loan EMI is less than the electricity bill savings!`,
     tags: ['PM Surya Ghar', 'Solar Subsidy', 'Pune Solar', 'MSEDCL'],
   },
   {

@@ -163,7 +163,7 @@ const PMSuryaGharPage = () => {
               <CreditCard className="w-3.5 h-3.5" /> Collateral-Free Bank Financing
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold">
-              PM सूर्यघर योजने अंतर्गत सोलरसाठी युनियन बँक लोन सुविधा उपलब्ध
+              PM सूर्यघर योजने अंतर्गत सोलरसाठी नॅशनलाइज्ड बँक लोन सुविधा उपलब्ध
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
               Install rooftop solar with minimal upfront investment! Collateral-free solar loans with subsidized interest rates up to 3 kW capacity. The monthly EMI is easily compensated by the savings on your MSEDCL electricity bill.

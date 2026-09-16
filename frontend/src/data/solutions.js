@@ -16,7 +16,7 @@ export const solutions = [
     keyBenefits: [
       'Up to ₹78,000 direct subsidy into your bank account under PM Surya Ghar',
       'Save up to 90% on your monthly MSEDCL electricity bills',
-      'Union Bank low-interest collateral-free loan assistance',
+      'Nationalised Bank low-interest collateral-free loan assistance',
       '25-year lifespan with payback in under 3 to 4 years',
     ],
     features: [

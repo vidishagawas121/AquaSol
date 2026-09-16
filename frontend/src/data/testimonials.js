@@ -36,7 +36,7 @@ export const testimonials = [
     location: 'Baner, Pune',
     systemInstalled: '5 kW Rooftop Solar PV',
     rating: 5,
-    reviewText: 'Smooth liaisoning with MSEDCL for the net meter installation. The team took care of all portal paperwork and the bank loan with Union Bank of India went through without any collateral hassle.',
+    reviewText: 'Smooth liaisoning with MSEDCL for the net meter installation. The team took care of all portal paperwork and the bank loan with nationalised bank went through without any collateral hassle.',
     isFeatured: true,
   },
 ];

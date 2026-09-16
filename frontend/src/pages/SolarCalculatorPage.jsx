@@ -257,7 +257,7 @@ const SolarCalculatorPage = () => {
               </div>
 
               <div className="p-3 bg-amber-500/10 border border-amber-500/20 rounded-xl text-xs text-amber-200">
-                💡 <strong>Bank Loan Available:</strong> Low-interest EMI option through Union Bank of India. Monthly EMI is typically lower than your electricity bill savings!
+                💡 <strong>Bank Loan Available:</strong> Low-interest EMI option through Nationalised Banks. Monthly EMI is typically lower than your electricity bill savings!
               </div>
             </div>
 

@@ -14,7 +14,7 @@ export const faqs = [
   {
     id: 3,
     question: 'Are solar bank loans available for residential installations in Pune?',
-    answer: 'Yes! Under PM Surya Ghar Yojana, special low-interest collateral-free solar loans are facilitated through our banking partner Union Bank of India and leading nationalised banks with minimal paperwork and affordable EMIs.',
+    answer: 'Yes! Under PM Surya Ghar Yojana, special low-interest collateral-free solar loans are facilitated through leading nationalised banks with minimal paperwork and affordable EMIs.',
     category: 'PM Surya Ghar & Subsidies',
   },
   {

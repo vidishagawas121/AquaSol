@@ -157,7 +157,7 @@ export const services = [
       'Direct central subsidy up to ₹78,000 under PM Surya Ghar Yojana',
       'Hassle-free MSEDCL net metering and DISCOM liaisoning included',
       'Heavy-duty wind-resistant hot-dip galvanized mounting structures',
-      'Union Bank of India solar loan facilitation assistance',
+      'Nationalised Bank solar loan facilitation assistance',
     ],
     processSteps: [
       { stepNumber: 1, title: 'Engineering Site Survey', description: 'Measuring roof area, shadow analysis, and electrical load sanction verification.' },

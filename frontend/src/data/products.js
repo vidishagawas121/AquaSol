@@ -88,7 +88,7 @@ export const products = [
       'Tier-1 Mono PERC & TOPCon high-efficiency bifacial/monofacial panels',
       'Smart WiFi-enabled On-Grid Inverter with real-time phone monitoring',
       'End-to-end MSEDCL net metering and DISCOM liaisoning',
-      'Union Bank of India low-interest solar financing assistance',
+      'Nationalised Bank low-interest solar financing assistance',
     ],
     specifications: [
       { label: 'Module Efficiency', value: '> 21.5% High Efficiency' },
