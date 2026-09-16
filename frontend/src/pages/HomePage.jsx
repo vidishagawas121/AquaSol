@@ -19,17 +19,35 @@ import {
   Building,
   Home,
   Check,
+  Maximize2,
+  X,
+  ChevronLeft,
+  GraduationCap,
+  Shield,
+  Factory,
+  ShoppingBag,
+  Users,
 } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
-import { products, services as staticServices, faqs as staticFaqs } from '../data';
+import {
+  products,
+  services as staticServices,
+  maintenanceGallery as staticMaintenanceGallery,
+  projects as staticProjects,
+  esteemedClients,
+  brandLegacy,
+  faqs as staticFaqs,
+} from '../data';
 import SectionHeading from '../components/SectionHeading';
 import QuoteModal from '../components/QuoteModal';
 
 // Authentic brochure assets
 import familyHero from '../assets/pm_surya_ghar_family.png';
-import swhImg from '../assets/solar_water_heater.png';
-import streetLightImg from '../assets/solar_street_light.png';
-import heatPumpImg from '../assets/heat_pump.png';
+import solarCanopyImg from '../assets/rooftop_solar_canopy.jpg';
+import swhImg from '../assets/solar_water_heater_1.jpg';
+import streetLightImg from '../assets/solar_street_light_5.png';
+import heatPumpImg from '../assets/heat_pump_1.png';
+import maintenanceImg from '../assets/solar_maintenance_cleaning.jpg';
 import vendorBadge from '../assets/official_vendor_badge.png';
 import msmeLogo from '../assets/msme_logo.png';
 
@@ -37,9 +55,26 @@ const HomePage = () => {
   const { settings } = useSettings();
   const [featuredProducts] = useState(products);
   const [services] = useState(staticServices);
+  const [maintenanceGalleryList] = useState(staticMaintenanceGallery);
+  const [maintenanceLightboxIndex, setMaintenanceLightboxIndex] = useState(null);
   const [faqs] = useState(staticFaqs.slice(0, 5));
   const [quoteModalOpen, setQuoteModalOpen] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState('');
+
+  const getClientIcon = (iconType) => {
+    switch (iconType) {
+      case 'graduation-cap':
+        return <GraduationCap className="w-4 h-4 text-brand-amber-400" />;
+      case 'shield':
+        return <Shield className="w-4 h-4 text-emerald-400" />;
+      case 'factory':
+        return <Factory className="w-4 h-4 text-blue-400" />;
+      case 'shopping-bag':
+        return <ShoppingBag className="w-4 h-4 text-purple-400" />;
+      default:
+        return <Building className="w-4 h-4 text-brand-amber-400" />;
+    }
+  };
 
   // Quick Calculator State
   const [monthlyBill, setMonthlyBill] = useState(3000);
@@ -245,6 +280,62 @@ const HomePage = () => {
         </div>
       </section>
 
+      {/* 2.5. 15-YEAR LEGACY & ESTEEMED CLIENTELE SHOWCASE */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-gradient-to-br from-slate-900 via-brand-blue-950 to-slate-900 rounded-3xl p-6 sm:p-10 border border-slate-800 shadow-2xl text-white space-y-8 relative overflow-hidden">
+          <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-brand-amber-500/10 blur-3xl pointer-events-none" />
+          <div className="absolute -left-24 -bottom-24 w-96 h-96 rounded-full bg-brand-blue-500/10 blur-3xl pointer-events-none" />
+
+          {/* Heading */}
+          <div className="text-center max-w-3xl mx-auto space-y-3 relative z-10">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-amber-500/20 text-brand-amber-400 border border-brand-amber-500/30">
+              <Award className="w-3.5 h-3.5" /> 15 Years of Engineering Excellence
+            </span>
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
+              Trusted by Maharashtra's Leading Developers & Institutions
+            </h2>
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+              For over a decade and a half, Aqua-Sol Energy has delivered specialized, high-efficiency solar power and water heating installations across commercial, residential, and defense infrastructures.
+            </p>
+          </div>
+
+          {/* Esteemed Clients Logo/Badge Cloud */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 relative z-10">
+            {esteemedClients.map((client, idx) => (
+              <div
+                key={idx}
+                className="bg-slate-850/90 hover:bg-slate-800 bg-slate-800/80 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl border border-slate-700/80 hover:border-brand-amber-500/50 transition-all duration-300 group flex items-start gap-3"
+              >
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-slate-900 border border-slate-700 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                  {getClientIcon(client.iconType)}
+                </div>
+                <div className="min-w-0">
+                  <h4 className="text-xs sm:text-sm font-bold text-white truncate group-hover:text-brand-amber-400 transition-colors">
+                    {client.name}
+                  </h4>
+                  <span className="text-[10px] sm:text-[11px] font-semibold text-brand-amber-400/90 block truncate mt-0.5">
+                    {client.category}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Philosophy Banner */}
+          <div className="p-4 sm:p-5 rounded-2xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left relative z-10">
+            <p className="text-xs sm:text-sm text-slate-300">
+              <strong className="text-brand-amber-400 font-bold">Our Philosophy:</strong> We don't just install solar panels—we build long-term relationships anchored in trust and sustainable growth.
+            </p>
+            <Link
+              to="/projects"
+              className="px-5 py-2.5 bg-brand-amber-500 hover:bg-brand-amber-600 text-white font-bold text-xs rounded-xl shadow transition shrink-0 inline-flex items-center gap-1.5"
+            >
+              View Case Studies <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* 3. SOLUTIONS SECTION */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
@@ -259,9 +350,9 @@ const HomePage = () => {
             <div>
               <div className="h-48 sm:h-52 bg-slate-100 overflow-hidden relative">
                 <img
-                  src={familyHero}
-                  alt="PM Surya Ghar Rooftop Solar"
-                  className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                  src={solarCanopyImg}
+                  alt="Rooftop Solar PV Installation"
+                  className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
                 />
                 <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-sm">
                   PM Surya Ghar
@@ -601,14 +692,84 @@ const HomePage = () => {
       </section>
 
       {/* 6. SPECIALIZED MAINTENANCE & SERVICING (From Client Brochure) */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <SectionHeading
           badge="Specialized Pune Technical Desk"
           title="Solar Water Heater Servicing, Repairs & AMC"
           subtitle="Prompt doorstep servicing across Pune & PCMC to restore high temperatures, fix leaks, and extend tank life."
         />
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Real On-Site Maintenance Feature Showcase */}
+        <div className="bg-gradient-to-br from-slate-900 via-brand-blue-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white border border-slate-800 shadow-xl overflow-hidden relative">
+          <div className="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-brand-blue-500/10 blur-3xl pointer-events-none" />
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+            {/* Image Container with contain and ambient blur */}
+            <div className="lg:col-span-6 bg-slate-950/80 rounded-2xl overflow-hidden border border-slate-800 relative min-h-[260px] sm:min-h-[320px] max-h-[380px] flex items-center justify-center p-3 group">
+              <div
+                className="absolute inset-0 bg-cover bg-center blur-2xl opacity-25 scale-110 pointer-events-none"
+                style={{ backgroundImage: `url(${maintenanceImg})` }}
+              />
+              <img
+                src={maintenanceImg}
+                alt="Aqua-Sol Energy technician washing and descaling solar collector panels and water tank on Pune rooftop"
+                className="relative z-10 w-full h-full max-h-[340px] object-contain rounded-xl drop-shadow-2xl group-hover:scale-[1.02] transition-transform duration-300"
+              />
+              <div className="absolute bottom-3 left-3 z-20 bg-slate-900/90 backdrop-blur-md text-brand-amber-400 text-[11px] font-bold px-3 py-1 rounded-full border border-slate-700 flex items-center gap-1.5 shadow">
+                <Sparkles className="w-3.5 h-3.5 text-brand-amber-400" />
+                Live On-Site Maintenance & Descaling
+              </div>
+            </div>
+
+            {/* Content info */}
+            <div className="lg:col-span-6 space-y-4">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-amber-500/20 text-brand-amber-400 border border-brand-amber-500/30">
+                <Wrench className="w-3.5 h-3.5 text-brand-amber-400" /> Doorstep Pune & PCMC Team
+              </span>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Restoring Peak 80°C Heat & Leak-Free Performance
+              </h3>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Hard water deposits and dust dramatically diminish heat absorption and cause pipe scaling. Our factory-trained field technicians perform rigorous high-pressure washing, collector descaling, gasket renewal, and argon arc welding across Pune.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1 text-xs text-slate-300">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>30-40% immediate temperature increase</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Safe chemical-free descaling & flushing</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Argon arc welding & inner tank leak repair</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Comprehensive Annual Maintenance (AMC)</span>
+                </div>
+              </div>
+
+              <div className="pt-3 flex flex-wrap gap-3">
+                <button
+                  onClick={() => handleOpenQuote('Solar Servicing & Descaling')}
+                  className="px-6 py-3 bg-brand-amber-500 hover:bg-brand-amber-600 text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-brand-amber-500/20 transition active:scale-[0.99]"
+                >
+                  Book Doorstep Servicing
+                </button>
+                <Link
+                  to="/services"
+                  className="px-5 py-3 bg-white/10 hover:bg-white/15 text-white font-bold text-xs sm:text-sm rounded-xl border border-white/20 transition flex items-center gap-1.5"
+                >
+                  Explore All 5 Services <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
           {/* Service 1 */}
           <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-md hover:shadow-xl transition flex flex-col justify-between">
             <div className="space-y-3">
@@ -669,7 +830,27 @@ const HomePage = () => {
             </Link>
           </div>
 
-          {/* Service 4 */}
+          {/* Service 4: Solar Panel Brush Cleaning */}
+          <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-md hover:shadow-xl transition flex flex-col justify-between">
+            <div className="space-y-3">
+              <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
+                <Sparkles className="w-5 h-5" />
+              </div>
+              <h4 className="font-bold text-slate-900 text-base">सोलर पॅनल ब्रश क्लिनिंग</h4>
+              <p className="text-xs font-semibold text-brand-blue-700">Panel Brush Cleaning</p>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Scratch-free telescopic rotary brush washing to eliminate dust layers and boost power generation by up to 25-30%.
+              </p>
+            </div>
+            <Link
+              to="/services/solar-panel-brush-cleaning"
+              className="mt-4 text-xs font-bold text-brand-blue-700 hover:text-brand-blue-800 inline-flex items-center gap-1"
+            >
+              Brush Cleaning <ChevronRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          {/* Service 5: AMC */}
           <div className="bg-white rounded-2xl p-6 border border-slate-100 shadow-md hover:shadow-xl transition flex flex-col justify-between">
             <div className="space-y-3">
               <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
@@ -689,6 +870,137 @@ const HomePage = () => {
             </Link>
           </div>
         </div>
+
+        {/* Section 6 - Live On-Site Maintenance Gallery Grid */}
+        <div className="bg-slate-900 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white border border-slate-800 space-y-5 sm:space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 sm:gap-4">
+            <div>
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-bold uppercase tracking-wider bg-brand-amber-500/20 text-brand-amber-400 border border-brand-amber-500/30">
+                <Sparkles className="w-3.5 h-3.5" /> Field Servicing Gallery
+              </span>
+              <h3 className="text-lg sm:text-2xl font-extrabold text-white mt-1.5 sm:mt-2">
+                Real Field Maintenance & On-Site Projects
+              </h3>
+              <p className="text-[11px] sm:text-xs text-slate-400 mt-1">
+                Authentic photographs of our crew repairing, descaling, washing, and commissioning solar systems across Pune.
+              </p>
+            </div>
+            <Link
+              to="/services"
+              className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-brand-amber-400 hover:text-brand-amber-300 bg-slate-800 hover:bg-slate-750 px-4 py-2.5 rounded-xl border border-slate-700 transition shrink-0 w-full sm:w-auto text-center"
+            >
+              View Full Gallery & Services <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-4">
+            {maintenanceGalleryList.map((item, index) => (
+              <div
+                key={item.id}
+                onClick={() => setMaintenanceLightboxIndex(index)}
+                className="bg-slate-950 rounded-2xl overflow-hidden border border-slate-800 hover:border-brand-amber-500/50 shadow-md group cursor-pointer transition-all duration-300 flex flex-col justify-between"
+              >
+                <div className="h-36 bg-slate-950 relative flex items-center justify-center p-2 overflow-hidden">
+                  <div
+                    className="absolute inset-0 bg-cover bg-center blur-lg opacity-20 scale-110 pointer-events-none group-hover:opacity-35 transition-opacity"
+                    style={{ backgroundImage: `url(${item.image})` }}
+                  />
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="relative z-10 max-h-full max-w-full object-contain rounded-lg drop-shadow group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <div className="absolute top-2 right-2 z-20 w-6 h-6 rounded-full bg-slate-900/80 backdrop-blur-md border border-slate-700 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                    <Maximize2 className="w-3 h-3" />
+                  </div>
+                </div>
+                <div className="p-2.5 bg-slate-900/90 border-t border-slate-800 text-left">
+                  <span className="text-[9px] font-bold text-brand-amber-400 uppercase tracking-wider block truncate">
+                    {item.category}
+                  </span>
+                  <p className="text-[11px] font-bold text-slate-200 line-clamp-1 mt-0.5 group-hover:text-white">
+                    {item.title}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Maintenance Lightbox Modal for Homepage */}
+        {maintenanceLightboxIndex !== null && maintenanceGalleryList[maintenanceLightboxIndex] && (
+          <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-2 xs:p-3 sm:p-6 animate-fadeIn">
+            <button
+              onClick={() => setMaintenanceLightboxIndex(null)}
+              className="absolute top-3 right-3 sm:top-4 sm:right-4 z-50 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition border border-white/20 active:scale-95"
+              aria-label="Close"
+            >
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
+            </button>
+
+            <button
+              onClick={() =>
+                setMaintenanceLightboxIndex((prev) =>
+                  prev === 0 ? maintenanceGalleryList.length - 1 : prev - 1
+                )
+              }
+              className="absolute left-2 sm:left-4 z-50 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20 active:scale-95"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+
+            <button
+              onClick={() =>
+                setMaintenanceLightboxIndex((prev) =>
+                  prev === maintenanceGalleryList.length - 1 ? 0 : prev + 1
+                )
+              }
+              className="absolute right-2 sm:right-4 z-50 w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition border border-white/20 active:scale-95"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+
+            <div className="max-w-4xl w-full bg-slate-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 shadow-2xl flex flex-col max-h-[92vh]">
+              <div className="h-[42vh] xs:h-[48vh] sm:h-[60vh] bg-slate-950 relative flex items-center justify-center p-2 sm:p-4 shrink-0">
+                <div
+                  className="absolute inset-0 bg-cover bg-center blur-2xl opacity-20 scale-110 pointer-events-none"
+                  style={{
+                    backgroundImage: `url(${maintenanceGalleryList[maintenanceLightboxIndex].image})`,
+                  }}
+                />
+                <img
+                  src={maintenanceGalleryList[maintenanceLightboxIndex].image}
+                  alt={maintenanceGalleryList[maintenanceLightboxIndex].title}
+                  className="relative z-10 max-h-full max-w-full object-contain drop-shadow-2xl rounded-lg sm:rounded-xl"
+                />
+              </div>
+
+              <div className="p-3.5 sm:p-6 bg-slate-900 border-t border-slate-800 space-y-1.5 sm:space-y-2 overflow-y-auto">
+                <div className="flex items-center justify-between flex-wrap gap-2">
+                  <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full text-[10px] sm:text-xs font-bold bg-brand-amber-500/20 text-brand-amber-400 border border-brand-amber-500/30">
+                    {maintenanceGalleryList[maintenanceLightboxIndex].category}
+                  </span>
+                  <span className="text-[10px] sm:text-xs text-slate-400 font-mono">
+                    {maintenanceLightboxIndex + 1} of {maintenanceGalleryList.length}
+                  </span>
+                </div>
+                <h3 className="text-sm sm:text-lg font-bold text-white leading-snug">
+                  {maintenanceGalleryList[maintenanceLightboxIndex].title}
+                </h3>
+                {maintenanceGalleryList[maintenanceLightboxIndex].marathiTitle && (
+                  <p className="text-xs font-semibold text-brand-amber-400">
+                    {maintenanceGalleryList[maintenanceLightboxIndex].marathiTitle}
+                  </p>
+                )}
+                <p className="text-[11px] sm:text-xs text-slate-300 leading-relaxed">
+                  {maintenanceGalleryList[maintenanceLightboxIndex].description}
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* 7. HOW IT WORKS / PROCESS */}
@@ -728,8 +1040,8 @@ const HomePage = () => {
           />
 
           <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div key={faq._id} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
+            {faqs.map((faq, index) => (
+              <div key={faq.id || index} className="bg-white p-5 rounded-2xl border border-slate-100 shadow-sm">
                 <h4 className="text-sm font-bold text-slate-900 flex items-start gap-2">
                   <span className="text-brand-amber-500 font-extrabold">Q.</span>
                   <span>{faq.question}</span>

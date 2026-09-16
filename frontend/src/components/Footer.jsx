@@ -167,6 +167,12 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/services/solar-panel-brush-cleaning" className="hover:text-white transition flex items-center gap-1.5">
+                  <ArrowRight className="w-3 h-3 text-brand-green-500 shrink-0" />
+                  Panel Brush Cleaning
+                </Link>
+              </li>
+              <li>
                 <Link to="/services/solar-water-heater-amc" className="hover:text-white transition flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-brand-green-500 shrink-0" />
                   Annual Maintenance (AMC)
@@ -191,11 +197,16 @@ const Footer = () => {
                 <MapPin className="w-3.5 h-3.5 text-brand-amber-500 shrink-0 mt-0.5" />
                 <span className="leading-relaxed">{settings.officeAddress}</span>
               </li>
-              <li className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-brand-blue-400 shrink-0" />
-                <a href={`tel:${settings.primaryPhone}`} className="hover:text-white font-semibold text-slate-200 transition">
-                  {settings.primaryPhone}
-                </a>
+              <li className="flex items-start gap-2">
+                <Phone className="w-3.5 h-3.5 text-brand-blue-400 shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-0.5">
+                  <a href={`tel:${settings.primaryPhone}`} className="hover:text-white font-semibold text-slate-200 transition">
+                    {settings.primaryPhone}
+                  </a>
+                  <a href={`tel:${settings.secondaryPhone || '+91 7391037702'}`} className="hover:text-white font-semibold text-slate-200 transition">
+                    {settings.secondaryPhone || '+91 7391037702'} <span className="text-slate-400 text-[11px] font-normal">(Samarth)</span>
+                  </a>
+                </div>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-emerald-400 shrink-0" />

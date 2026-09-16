@@ -22,6 +22,18 @@ const websiteSettingsSchema = new mongoose.Schema(
       type: String,
       default: '8275067701',
     },
+    secondaryPhone: {
+      type: String,
+      default: '+91 7391037702',
+    },
+    secondaryDisplayPhone: {
+      type: String,
+      default: '7391037702',
+    },
+    secondaryContactName: {
+      type: String,
+      default: 'Samarth',
+    },
     whatsappNumber: {
       type: String,
       default: '+918275067701',

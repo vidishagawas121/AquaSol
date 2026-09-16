@@ -100,11 +100,21 @@ const ContactPage = () => {
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
-                    <h5 className="font-bold text-slate-900 text-sm">Phone Number</h5>
-                    <a href={`tel:${settings.primaryPhone}`} className="text-brand-blue-700 font-bold hover:underline">
-                      {settings.primaryPhone}
-                    </a>
-                    <p className="text-slate-400 text-[11px] mt-0.5">Direct line to technical engineer</p>
+                    <h5 className="font-bold text-slate-900 text-sm">Phone Numbers</h5>
+                    <div className="space-y-1.5 mt-1">
+                      <div className="flex flex-col">
+                        <a href={`tel:${settings.primaryPhone}`} className="text-brand-blue-700 font-bold hover:underline">
+                          {settings.primaryPhone}
+                        </a>
+                        <span className="text-slate-400 text-[11px]">Direct Line / Technical Desk</span>
+                      </div>
+                      <div className="flex flex-col border-t border-slate-100 pt-1.5">
+                        <a href={`tel:${settings.secondaryPhone || '+91 7391037702'}`} className="text-brand-blue-700 font-bold hover:underline">
+                          {settings.secondaryPhone || '+91 7391037702'}
+                        </a>
+                        <span className="text-slate-500 text-[11px] font-medium">Samarth</span>
+                      </div>
+                    </div>
                   </div>
                 </div>
 

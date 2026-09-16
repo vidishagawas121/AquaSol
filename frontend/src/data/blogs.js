@@ -1,5 +1,5 @@
 import pmSuryaImg from '../assets/pm_surya_ghar_family.png';
-import waterHeaterImg from '../assets/solar_water_heater.png';
+import waterHeaterImg from '../assets/solar_water_heater_1.jpg';
 
 export const blogs = [
   {

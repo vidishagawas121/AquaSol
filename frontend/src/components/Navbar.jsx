@@ -56,13 +56,23 @@ const Navbar = () => {
           <div className="w-full flex items-center justify-between gap-2">
             {/* Left: Contact Info */}
             <div className="flex items-center gap-3 sm:gap-4 text-slate-300 min-w-0">
-              <a
-                href={`tel:${settings.primaryPhone}`}
-                className="flex items-center gap-1.5 hover:text-brand-amber-400 transition text-[11px] sm:text-xs shrink-0"
-              >
-                <Phone className="w-3.5 h-3.5 text-brand-amber-400 shrink-0" />
-                <span className="font-semibold text-white">{settings.primaryPhone}</span>
-              </a>
+              <div className="flex items-center gap-2 shrink-0">
+                <a
+                  href={`tel:${settings.primaryPhone}`}
+                  className="flex items-center gap-1.5 hover:text-brand-amber-400 transition text-[11px] sm:text-xs shrink-0"
+                >
+                  <Phone className="w-3.5 h-3.5 text-brand-amber-400 shrink-0" />
+                  <span className="font-semibold text-white">{settings.primaryPhone}</span>
+                </a>
+                <span className="text-slate-600">/</span>
+                <a
+                  href={`tel:${settings.secondaryPhone || '+91 7391037702'}`}
+                  className="flex items-center gap-1 hover:text-brand-amber-400 transition text-[11px] sm:text-xs shrink-0"
+                >
+                  <span className="font-semibold text-white">{settings.secondaryPhone || '+91 7391037702'}</span>
+                  <span className="text-slate-400 text-[10px] hidden xs:inline">(Samarth)</span>
+                </a>
+              </div>
               <span className="hidden sm:inline text-slate-600">|</span>
               <a
                 href={`mailto:${settings.primaryEmail}`}
@@ -277,35 +287,51 @@ const Navbar = () => {
                 </Link>
 
                 {servicesOpen && (
-                  <div className="absolute left-0 mt-1 w-72 bg-white rounded-xl shadow-xl border border-slate-100 p-2 z-50 animate-fadeIn">
+                  <div className="absolute left-0 mt-1 w-80 bg-white rounded-xl shadow-xl border border-slate-100 p-2 z-50 animate-fadeIn space-y-1">
                     <Link
-                      to="/services/solar-water-heater-servicing"
-                      className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-brand-blue-50 rounded-lg"
+                      to="/services"
+                      className="flex items-center gap-2.5 p-2.5 text-xs font-bold text-brand-blue-800 bg-brand-blue-50/80 hover:bg-brand-blue-100/80 rounded-lg transition border border-brand-blue-100/60"
                     >
-                      <Wrench className="w-4 h-4 text-brand-amber-500" />
-                      <span>Solar Water Heater Servicing</span>
+                      <Sparkles className="w-4 h-4 text-brand-amber-500 shrink-0" />
+                      <span>Solar Servicing, Repairs & Maintenance</span>
                     </Link>
-                    <Link
-                      to="/services/solar-tank-repairing"
-                      className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-brand-blue-50 rounded-lg"
-                    >
-                      <Wrench className="w-4 h-4 text-blue-600" />
-                      <span>Solar Tank Repairing (Argon Welding)</span>
-                    </Link>
-                    <Link
-                      to="/services/tank-solar-leakage-removal"
-                      className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-brand-blue-50 rounded-lg"
-                    >
-                      <ShieldAlert className="w-4 h-4 text-red-500" />
-                      <span>Leakage Removal Work</span>
-                    </Link>
-                    <Link
-                      to="/services/solar-water-heater-amc"
-                      className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-brand-blue-50 rounded-lg"
-                    >
-                      <Award className="w-4 h-4 text-emerald-600" />
-                      <span>Annual Maintenance Contract (AMC)</span>
-                    </Link>
+                    <div className="border-t border-slate-100 my-1 pt-1 space-y-0.5">
+                      <Link
+                        to="/services/solar-water-heater-servicing"
+                        className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-slate-50 rounded-lg transition"
+                      >
+                        <Wrench className="w-4 h-4 text-brand-amber-500 shrink-0" />
+                        <span>Solar Water Heater Servicing</span>
+                      </Link>
+                      <Link
+                        to="/services/solar-tank-repairing"
+                        className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-slate-50 rounded-lg transition"
+                      >
+                        <Wrench className="w-4 h-4 text-blue-600 shrink-0" />
+                        <span>Solar Tank Repairing (Argon Welding)</span>
+                      </Link>
+                      <Link
+                        to="/services/tank-solar-leakage-removal"
+                        className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-slate-50 rounded-lg transition"
+                      >
+                        <ShieldAlert className="w-4 h-4 text-red-500 shrink-0" />
+                        <span>Leakage Removal Work</span>
+                      </Link>
+                      <Link
+                        to="/services/solar-panel-brush-cleaning"
+                        className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-slate-50 rounded-lg transition"
+                      >
+                        <Sparkles className="w-4 h-4 text-amber-500 shrink-0" />
+                        <span>Solar Panel Brush Cleaning</span>
+                      </Link>
+                      <Link
+                        to="/services/solar-water-heater-amc"
+                        className="flex items-center gap-2 p-2 text-xs font-semibold text-slate-700 hover:text-brand-blue-600 hover:bg-slate-50 rounded-lg transition"
+                      >
+                        <Award className="w-4 h-4 text-emerald-600 shrink-0" />
+                        <span>Annual Maintenance Contract (AMC)</span>
+                      </Link>
+                    </div>
                   </div>
                 )}
               </div>
@@ -402,7 +428,7 @@ const Navbar = () => {
                 Products Catalog
               </Link>
               <Link to="/services" onClick={() => setMobileMenuOpen(false)} className="p-2.5 rounded-xl hover:bg-slate-50">
-                Services (Repairs, Servicing & AMC)
+                Solar Servicing, Repairs & Maintenance
               </Link>
               <Link
                 to="/pm-surya-ghar"

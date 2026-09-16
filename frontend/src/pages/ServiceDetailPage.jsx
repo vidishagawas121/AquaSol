@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { CheckCircle2, MessageCircle, ShieldCheck } from 'lucide-react';
+import {
+  CheckCircle2,
+  MessageCircle,
+  ShieldCheck,
+  Sparkles,
+} from 'lucide-react';
 import { services } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
@@ -13,7 +18,9 @@ const ServiceDetailPage = () => {
   const service = services.find((s) => s.slug === slug) || services[0];
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20want%20to%20book%20${encodeURIComponent(service.title)}%20in%20Pune.`;
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20want%20to%20book%20${encodeURIComponent(
+    service.title
+  )}%20in%20Pune.`;
 
   return (
     <div className="space-y-16 pb-16">
@@ -43,8 +50,26 @@ const ServiceDetailPage = () => {
       {/* Main Content */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left: Description & Step-by-Step Execution */}
+          {/* Left: Showcase, Description & Step-by-Step Execution */}
           <div className="lg:col-span-8 space-y-8">
+            {service.image && (
+              <div className="bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-xl relative min-h-[280px] sm:min-h-[380px] max-h-[480px] flex items-center justify-center p-3 sm:p-5 group">
+                <div
+                  className="absolute inset-0 bg-cover bg-center blur-2xl opacity-20 scale-110 pointer-events-none"
+                  style={{ backgroundImage: `url(${service.image})` }}
+                />
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="relative z-10 w-full h-full max-h-[440px] object-contain rounded-2xl drop-shadow-2xl"
+                />
+                <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md text-brand-amber-400 text-[11px] font-bold px-3 py-1 rounded-full shadow border border-slate-700 flex items-center gap-1.5">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-amber-400" />
+                  {service.category}
+                </div>
+              </div>
+            )}
+
             <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-md space-y-4">
               <h3 className="text-xl font-bold text-slate-900">Service Overview</h3>
               <p className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">

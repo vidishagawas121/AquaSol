@@ -63,17 +63,23 @@ const ProductsPage = () => {
             >
               <div>
                 {/* Image Container */}
-                <div className="h-52 sm:h-56 bg-slate-100 relative overflow-hidden flex items-center justify-center">
+                <div className="h-60 sm:h-64 bg-slate-950 relative overflow-hidden flex items-center justify-center p-3 group">
                   {item.image ? (
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
+                    <>
+                      <div
+                        className="absolute inset-0 bg-cover bg-center blur-xl opacity-20 scale-110"
+                        style={{ backgroundImage: `url(${item.image})` }}
+                      />
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="relative z-10 max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300 drop-shadow-md rounded-lg"
+                      />
+                    </>
                   ) : (
                     <div className="text-slate-400 text-xs font-semibold">Aqua-Sol Product Image</div>
                   )}
-                  <span className="absolute top-3 right-3 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/80 text-white backdrop-blur-sm">
+                  <span className="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/90 text-white backdrop-blur-sm border border-slate-700">
                     {item.category}
                   </span>
                 </div>

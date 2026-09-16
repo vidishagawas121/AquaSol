@@ -13,6 +13,16 @@ const ProductDetailPage = () => {
   const product = products.find((p) => p.slug === slug) || products[0];
   const related = products.filter((p) => p.slug !== product.slug).slice(0, 3);
 
+  const [activeImage, setActiveImage] = useState(product.image);
+
+  React.useEffect(() => {
+    setActiveImage(product.image);
+  }, [product.slug, product.image]);
+
+  const galleryImages = product.gallery && product.gallery.length > 0
+    ? product.gallery
+    : [product.image].filter(Boolean);
+
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
   const whatsappMsg = `Hello Aqua-Sol Energy, I am interested in ${product.title}. Please share specifications, pricing, and installation timeline in Pune.`;
   const whatsappUrl = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(whatsappMsg)}`;
@@ -42,19 +52,60 @@ const ProductDetailPage = () => {
       {/* Main Details Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left: Product Image */}
+          {/* Left: Product Image & Gallery */}
           <div className="lg:col-span-6 space-y-4">
-            <div className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md flex items-center justify-center">
-              {product.image ? (
-                <img
-                  src={product.image}
-                  alt={product.title}
-                  className="w-full h-64 sm:h-80 md:h-96 object-cover"
-                />
+            <div className="bg-slate-950 rounded-3xl overflow-hidden border border-slate-800 shadow-xl relative group flex items-center justify-center min-h-[380px] sm:min-h-[460px] md:min-h-[520px] max-h-[620px] p-3 sm:p-5">
+              {activeImage ? (
+                <>
+                  {/* Subtle ambient blurred background */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center blur-2xl opacity-20 scale-110 pointer-events-none"
+                    style={{ backgroundImage: `url(${activeImage})` }}
+                  />
+                  {/* Uncropped dynamic content image */}
+                  <img
+                    src={activeImage}
+                    alt={product.title}
+                    className="relative z-10 w-full h-full max-h-[500px] object-contain rounded-2xl transition-all duration-300 drop-shadow-2xl"
+                  />
+                </>
               ) : (
-                <div className="text-slate-400 text-sm font-semibold p-12">Aqua-Sol Product Image</div>
+                <div className="text-slate-400 text-sm font-semibold p-12 text-center">Aqua-Sol Product Image</div>
               )}
+
+              <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full shadow border border-slate-700">
+                {product.category}
+              </div>
             </div>
+
+            {/* Gallery Thumbnails */}
+            {galleryImages.length > 1 && (
+              <div className="space-y-2">
+                <p className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
+                  Installation & Hardware Photos ({galleryImages.length})
+                </p>
+                <div className="grid grid-cols-3 sm:grid-cols-6 gap-2.5">
+                  {galleryImages.map((img, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveImage(img)}
+                      className={`relative rounded-xl overflow-hidden aspect-square border-2 transition-all duration-200 cursor-pointer bg-slate-950 flex items-center justify-center p-1 ${
+                        activeImage === img
+                          ? 'border-brand-amber-500 ring-2 ring-brand-amber-500/40 scale-105 shadow-md z-10'
+                          : 'border-slate-200 hover:border-slate-400 opacity-70 hover:opacity-100'
+                      }`}
+                    >
+                      <img
+                        src={img}
+                        alt={`${product.title} photo ${idx + 1}`}
+                        className="w-full h-full object-contain"
+                      />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Warranty Protection */}
             <div className="p-4 bg-emerald-50 rounded-2xl border border-emerald-100 flex items-center gap-3">

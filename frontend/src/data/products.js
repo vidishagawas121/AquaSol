@@ -1,7 +1,28 @@
-import waterHeaterImg from '../assets/solar_water_heater.png';
-import rooftopSolarImg from '../assets/pm_surya_ghar_family.png';
-import heatPumpImg from '../assets/heat_pump.png';
-import streetLightImg from '../assets/solar_street_light.png';
+import waterHeaterImg from '../assets/solar_water_heater_1.jpg';
+import waterHeaterImg2 from '../assets/solar_water_heater_2.jpg';
+import waterHeaterImg3 from '../assets/solar_water_heater_3.jpg';
+import waterHeaterImg4 from '../assets/solar_water_heater_4.png';
+import rooftopSolarImg from '../assets/rooftop_solar_1.jpg';
+import rooftopSolarImg2 from '../assets/rooftop_solar_2.jpg';
+import rooftopSolarImg3 from '../assets/rooftop_solar_3.jpg';
+import rooftopSolarImg4 from '../assets/rooftop_solar_4.jpg';
+import rooftopSolarImg5 from '../assets/rooftop_solar_5.jpg';
+import rooftopSolarImg6 from '../assets/rooftop_solar_6.jpg';
+import rooftopSolarImg7 from '../assets/rooftop_solar_7.jpg';
+import rooftopSolarImg8 from '../assets/rooftop_solar_8.jpg';
+import rooftopSolarImg9 from '../assets/rooftop_solar_9.jpg';
+import rooftopSolarImg10 from '../assets/rooftop_solar_10.png';
+import heatPumpImg from '../assets/heat_pump_1.png';
+import heatPumpImg2 from '../assets/heat_pump_2.jpg';
+import heatPumpImg3 from '../assets/heat_pump_3.jpg';
+import heatPumpImg4 from '../assets/heat_pump_4.jpg';
+import heatPumpImg5 from '../assets/heat_pump_5.jpg';
+import streetLightImg from '../assets/solar_street_light_1.png';
+import streetLightImg2 from '../assets/solar_street_light_2.png';
+import streetLightImg3 from '../assets/solar_street_light_3.jpg';
+import streetLightImg4 from '../assets/solar_street_light_4.jpg';
+import streetLightImg5 from '../assets/solar_street_light_5.png';
+import streetLightImg6 from '../assets/solar_street_light_6.png';
 
 export const products = [
   {
@@ -10,6 +31,12 @@ export const products = [
     title: 'Aqua-Sol Solar Water Heater (ETC / FPC)',
     category: 'Solar Water Heater',
     image: waterHeaterImg,
+    gallery: [
+      waterHeaterImg,
+      waterHeaterImg2,
+      waterHeaterImg3,
+      waterHeaterImg4,
+    ],
     shortDescription: 'Heavy-duty insulated stainless steel solar water heating systems for residential bungalows, apartments, and commercial institutions.',
     fullDescription: 'Aqua-Sol Solar Water Heaters deliver high thermal efficiency through advanced evacuated tube collectors (ETC) and flat plate collectors (FPC). Built with high-grade rust-proof inner tanks and high-density PUF insulation to maintain hot water even during chilly monsoon and winter days. Complete with corrosion-resistant powder-coated stand framing.',
     features: [
@@ -42,6 +69,18 @@ export const products = [
     title: 'On-Grid Rooftop Solar PV System (PM Surya Ghar Approved)',
     category: 'Solar PV',
     image: rooftopSolarImg,
+    gallery: [
+      rooftopSolarImg,
+      rooftopSolarImg2,
+      rooftopSolarImg3,
+      rooftopSolarImg4,
+      rooftopSolarImg5,
+      rooftopSolarImg6,
+      rooftopSolarImg7,
+      rooftopSolarImg8,
+      rooftopSolarImg9,
+      rooftopSolarImg10,
+    ],
     shortDescription: 'High-efficiency Tier-1 Mono PERC / TOPCon rooftop solar power generation systems eligible for up to ₹78,000 subsidy under PM Surya Ghar Yojana.',
     fullDescription: 'Generate your own clean electricity directly on your rooftop and slash your monthly electricity bills by up to 90%+. Aqua-Sol Energy is an approved solar vendor providing turnkey execution including DISCOM net-metering approvals, structural engineering, Tier-1 solar modules, and cloud-connected inverters.',
     features: [
@@ -73,6 +112,13 @@ export const products = [
     title: 'Commercial & Residential Heat Pump Water Heating System',
     category: 'Heat Pump',
     image: heatPumpImg,
+    gallery: [
+      heatPumpImg,
+      heatPumpImg2,
+      heatPumpImg3,
+      heatPumpImg4,
+      heatPumpImg5,
+    ],
     shortDescription: 'Energy-saving thermodynamic heat pump systems that save up to 75% power compared to conventional electric geysers, delivering 24x7 hot water.',
     fullDescription: 'Aqua-Sol Energy Heat Pumps extract latent heat from ambient air to heat water with remarkable efficiency. Ideal for high-demand residential bungalows, apartments, hotels, resorts, hostels, and healthcare centres requiring constant hot water in all seasons without depending purely on direct sunlight.',
     features: [
@@ -101,7 +147,15 @@ export const products = [
     slug: 'solar-street-light',
     title: 'All-In-One Integrated Solar LED Street Light',
     category: 'Solar Street Light',
-    image: streetLightImg,
+    image: streetLightImg5,
+    gallery: [
+      streetLightImg5,
+      streetLightImg,
+      streetLightImg2,
+      streetLightImg6,
+      streetLightImg3,
+      streetLightImg4,
+    ],
     shortDescription: 'Autonomous dusk-to-dawn solar street lighting with integrated monocrystalline solar panel, long-life LiFePO4 battery, and smart motion sensor.',
     fullDescription: 'Designed for residential layouts, gated communities, farms, industrial premises, village gram panchayats, and factory perimeters. Complete with zero wiring, automatic dusk-to-dawn switching, radar motion dimming, and weather-proof IP65/IP66 enclosure.',
     features: [

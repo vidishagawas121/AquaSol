@@ -1,7 +1,7 @@
 import rooftopImg from '../assets/pm_surya_ghar_family.png';
-import waterHeaterImg from '../assets/solar_water_heater.png';
-import heatPumpImg from '../assets/heat_pump.png';
-import streetLightImg from '../assets/solar_street_light.png';
+import waterHeaterImg from '../assets/solar_water_heater_3.jpg';
+import heatPumpImg from '../assets/heat_pump_1.png';
+import streetLightImg from '../assets/solar_street_light_1.png';
 
 export const solutions = [
   {
