@@ -1,4 +1,15 @@
 import mongoose from 'mongoose';
+import dns from 'dns';
+
+// Ensure DNS servers resolve MongoDB Atlas SRV records
+try {
+  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1', '1.0.0.1']);
+  if (typeof dns.setDefaultResultOrder === 'function') {
+    dns.setDefaultResultOrder('ipv4first');
+  }
+} catch (dnsErr) {
+  // Silent fallback if environment disallows DNS mutation
+}
 
 /**
  * Global cache across serverless function invocations
