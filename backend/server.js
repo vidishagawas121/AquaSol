@@ -11,7 +11,7 @@ import dns from 'dns';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Load environment variables with multi-path resolution
+// Load environment variables with multi-path resolution, override: true, and loose syntax parsing
 const envPathCandidates = [
   path.resolve(__dirname, '.env'),
   path.resolve(process.cwd(), '.env'),
@@ -20,11 +20,34 @@ const envPathCandidates = [
 
 for (const envPath of envPathCandidates) {
   if (fs.existsSync(envPath)) {
-    dotenv.config({ path: envPath });
+    dotenv.config({ path: envPath, override: true });
+    
+    // Robust manual parser to support loose syntax like `port =5111` or `PORT = 5111`
+    try {
+      const rawContent = fs.readFileSync(envPath, 'utf8');
+      const lines = rawContent.split(/\r?\n/);
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const match = trimmed.match(/^([a-zA-Z0-9_]+)\s*=\s*(.*)$/);
+        if (match) {
+          const key = match[1].trim();
+          let value = match[2].trim();
+          value = value.replace(/^["'](.*)["']$/, '$1');
+          if (key.toUpperCase() === 'PORT') {
+            process.env.PORT = value;
+          } else if (process.env[key] === undefined) {
+            process.env[key] = value;
+          }
+        }
+      }
+    } catch (parseErr) {
+      // Ignore manual parse error
+    }
     break;
   }
 }
-dotenv.config(); // Fallback standard dotenv search
+dotenv.config({ override: true }); // Fallback standard dotenv search
 
 // Configure DNS servers for reliable MongoDB Atlas SRV resolution
 try {
@@ -65,7 +88,7 @@ import uploadRoutes from './routes/uploadRoutes.js';
 const app = express();
 
 // Application Constants from Environment (Defaults to Port 5111)
-const rawPort = (process.env.PORT || process.env.port || '5111').toString().trim();
+const rawPort = (process.env.PORT || process.env.port || process.env.SERVER_PORT || '5111').toString().trim();
 const PORT = parseInt(rawPort, 10) || 5111;
 const NODE_ENV = process.env.NODE_ENV || 'production';
 const MAX_BODY_SIZE = process.env.MAX_BODY_SIZE || '10mb';
