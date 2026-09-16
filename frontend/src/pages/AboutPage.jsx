@@ -99,7 +99,7 @@ const AboutPage = () => {
 
           <div className="lg:col-span-6">
             <div className="rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-              <img src={familyHero} alt="Aqua-Sol Pune Team & Installation" className="w-full h-auto object-cover" />
+              <img src={familyHero} alt="Aquasol Pune Team & Installation" className="w-full h-auto object-cover" />
             </div>
           </div>
         </div>

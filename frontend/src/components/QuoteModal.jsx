@@ -45,7 +45,7 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
     setError('');
 
     const phoneDigits = companyInfo.whatsappNumber || '918275067701';
-    const text = `☀️ *Solar Quote Request - Aqua-Sol Energy*\n\n` +
+    const text = `☀️ *Solar Quote Request - Aquasol Energy*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Email:* ${formData.email || 'N/A'}\n` +
@@ -77,7 +77,7 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
         {/* Header - Fixed/Sticky at top */}
         <div className="bg-gradient-to-r from-brand-blue-700 via-brand-blue-800 to-slate-900 px-4 py-3.5 sm:px-6 sm:py-4 text-white flex items-center justify-between shrink-0">
           <div>
-            <span className="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-brand-amber-400">Aqua-Sol Energy</span>
+            <span className="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-brand-amber-400">Aquasol Energy</span>
             <h3 className="text-lg sm:text-xl font-bold leading-tight">Request a Free Solar Quote</h3>
             <p className="text-[11px] sm:text-xs text-slate-300 mt-0.5">Pune & Maharashtra Rooftop Solutions</p>
           </div>

@@ -38,7 +38,7 @@ const BookSurveyPage = () => {
     setError('');
 
     const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-    const text = `📅 *Site Survey Booking Request - Aqua-Sol Energy*\n\n` +
+    const text = `📅 *Site Survey Booking Request - Aquasol Energy*\n\n` +
       `*Customer Name:* ${formData.name}\n` +
       `*Phone Number:* ${formData.phone}\n` +
       `*Email:* ${formData.email || 'N/A'}\n` +

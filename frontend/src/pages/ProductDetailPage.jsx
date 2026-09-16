@@ -24,7 +24,7 @@ const ProductDetailPage = () => {
     : [product.image].filter(Boolean);
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappMsg = `Hello Aqua-Sol Energy, I am interested in ${product.title}. Please share specifications, pricing, and installation timeline in Pune.`;
+  const whatsappMsg = `Hello Aquasol Energy, I am interested in ${product.title}. Please share specifications, pricing, and installation timeline in Pune.`;
   const whatsappUrl = `https://wa.me/${phoneDigits}?text=${encodeURIComponent(whatsappMsg)}`;
 
   return (
@@ -70,7 +70,7 @@ const ProductDetailPage = () => {
                   />
                 </>
               ) : (
-                <div className="text-slate-400 text-sm font-semibold p-12 text-center">Aqua-Sol Product Image</div>
+                <div className="text-slate-400 text-sm font-semibold p-12 text-center">Aquasol Product Image</div>
               )}
 
               <div className="absolute top-4 left-4 z-20 bg-slate-900/90 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full shadow border border-slate-700">

@@ -10,7 +10,7 @@ const Footer = () => {
   const { settings } = useSettings();
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20would%20like%20to%20enquire%20about%20solar%20solutions%20in%20Pune.`;
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20would%20like%20to%20enquire%20about%20solar%20solutions%20in%20Pune.`;
 
   return (
     <footer className="bg-slate-950 text-slate-300 border-t border-slate-800">
@@ -51,11 +51,11 @@ const Footer = () => {
           {/* Column 1: Company Profile & Credentials (4 cols) */}
           <div className="lg:col-span-4 space-y-4">
             <Link to="/" className="inline-block bg-white px-3.5 py-1.5 rounded-xl shadow-xs hover:shadow-sm transition">
-              <img src={aquaLogo} alt="Aqua-Sol Energy" className="h-9 w-auto object-contain" />
+              <img src={aquaLogo} alt="Aquasol Energy" className="h-9 w-auto object-contain" />
             </Link>
 
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              Aqua-Sol Energy is Pune's authorized solar engineering enterprise providing high-efficiency On-Grid Rooftop Solar PV, Solar Water Heaters, Heat Pumps, and specialized Argon welding repairs.
+              Aquasol Energy is Pune's authorized solar engineering enterprise providing high-efficiency On-Grid Rooftop Solar PV, Solar Water Heaters, Heat Pumps, and specialized Argon welding repairs.
             </p>
 
             <div className="flex flex-wrap items-center gap-2.5 pt-1">
@@ -224,7 +224,7 @@ const Footer = () => {
 
         {/* Bottom Bar: Copyright & Legal */}
         <div className="border-t border-slate-900 mt-5 pt-3 pb-1 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
-          <p>© {new Date().getFullYear()} Aqua-Sol Energy. All rights reserved. Clean Solar & Renewable Energy Solutions.</p>
+          <p>© {new Date().getFullYear()} Aquasol Energy. All rights reserved. Clean Solar & Renewable Energy Solutions.</p>
           <div className="flex items-center gap-3.5 text-[11px]">
             <Link to="/privacy-policy" className="hover:text-slate-300 transition">
               Privacy Policy

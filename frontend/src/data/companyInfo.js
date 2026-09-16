@@ -1,6 +1,6 @@
 export const companyInfo = {
-  name: 'Aqua-Sol Energy',
-  legalName: 'Aqua-Sol Energy Pune',
+  name: 'Aquasol Energy',
+  legalName: 'Aquasol Energy Pune',
   tagline: 'Empowering Maharashtra with Clean Solar Energy & Water Heating Solutions',
   marathiTagline: 'घराच्या छतावर सोलर बसवा, वीजबिलातून कायमची सुटका मिळवा!',
   officeAddress: 'Office No. 05, Ground Floor, Laxmi Kunj, Near Ganpati Mandir, Chandan Nagar, Pune - 411014, Maharashtra',

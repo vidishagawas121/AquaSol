@@ -1,7 +1,7 @@
 {
   "name": "aqua-sol-backend",
   "version": "1.0.0",
-  "description": "Production API for Aqua-Sol Energy solar and renewable energy solutions",
+  "description": "Production API for Aquasol Energy solar and renewable energy solutions",
   "main": "server.js",
   "type": "module",
   "scripts": {
@@ -30,6 +30,6 @@
     "pmsuryaghar",
     "aquasol"
   ],
-  "author": "Aqua-Sol Energy",
+  "author": "Aquasol Energy",
   "license": "ISC"
 }

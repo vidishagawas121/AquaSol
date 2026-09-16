@@ -28,7 +28,7 @@ export const products = [
   {
     id: 'solar-water-heater',
     slug: 'solar-water-heater',
-    title: 'Aqua-Sol Solar Water Heater (ETC / FPC)',
+    title: 'Aquasol Solar Water Heater (ETC / FPC)',
     category: 'Solar Water Heater',
     image: waterHeaterImg,
     gallery: [
@@ -38,7 +38,7 @@ export const products = [
       waterHeaterImg4,
     ],
     shortDescription: 'Heavy-duty insulated stainless steel solar water heating systems for residential bungalows, apartments, and commercial institutions.',
-    fullDescription: 'Aqua-Sol Solar Water Heaters deliver high thermal efficiency through advanced evacuated tube collectors (ETC) and flat plate collectors (FPC). Built with high-grade rust-proof inner tanks and high-density PUF insulation to maintain hot water even during chilly monsoon and winter days. Complete with corrosion-resistant powder-coated stand framing.',
+    fullDescription: 'Aquasol Solar Water Heaters deliver high thermal efficiency through advanced evacuated tube collectors (ETC) and flat plate collectors (FPC). Built with high-grade rust-proof inner tanks and high-density PUF insulation to maintain hot water even during chilly monsoon and winter days. Complete with corrosion-resistant powder-coated stand framing.',
     features: [
       'Food-grade high-purity stainless steel (SS 304 / SS 316) inner tank',
       'High-density PUF insulation for 48+ hours heat retention',
@@ -82,7 +82,7 @@ export const products = [
       rooftopSolarImg10,
     ],
     shortDescription: 'High-efficiency Tier-1 Mono PERC / TOPCon rooftop solar power generation systems eligible for up to ₹78,000 subsidy under PM Surya Ghar Yojana.',
-    fullDescription: 'Generate your own clean electricity directly on your rooftop and slash your monthly electricity bills by up to 90%+. Aqua-Sol Energy is an approved solar vendor providing turnkey execution including DISCOM net-metering approvals, structural engineering, Tier-1 solar modules, and cloud-connected inverters.',
+    fullDescription: 'Generate your own clean electricity directly on your rooftop and slash your monthly electricity bills by up to 90%+. Aquasol Energy is an approved solar vendor providing turnkey execution including DISCOM net-metering approvals, structural engineering, Tier-1 solar modules, and cloud-connected inverters.',
     features: [
       'Eligible for PM Surya Ghar central subsidy up to ₹78,000',
       'Tier-1 Mono PERC & TOPCon high-efficiency bifacial/monofacial panels',
@@ -120,7 +120,7 @@ export const products = [
       heatPumpImg5,
     ],
     shortDescription: 'Energy-saving thermodynamic heat pump systems that save up to 75% power compared to conventional electric geysers, delivering 24x7 hot water.',
-    fullDescription: 'Aqua-Sol Energy Heat Pumps extract latent heat from ambient air to heat water with remarkable efficiency. Ideal for high-demand residential bungalows, apartments, hotels, resorts, hostels, and healthcare centres requiring constant hot water in all seasons without depending purely on direct sunlight.',
+    fullDescription: 'Aquasol Energy Heat Pumps extract latent heat from ambient air to heat water with remarkable efficiency. Ideal for high-demand residential bungalows, apartments, hotels, resorts, hostels, and healthcare centres requiring constant hot water in all seasons without depending purely on direct sunlight.',
     features: [
       'Saves up to 75% on electricity compared to traditional electric boilers/geysers',
       'Operates 24 hours a day, regardless of rain, clouds, or night-time',

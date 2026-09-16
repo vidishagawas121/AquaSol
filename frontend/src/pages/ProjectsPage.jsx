@@ -28,7 +28,7 @@ const ProjectsPage = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20we%20would%20like%20to%20discuss%20a%20commercial%20or%20residential%20solar%20project%20in%20Pune.`;
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20we%20would%20like%20to%20discuss%20a%20commercial%20or%20residential%20solar%20project%20in%20Pune.`;
 
   const getClientIcon = (iconType) => {
     switch (iconType) {
@@ -186,7 +186,7 @@ const ProjectsPage = () => {
               Project Installations Across All Categories
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              Explore authentic site photographs and hardware blueprints across Rooftop Solar PV, Solar Water Heaters, Heat Pumps, and All-in-One Solar Street Lights installed by Aqua-Sol Energy.
+              Explore authentic site photographs and hardware blueprints across Rooftop Solar PV, Solar Water Heaters, Heat Pumps, and All-in-One Solar Street Lights installed by Aquasol Energy.
             </p>
           </div>
 
@@ -334,7 +334,7 @@ const ProjectsPage = () => {
               Commercial & Institutional Solutions
             </span>
             <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Partner with Aqua-Sol Energy for Your Next Project
+              Partner with Aquasol Energy for Your Next Project
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
               Whether you are planning rooftop solar PV for an industrial facility, centralized water heating for a residential township, or a green campus transition, our Pune engineering desk offers turnkey consultation, feasibility study, and execution.

@@ -28,7 +28,7 @@ if (!cached) {
 }
 
 const connectDB = async () => {
-  // If no MONGODB_URI is provided, Aqua-Sol operates in zero-database standalone mode
+  // If no MONGODB_URI is provided, Aquasol operates in zero-database standalone mode
   const mongoUri = process.env.MONGODB_URI;
   if (!mongoUri) {
     return null;

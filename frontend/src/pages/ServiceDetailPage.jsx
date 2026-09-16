@@ -18,7 +18,7 @@ const ServiceDetailPage = () => {
   const service = services.find((s) => s.slug === slug) || services[0];
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20want%20to%20book%20${encodeURIComponent(
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20want%20to%20book%20${encodeURIComponent(
     service.title
   )}%20in%20Pune.`;
 
@@ -149,7 +149,7 @@ const ServiceDetailPage = () => {
                 <ShieldCheck className="w-4 h-4 text-emerald-600" />
                 <span>Service Guarantee</span>
               </div>
-              <p>Workmanship warranty on argon welds and replacement gaskets installed by Aqua-Sol engineers.</p>
+              <p>Workmanship warranty on argon welds and replacement gaskets installed by Aquasol engineers.</p>
             </div>
           </div>
         </div>

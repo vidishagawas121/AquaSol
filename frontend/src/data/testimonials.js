@@ -6,7 +6,7 @@ export const testimonials = [
     location: 'Wagholi, Pune',
     systemInstalled: '3 kW On-Grid Rooftop Solar PV',
     rating: 5,
-    reviewText: 'Installed 3 kW solar with Aqua-Sol Energy under PM Surya Ghar. The ₹78,000 subsidy was credited directly to my bank account, and our MSEDCL electricity bill dropped from ₹3,400 to almost zero! Highly recommended in Pune.',
+    reviewText: 'Installed 3 kW solar with Aquasol Energy under PM Surya Ghar. The ₹78,000 subsidy was credited directly to my bank account, and our MSEDCL electricity bill dropped from ₹3,400 to almost zero! Highly recommended in Pune.',
     isFeatured: true,
   },
   {
@@ -16,7 +16,7 @@ export const testimonials = [
     location: 'Kalyani Nagar, Pune',
     systemInstalled: '200 LPD Solar Water Heater & Argon Welding Repair',
     rating: 5,
-    reviewText: 'Aqua-Sol repaired our old leaking solar water heater tank with argon welding and complete descaling. Saved us having to buy a whole new unit. Excellent technical knowledge and prompt doorstep response.',
+    reviewText: 'Aquasol repaired our old leaking solar water heater tank with argon welding and complete descaling. Saved us having to buy a whole new unit. Excellent technical knowledge and prompt doorstep response.',
     isFeatured: true,
   },
   {

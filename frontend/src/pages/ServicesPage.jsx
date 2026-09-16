@@ -26,7 +26,7 @@ const ServicesPage = () => {
   const [lightboxIndex, setLightboxIndex] = useState(null);
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20need%20solar%20servicing%20or%20tank%20repair%20in%20Pune.`;
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20need%20solar%20servicing%20or%20tank%20repair%20in%20Pune.`;
 
   const galleryCategories = [
     'All',

@@ -35,7 +35,7 @@ export const solutions = [
     category: 'Commercial',
     image: rooftopImg,
     shortDescription: 'High-capacity on-grid and captive solar power plants for factories, educational campuses, hospitals, shopping malls, and offices.',
-    fullDescription: 'Electricity is often one of the largest operational expenses for commercial and industrial operations. By installing commercial solar PV from Aqua-Sol Energy, businesses benefit from Section 32 40% accelerated depreciation, hedge against rising tariff rates, and meet green sustainability mandates.',
+    fullDescription: 'Electricity is often one of the largest operational expenses for commercial and industrial operations. By installing commercial solar PV from Aquasol Energy, businesses benefit from Section 32 40% accelerated depreciation, hedge against rising tariff rates, and meet green sustainability mandates.',
     keyBenefits: [
       'Drastic operational cost reduction per unit of power',
       'Accelerated depreciation (AD) tax benefits under IT Section 32',
@@ -58,12 +58,12 @@ export const solutions = [
     category: 'Universal',
     image: waterHeaterImg,
     shortDescription: 'Residential, institutional, and commercial solar water heating setups engineered for maximum heat retention and zero electricity dependency.',
-    fullDescription: 'Heating water using standard electric geysers accounts for up to 30% of a home’s monthly power bill. Aqua-Sol Energy provides durable stainless steel systems that harness solar thermal energy to give hot water at zero operational cost.',
+    fullDescription: 'Heating water using standard electric geysers accounts for up to 30% of a home’s monthly power bill. Aquasol Energy provides durable stainless steel systems that harness solar thermal energy to give hot water at zero operational cost.',
     keyBenefits: [
       '100% savings on water heating electricity expenses',
       '48+ hours heat retention with high-density polyurethane insulation',
       'Food-grade inner tank compatible with Pune city water conditions',
-      'Backed by Aqua-Sol repair and AMC maintenance specialists',
+      'Backed by Aquasol repair and AMC maintenance specialists',
     ],
     features: [
       '3-layer borosilicate vacuum tubes',
@@ -81,7 +81,7 @@ export const solutions = [
     category: 'Universal',
     image: heatPumpImg,
     shortDescription: 'Ideal for villas, hotels, and hospitals needing high volumes of hot water regardless of cloudy skies, night hours, or cold weather.',
-    fullDescription: 'By transferring heat from ambient air into water rather than generating heat from electric elements, Aqua-Sol heat pumps deliver a Coefficient of Performance (COP) of up to 4.2. That means for every 1 unit of power used, you get over 4 units of thermal heating.',
+    fullDescription: 'By transferring heat from ambient air into water rather than generating heat from electric elements, Aquasol heat pumps deliver a Coefficient of Performance (COP) of up to 4.2. That means for every 1 unit of power used, you get over 4 units of thermal heating.',
     keyBenefits: [
       'Works round the clock 24x7 in rain, cold, and cloudy weather',
       '75% energy reduction compared to conventional geysers',
@@ -104,7 +104,7 @@ export const solutions = [
     category: 'Universal',
     image: streetLightImg,
     shortDescription: 'Smart solar LED street lighting for townships, gated communities, farms, industrial parks, and village gram panchayats.',
-    fullDescription: 'Aqua-Sol solar street lights offer complete off-grid reliability with built-in lithium batteries and solar panels on every pole. No underground trenching, no cabling expenses, and zero electricity bills.',
+    fullDescription: 'Aquasol solar street lights offer complete off-grid reliability with built-in lithium batteries and solar panels on every pole. No underground trenching, no cabling expenses, and zero electricity bills.',
     keyBenefits: [
       'Zero wiring or cabling infrastructure required',
       'Automatic dusk-to-dawn operation with smart dimming sensors',

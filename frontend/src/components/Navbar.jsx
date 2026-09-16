@@ -112,7 +112,7 @@ const Navbar = () => {
             <Link to="/" className="flex items-center gap-2 sm:gap-3 shrink-0 group">
               <img
                 src={aquaLogo}
-                alt="Aqua-Sol Energy Pune"
+                alt="Aquasol Energy Pune"
                 className="h-8 xs:h-9 sm:h-11 md:h-12 w-auto object-contain transition-transform group-hover:scale-[1.02]"
               />
             </Link>

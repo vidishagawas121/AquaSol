@@ -43,7 +43,7 @@ export const createLead = async (req, res, next) => {
 
     res.status(201).json({
       success: true,
-      message: 'Thank you! Your enquiry has been received. Aqua-Sol Energy solar advisors will contact you shortly.',
+      message: 'Thank you! Your enquiry has been received. Aquasol Energy solar advisors will contact you shortly.',
       leadId: lead._id,
     });
   } catch (error) {

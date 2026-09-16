@@ -7,8 +7,8 @@ export const faqs = [
   },
   {
     id: 2,
-    question: 'How does Aqua-Sol Energy assist with MSEDCL net metering and approvals?',
-    answer: 'Aqua-Sol Energy handles the complete liaisoning from start to finish. We submit the application on the national portal (pmsuryaghar.gov.in), conduct shadow analysis, obtain DISCOM sanction, perform structure and electrical installation, and coordinate the inspection and bi-directional net meter testing.',
+    question: 'How does Aquasol Energy assist with MSEDCL net metering and approvals?',
+    answer: 'Aquasol Energy handles the complete liaisoning from start to finish. We submit the application on the national portal (pmsuryaghar.gov.in), conduct shadow analysis, obtain DISCOM sanction, perform structure and electrical installation, and coordinate the inspection and bi-directional net meter testing.',
     category: 'PM Surya Ghar & Subsidies',
   },
   {
@@ -25,7 +25,7 @@ export const faqs = [
   },
   {
     id: 5,
-    question: 'What is included in Aqua-Sol’s Solar Water Heater AMC package?',
+    question: 'What is included in Aquasol’s Solar Water Heater AMC package?',
     answer: 'Our Annual Maintenance Contract (AMC) includes scheduled pre-winter and seasonal servicing, safe vacuum tube descaling, gasket replacement, sacrificial anode bar renewal, and priority emergency breakdown visits without visit fees.',
     category: 'Solar Water Heaters & Repair',
   },

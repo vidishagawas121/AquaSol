@@ -25,7 +25,7 @@ const seedDB = async () => {
     // 1. Admin User
     await User.deleteMany();
     await User.create({
-      name: 'Aqua-Sol Administrator',
+      name: 'Aquasol Administrator',
       email: 'admin@aquasol.com',
       password: 'AquaSol@2026!',
       role: 'admin',
@@ -36,7 +36,7 @@ const seedDB = async () => {
     // 2. Website Settings
     await WebsiteSettings.deleteMany();
     await WebsiteSettings.create({
-      companyName: 'Aqua-Sol Energy',
+      companyName: 'Aquasol Energy',
       tagline: 'Power Your Future With Clean Solar Energy',
       marathiTagline: 'घराच्या छतावर सोलर बसवा, वीजबिलातून कायमची सुटका मिळवा!',
       primaryPhone: '+91 8275067701',
@@ -88,11 +88,11 @@ const seedDB = async () => {
     await Product.deleteMany();
     await Product.create([
       {
-        title: 'Aqua-Sol Solar Water Heater (ETC / FPC)',
+        title: 'Aquasol Solar Water Heater (ETC / FPC)',
         slug: 'solar-water-heater',
         category: 'Solar Water Heater',
         shortDescription: 'Heavy-duty insulated stainless steel solar water heating systems for residential bungalows, apartments, and commercial institutions.',
-        fullDescription: 'Aqua-Sol Solar Water Heaters deliver high thermal efficiency through advanced evacuated tube collectors (ETC) and flat plate collectors (FPC). Built with high-grade rust-proof inner tanks and high-density PUF insulation to maintain hot water even during chilly monsoon and winter days. Complete with corrosion-resistant powder-coated stand framing.',
+        fullDescription: 'Aquasol Solar Water Heaters deliver high thermal efficiency through advanced evacuated tube collectors (ETC) and flat plate collectors (FPC). Built with high-grade rust-proof inner tanks and high-density PUF insulation to maintain hot water even during chilly monsoon and winter days. Complete with corrosion-resistant powder-coated stand framing.',
         features: [
           'Food-grade high-purity stainless steel (SS 304 / SS 316) inner tank',
           'High-density PUF insulation for 48+ hours heat retention',
@@ -116,7 +116,7 @@ const seedDB = async () => {
         ],
         warranty: '5 Years Comprehensive Manufacturer Warranty',
         images: [
-          { url: '/uploads/solar_water_heater.png', alt: 'Aqua-Sol Solar Water Heater System', isPrimary: true },
+          { url: '/uploads/solar_water_heater.png', alt: 'Aquasol Solar Water Heater System', isPrimary: true },
         ],
         isFeatured: true,
         isPublished: true,
@@ -127,7 +127,7 @@ const seedDB = async () => {
         slug: 'rooftop-solar-pv-system',
         category: 'Solar PV',
         shortDescription: 'High-efficiency Tier-1 Mono PERC / TOPCon rooftop solar power generation systems eligible for up to ₹78,000 subsidy under PM Surya Ghar Yojana.',
-        fullDescription: 'Generate your own clean electricity directly on your rooftop and slash your monthly electricity bills by up to 90%+. Aqua-Sol Energy is an approved solar vendor providing turnkey execution including DISCOM net-metering approvals, structural engineering, Tier-1 solar modules, and cloud-connected inverters.',
+        fullDescription: 'Generate your own clean electricity directly on your rooftop and slash your monthly electricity bills by up to 90%+. Aquasol Energy is an approved solar vendor providing turnkey execution including DISCOM net-metering approvals, structural engineering, Tier-1 solar modules, and cloud-connected inverters.',
         features: [
           'Eligible for PM Surya Ghar central subsidy up to ₹78,000',
           'Tier-1 Mono PERC & TOPCon high-efficiency bifacial/monofacial panels',
@@ -150,7 +150,7 @@ const seedDB = async () => {
         ],
         warranty: '25 Years Linear Power Output Warranty on Panels | 5-10 Years on Inverter',
         images: [
-          { url: '/uploads/pm_surya_ghar_family.png', alt: 'Aqua-Sol PM Surya Ghar Rooftop Solar', isPrimary: true },
+          { url: '/uploads/pm_surya_ghar_family.png', alt: 'Aquasol PM Surya Ghar Rooftop Solar', isPrimary: true },
         ],
         isFeatured: true,
         isPublished: true,
@@ -161,7 +161,7 @@ const seedDB = async () => {
         slug: 'heat-pump-water-heater',
         category: 'Heat Pump',
         shortDescription: 'Energy-saving thermodynamic heat pump systems that save up to 75% power compared to conventional electric geysers, delivering 24x7 hot water.',
-        fullDescription: 'Aqua-Sol Energy Heat Pumps extract latent heat from ambient air to heat water with remarkable efficiency. Ideal for high-demand residential bungalows, apartments, hotels, resorts, hostels, and healthcare centres requiring constant hot water in all seasons without depending purely on direct sunlight.',
+        fullDescription: 'Aquasol Energy Heat Pumps extract latent heat from ambient air to heat water with remarkable efficiency. Ideal for high-demand residential bungalows, apartments, hotels, resorts, hostels, and healthcare centres requiring constant hot water in all seasons without depending purely on direct sunlight.',
         features: [
           'Saves up to 75% on electricity compared to traditional electric boilers/geysers',
           'Operates 24 hours a day, regardless of rain, clouds, or night-time',
@@ -182,7 +182,7 @@ const seedDB = async () => {
         ],
         warranty: '2 Years Comprehensive | 5 Years Compressor Warranty',
         images: [
-          { url: '/uploads/heat_pump.png', alt: 'Aqua-Sol Heat Pump Unit', isPrimary: true },
+          { url: '/uploads/heat_pump.png', alt: 'Aquasol Heat Pump Unit', isPrimary: true },
         ],
         isFeatured: true,
         isPublished: true,
@@ -214,7 +214,7 @@ const seedDB = async () => {
         ],
         warranty: '3 Years Comprehensive Replacement Warranty',
         images: [
-          { url: '/uploads/solar_street_light.png', alt: 'Aqua-Sol Solar Street Light', isPrimary: true },
+          { url: '/uploads/solar_street_light.png', alt: 'Aquasol Solar Street Light', isPrimary: true },
         ],
         isFeatured: true,
         isPublished: true,
@@ -231,7 +231,7 @@ const seedDB = async () => {
         marathiTitle: 'सोलर वॉटर हिटर सर्व्हिसिंग',
         slug: 'solar-water-heater-servicing',
         shortDescription: 'Complete descaling, collector flushing, and thermal performance restoration for all brands and capacities of solar water heaters.',
-        fullDescription: 'Hard water scale deposits inside solar water heater tubes and tanks reduce heating efficiency drastically over time. Aqua-Sol Energy provides specialized chemical-free descaling, manifold flushing, rubber seal replacement, and vacuum tube cleaning to restore boiling hot water output.',
+        fullDescription: 'Hard water scale deposits inside solar water heater tubes and tanks reduce heating efficiency drastically over time. Aquasol Energy provides specialized chemical-free descaling, manifold flushing, rubber seal replacement, and vacuum tube cleaning to restore boiling hot water output.',
         processSteps: [
           { stepNumber: 1, title: 'Inspection', description: 'Thermal loss measurement, glass tube condition assessment, and leakage check.' },
           { stepNumber: 2, title: 'Flushing & Descaling', description: 'Safe removal of hard calcium and magnesium scale from tubes and inner tank.' },
@@ -274,7 +274,7 @@ const seedDB = async () => {
         marathiTitle: 'टँक आणि सोलर पॅनल लिकेज रिमुव्हल वर्क',
         slug: 'tank-solar-leakage-removal',
         shortDescription: 'Emergency troubleshooting and permanent leak stoppage for solar tanks, pipe manifolds, vacuum tube joints, and rooftop plumbing.',
-        fullDescription: 'Water leakage from rooftop solar installations wastes precious water and causes roof seepage and ceiling dampness. Aqua-Sol Energy offers fast leak detection and rectification service for all piping, collector gaskets, air vents, cold water inlet non-return valves (NRV), and tank seams.',
+        fullDescription: 'Water leakage from rooftop solar installations wastes precious water and causes roof seepage and ceiling dampness. Aquasol Energy offers fast leak detection and rectification service for all piping, collector gaskets, air vents, cold water inlet non-return valves (NRV), and tank seams.',
         processSteps: [
           { stepNumber: 1, title: 'Rapid Site Arrival', description: 'Quick dispatch of trained technicians across Pune.' },
           { stepNumber: 2, title: 'Leak Isolation', description: 'Pinpointing joint failure, tube seal breakage, or cracked fitting.' },
@@ -317,7 +317,7 @@ const seedDB = async () => {
         marathiTitle: 'रूफटॉप सोलर पीव्ही इंस्टॉलेशन आणि नेट मीटरिंग',
         slug: 'rooftop-solar-pv-installation',
         shortDescription: 'Turnkey solar panel installation with complete MSEDCL DISCOM approvals, structure fabrication, and PM Surya Ghar subsidy processing.',
-        fullDescription: 'From initial 3D shadow analysis and roof structure engineering to panel installation, inverter commissioning, net meter testing, and subsidy release into your bank account, Aqua-Sol Energy handles every single step seamlessly.',
+        fullDescription: 'From initial 3D shadow analysis and roof structure engineering to panel installation, inverter commissioning, net meter testing, and subsidy release into your bank account, Aquasol Energy handles every single step seamlessly.',
         processSteps: [
           { stepNumber: 1, title: 'Engineering Site Survey', description: 'Measuring roof area, shadow analysis, and electrical load sanction verification.' },
           { stepNumber: 2, title: 'Structural Mounting', description: 'Installing heavy-duty wind-resistant hot-dip galvanized mounting structures.' },
@@ -363,7 +363,7 @@ const seedDB = async () => {
         subtitle: 'Accelerated tax depreciation & massive operational cost reductions for enterprises.',
         category: 'Commercial',
         shortDescription: 'High-capacity on-grid and captive solar power plants for factories, educational campuses, hospitals, shopping malls, and offices.',
-        fullDescription: 'Electricity is often one of the largest operational expenses for commercial and industrial operations. By installing commercial solar PV from Aqua-Sol Energy, businesses benefit from Section 32 40% accelerated depreciation, hedge against rising tariff rates, and meet green sustainability mandates.',
+        fullDescription: 'Electricity is often one of the largest operational expenses for commercial and industrial operations. By installing commercial solar PV from Aquasol Energy, businesses benefit from Section 32 40% accelerated depreciation, hedge against rising tariff rates, and meet green sustainability mandates.',
         keyBenefits: [
           'Drastic operational cost reduction per unit of power',
           'Accelerated depreciation (AD) tax benefits under IT Section 32',
@@ -381,12 +381,12 @@ const seedDB = async () => {
         subtitle: 'Zero electricity hot water systems from 100 LPD to 10,000+ LPD capacity.',
         category: 'Universal',
         shortDescription: 'Residential, institutional, and commercial solar water heating setups engineered for maximum heat retention and zero electricity dependency.',
-        fullDescription: 'Heating water using standard electric geysers accounts for up to 30% of a home’s monthly power bill. Aqua-Sol Energy provides durable stainless steel systems that harness solar thermal energy to give hot water at zero operational cost.',
+        fullDescription: 'Heating water using standard electric geysers accounts for up to 30% of a home’s monthly power bill. Aquasol Energy provides durable stainless steel systems that harness solar thermal energy to give hot water at zero operational cost.',
         keyBenefits: [
           '100% savings on water heating electricity expenses',
           '48+ hours heat retention with high-density polyurethane insulation',
           'Food-grade inner tank compatible with Pune city water conditions',
-          'Backed by Aqua-Sol repair and AMC maintenance specialists',
+          'Backed by Aquasol repair and AMC maintenance specialists',
         ],
         applications: ['Bungalows', 'Housing Societies', 'Hostels', 'Hotels & Lodges', 'Dairies & Food Processing'],
         image: '/uploads/solar_water_heater.png',
@@ -399,7 +399,7 @@ const seedDB = async () => {
         subtitle: 'Thermodynamic water heating saving up to 75% energy 24 hours a day in all weather.',
         category: 'Universal',
         shortDescription: 'Ideal for villas, hotels, and hospitals needing high volumes of hot water regardless of cloudy skies, night hours, or cold weather.',
-        fullDescription: 'By transferring heat from ambient air into water rather than generating heat from electric elements, Aqua-Sol heat pumps deliver a Coefficient of Performance (COP) of up to 4.2. That means for every 1 unit of power used, you get over 4 units of thermal heating.',
+        fullDescription: 'By transferring heat from ambient air into water rather than generating heat from electric elements, Aquasol heat pumps deliver a Coefficient of Performance (COP) of up to 4.2. That means for every 1 unit of power used, you get over 4 units of thermal heating.',
         keyBenefits: [
           'Works round the clock 24x7 in rain, cold, and cloudy weather',
           '75% energy reduction compared to conventional geysers',
@@ -417,7 +417,7 @@ const seedDB = async () => {
         subtitle: 'Self-sustaining autonomous outdoor illumination with zero cabling.',
         category: 'Universal',
         shortDescription: 'Smart solar LED street lighting for townships, gated communities, farms, industrial parks, and village gram panchayats.',
-        fullDescription: 'Aqua-Sol solar street lights offer complete off-grid reliability with built-in lithium batteries and solar panels on every pole. No underground trenching, no cabling expenses, and zero electricity bills.',
+        fullDescription: 'Aquasol solar street lights offer complete off-grid reliability with built-in lithium batteries and solar panels on every pole. No underground trenching, no cabling expenses, and zero electricity bills.',
         keyBenefits: [
           'Zero wiring or cabling infrastructure required',
           'Automatic dusk-to-dawn operation with smart dimming sensors',
@@ -442,8 +442,8 @@ const seedDB = async () => {
         order: 1,
       },
       {
-        question: 'How do I apply for the PM Surya Ghar subsidy, and will Aqua-Sol assist me?',
-        answer: 'Yes, Aqua-Sol Energy handles the complete process from end to end! We register your application on the official national portal (pmsuryaghar.gov.in), obtain MSEDCL DISCOM technical feasibility approvals, complete the installation with approved components, coordinate net-meter commissioning, and submit documentation for direct subsidy transfer to your bank account.',
+        question: 'How do I apply for the PM Surya Ghar subsidy, and will Aquasol assist me?',
+        answer: 'Yes, Aquasol Energy handles the complete process from end to end! We register your application on the official national portal (pmsuryaghar.gov.in), obtain MSEDCL DISCOM technical feasibility approvals, complete the installation with approved components, coordinate net-meter commissioning, and submit documentation for direct subsidy transfer to your bank account.',
         category: 'PM Surya Ghar',
         order: 2,
       },
@@ -455,12 +455,12 @@ const seedDB = async () => {
       },
       {
         question: 'Do you repair leaking or old solar water heaters in Pune?',
-        answer: 'Yes, absolutely! Aqua-Sol Energy specializes in all types of Solar Water Heater Servicing, Solar Tank Repairing (including argon welding of stainless steel inner tanks), and Tank & Solar Panel Leakage Removal Work across Pune and PCMC.',
+        answer: 'Yes, absolutely! Aquasol Energy specializes in all types of Solar Water Heater Servicing, Solar Tank Repairing (including argon welding of stainless steel inner tanks), and Tank & Solar Panel Leakage Removal Work across Pune and PCMC.',
         category: 'Solar Water Heaters & Servicing',
         order: 4,
       },
       {
-        question: 'What is included in Aqua-Sol’s Solar Water Heater AMC?',
+        question: 'What is included in Aquasol’s Solar Water Heater AMC?',
         answer: 'Our Annual Maintenance Contract (AMC) covers scheduled pre-winter and seasonal servicing, chemical-free tube descaling, gasket inspections, sacrificial anode replacement to protect against hard water rust, plumbing integrity checks, and priority breakdown attendance with zero inspection fees.',
         category: 'Solar Water Heaters & Servicing',
         order: 5,
@@ -482,9 +482,9 @@ const seedDB = async () => {
         slug: 'pm-surya-ghar-subsidy-guide-pune',
         category: 'Government Schemes & Subsidies',
         summary: 'Learn how to claim up to ₹78,000 direct subsidy and secure 300 free electricity units per month under the Central Government solar scheme.',
-        content: `The PM Surya Ghar: Muft Bijli Yojana has transformed rooftop solar accessibility across Maharashtra. Homeowners in Pune can now install solar panels with direct subsidy credits directly transferred to their Aadhaar-linked bank accounts.\n\n### Subsidy Breakdown\n- **1 kW System**: ₹30,000 direct subsidy (ideal for small 1-2 BHK flats)\n- **2 kW System**: ₹60,000 direct subsidy (ideal for 2-3 BHK homes)\n- **3 kW & Above**: ₹78,000 maximum direct subsidy\n\n### Why Choose an Authorized Vendor?\nTo receive the subsidy, the solar system must be installed by an authorized vendor using DCR (Domestic Content Requirement) certified modules and BIS-approved inverters. Aqua-Sol Energy assists you throughout the MSEDCL net metering and portal approval steps.`,
+        content: `The PM Surya Ghar: Muft Bijli Yojana has transformed rooftop solar accessibility across Maharashtra. Homeowners in Pune can now install solar panels with direct subsidy credits directly transferred to their Aadhaar-linked bank accounts.\n\n### Subsidy Breakdown\n- **1 kW System**: ₹30,000 direct subsidy (ideal for small 1-2 BHK flats)\n- **2 kW System**: ₹60,000 direct subsidy (ideal for 2-3 BHK homes)\n- **3 kW & Above**: ₹78,000 maximum direct subsidy\n\n### Why Choose an Authorized Vendor?\nTo receive the subsidy, the solar system must be installed by an authorized vendor using DCR (Domestic Content Requirement) certified modules and BIS-approved inverters. Aquasol Energy assists you throughout the MSEDCL net metering and portal approval steps.`,
         featuredImage: '/uploads/pm_surya_ghar_family.png',
-        author: 'Aqua-Sol Technical Editorial Team',
+        author: 'Aquasol Technical Editorial Team',
         readTimeMinutes: 5,
         tags: ['PM Surya Ghar', 'Solar Subsidy', 'Pune Solar', 'MSEDCL'],
       },
@@ -493,9 +493,9 @@ const seedDB = async () => {
         slug: 'solar-water-heater-servicing-descaling-tips',
         category: 'Solar Water Heater Tips',
         summary: 'Hard water in Pune can reduce solar water heating efficiency by over 40%. Here is why regular servicing and tank maintenance saves you money.',
-        content: `Many residents notice that after 2-3 years of trouble-free operation, their solar water heater does not produce the same boiling hot water it once did. In most cases, the issue is not cloudy weather—it is hard water scale deposition.\n\n### What Happens Inside the Tubes?\nCalcium and magnesium salts form a thick white crust inside evacuated glass tubes and copper manifolds. This crust acts as a thermal insulator, preventing solar radiation from transferring into the water.\n\n### How Aqua-Sol Helps\nOur specialized technician team performs chemical-safe descaling, replaces worn silicon seals, and performs leak testing to restore maximum heating capability.`,
+        content: `Many residents notice that after 2-3 years of trouble-free operation, their solar water heater does not produce the same boiling hot water it once did. In most cases, the issue is not cloudy weather—it is hard water scale deposition.\n\n### What Happens Inside the Tubes?\nCalcium and magnesium salts form a thick white crust inside evacuated glass tubes and copper manifolds. This crust acts as a thermal insulator, preventing solar radiation from transferring into the water.\n\n### How Aquasol Helps\nOur specialized technician team performs chemical-safe descaling, replaces worn silicon seals, and performs leak testing to restore maximum heating capability.`,
         featuredImage: '/uploads/solar_water_heater.png',
-        author: 'Aqua-Sol Service Engineering',
+        author: 'Aquasol Service Engineering',
         readTimeMinutes: 4,
         tags: ['Solar Servicing', 'Water Heater Repair', 'Pune Maintenance'],
       },
@@ -510,7 +510,7 @@ const seedDB = async () => {
         location: 'Wagholi, Pune',
         systemType: '3 kW Rooftop Solar PV',
         rating: 5,
-        feedback: 'Installed 3 kW solar with Aqua-Sol Energy under PM Surya Ghar. The ₹78,000 subsidy was credited directly to my bank account, and our MSEDCL bill dropped from ₹3,400 to almost zero! Highly recommended in Pune.',
+        feedback: 'Installed 3 kW solar with Aquasol Energy under PM Surya Ghar. The ₹78,000 subsidy was credited directly to my bank account, and our MSEDCL bill dropped from ₹3,400 to almost zero! Highly recommended in Pune.',
         isVerified: true,
         isPublished: true,
       },
@@ -519,7 +519,7 @@ const seedDB = async () => {
         location: 'Kalyani Nagar, Pune',
         systemType: '200 LPD Solar Water Heater & Servicing',
         rating: 5,
-        feedback: 'Aqua-Sol serviced and repaired our old leaking solar water heater tank with argon welding and complete descaling. Saved us having to buy a whole new unit. Excellent technical knowledge and prompt response.',
+        feedback: 'Aquasol serviced and repaired our old leaking solar water heater tank with argon welding and complete descaling. Saved us having to buy a whole new unit. Excellent technical knowledge and prompt response.',
         isVerified: true,
         isPublished: true,
       },

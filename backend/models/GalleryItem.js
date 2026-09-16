@@ -25,7 +25,7 @@ const galleryItemSchema = new mongoose.Schema(
     },
     altText: {
       type: String,
-      default: 'Aqua-Sol Energy Installation',
+      default: 'Aquasol Energy Installation',
     },
     caption: {
       type: String,

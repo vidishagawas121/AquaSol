@@ -47,7 +47,7 @@ const PMSuryaGharPage = () => {
     setError('');
 
     const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-    const text = `☀️ *PM Surya Ghar Scheme Enquiry - Aqua-Sol Energy*\n\n` +
+    const text = `☀️ *PM Surya Ghar Scheme Enquiry - Aquasol Energy*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Email:* ${formData.email || 'N/A'}\n` +
@@ -76,7 +76,7 @@ const PMSuryaGharPage = () => {
             </h1>
 
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-              Get up to <strong className="text-white font-bold">₹78,000 direct subsidy</strong> credited into your bank account and enjoy up to 300 units of free power each month. Aqua-Sol Energy handles your entire application, DISCOM liaisoning, and installation in Pune.
+              Get up to <strong className="text-white font-bold">₹78,000 direct subsidy</strong> credited into your bank account and enjoy up to 300 units of free power each month. Aquasol Energy handles your entire application, DISCOM liaisoning, and installation in Pune.
             </p>
 
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4 pt-2">
@@ -245,7 +245,7 @@ const PMSuryaGharPage = () => {
               </div>
               <h3 className="text-2xl font-bold text-slate-900">Application Request Submitted!</h3>
               <p className="text-sm text-slate-600 max-w-md mx-auto">
-                Thank you, <span className="font-semibold">{formData.name}</span>. An Aqua-Sol PM Surya Ghar executive will call you within 24 hours to verify your consumer number and initiate the subsidy process.
+                Thank you, <span className="font-semibold">{formData.name}</span>. An Aquasol PM Surya Ghar executive will call you within 24 hours to verify your consumer number and initiate the subsidy process.
               </p>
             </div>
           ) : (
@@ -338,7 +338,7 @@ const PMSuryaGharPage = () => {
               </div>
 
               <p className="text-[11px] text-slate-400 text-center">
-                Aqua-Sol Energy is an authorized vendor providing turnkey engineering, installation, and DISCOM facilitation.
+                Aquasol Energy is an authorized vendor providing turnkey engineering, installation, and DISCOM facilitation.
               </p>
             </form>
           )}

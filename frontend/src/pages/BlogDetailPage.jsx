@@ -63,7 +63,7 @@ const BlogDetailPage = () => {
         <div className="mt-10 p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6">
           <div>
             <h4 className="text-lg font-bold">Have Questions About This Topic?</h4>
-            <p className="text-xs text-slate-400 mt-1">Talk with Aqua-Sol Energy’s Pune technical engineers directly.</p>
+            <p className="text-xs text-slate-400 mt-1">Talk with Aquasol Energy’s Pune technical engineers directly.</p>
           </div>
           <button
             onClick={() => setQuoteOpen(true)}

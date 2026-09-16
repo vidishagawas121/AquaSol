@@ -21,7 +21,7 @@ export const services = [
     category: 'Repair & Maintenance',
     image: waterHeaterImg,
     shortDescription: 'Complete descaling, collector flushing, and thermal performance restoration for all brands and capacities of solar water heaters.',
-    fullDescription: 'Hard water scale deposits inside solar water heater tubes and tanks reduce heating efficiency drastically over time. Aqua-Sol Energy provides specialized chemical-free descaling, manifold flushing, rubber seal replacement, and vacuum tube cleaning to restore boiling hot water output.',
+    fullDescription: 'Hard water scale deposits inside solar water heater tubes and tanks reduce heating efficiency drastically over time. Aquasol Energy provides specialized chemical-free descaling, manifold flushing, rubber seal replacement, and vacuum tube cleaning to restore boiling hot water output.',
     features: [
       'Immediate 30-40% increase in water temperature',
       'Safe removal of hard calcium and magnesium scale from tubes',
@@ -73,7 +73,7 @@ export const services = [
     category: 'Emergency Repair',
     image: maintenance3Img,
     shortDescription: 'Emergency troubleshooting and permanent leak stoppage for solar tanks, pipe manifolds, vacuum tube joints, and rooftop plumbing.',
-    fullDescription: 'Water leakage from rooftop solar installations wastes precious water and causes roof seepage and ceiling dampness. Aqua-Sol Energy offers fast leak detection and rectification service for all piping, collector gaskets, air vents, cold water inlet non-return valves (NRV), and tank seams.',
+    fullDescription: 'Water leakage from rooftop solar installations wastes precious water and causes roof seepage and ceiling dampness. Aquasol Energy offers fast leak detection and rectification service for all piping, collector gaskets, air vents, cold water inlet non-return valves (NRV), and tank seams.',
     features: [
       'Rapid emergency dispatch across Pune and PCMC',
       'Prevents structural dampness and terrace ceiling damage',
@@ -125,7 +125,7 @@ export const services = [
     category: 'Cleaning & Efficiency',
     image: maintenanceCleaningImg,
     shortDescription: 'Professional scratch-free telescopic rotary brush cleaning and demineralized washing to boost solar power generation by up to 25-30%.',
-    fullDescription: 'Dust, bird droppings, soot, pollution, and dirt buildup form an opaque layer on solar panels, severely obstructing sunlight and causing up to 30% power generation loss (soiling loss). Aqua-Sol Energy provides specialized telescopic rotary brush cleaning, soft-bristle water-fed pole cleaning, and chemical-free demineralized water washing that removes stubborn grime safely without scratching anti-reflective glass coatings or voiding module warranties.',
+    fullDescription: 'Dust, bird droppings, soot, pollution, and dirt buildup form an opaque layer on solar panels, severely obstructing sunlight and causing up to 30% power generation loss (soiling loss). Aquasol Energy provides specialized telescopic rotary brush cleaning, soft-bristle water-fed pole cleaning, and chemical-free demineralized water washing that removes stubborn grime safely without scratching anti-reflective glass coatings or voiding module warranties.',
     features: [
       'Restores up to 20-30% lost electricity power generation immediately',
       'Ultra-soft scratch-resistant rotary and telescopic solar brush equipment',
@@ -151,7 +151,7 @@ export const services = [
     category: 'Turnkey Installation',
     image: rooftopSolarImg,
     shortDescription: 'Turnkey solar panel installation with complete MSEDCL DISCOM approvals, structure fabrication, and PM Surya Ghar subsidy processing.',
-    fullDescription: 'From initial 3D shadow analysis and roof structure engineering to panel installation, inverter commissioning, net meter testing, and subsidy release into your bank account, Aqua-Sol Energy handles every single step seamlessly.',
+    fullDescription: 'From initial 3D shadow analysis and roof structure engineering to panel installation, inverter commissioning, net meter testing, and subsidy release into your bank account, Aquasol Energy handles every single step seamlessly.',
     features: [
       'Official authorized vendor credentials with certified solar engineers',
       'Direct central subsidy up to ₹78,000 under PM Surya Ghar Yojana',
@@ -183,11 +183,11 @@ export const maintenanceGallery = [
   },
   {
     id: 'mg-7',
-    title: 'Aqua-Sol Heavy Stainless Steel Solar Tank Installation',
+    title: 'Aquasol Heavy Stainless Steel Solar Tank Installation',
     marathiTitle: 'अ‍ॅक्वा-सोल ब्रँडेड स्टेनलेस स्टील सोलर टँक',
     category: 'Tank Fitting & Brand',
     image: maintenance7Img,
-    description: 'Official Aqua-Sol Energy insulated stainless steel solar water heater tank with electric backup element mounted on heavy-duty rooftop frame.'
+    description: 'Official Aquasol Energy insulated stainless steel solar water heater tank with electric backup element mounted on heavy-duty rooftop frame.'
   },
   {
     id: 'mg-2',
@@ -195,7 +195,7 @@ export const maintenanceGallery = [
     marathiTitle: 'सोलर टँक फिटिंग व आर्गॉन वेल्डिंग',
     category: 'Tank Repair & Fitting',
     image: maintenance2Img,
-    description: 'Aqua-Sol engineering team installing and repairing a heavy-duty stainless steel insulated solar water heater storage tank on rooftop structure.'
+    description: 'Aquasol engineering team installing and repairing a heavy-duty stainless steel insulated solar water heater storage tank on rooftop structure.'
   },
   {
     id: 'mg-8',

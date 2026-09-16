@@ -7,11 +7,11 @@ export const brandLegacy = {
   yearsOfExcellence: '15+',
   tagline: '15 Years of Illuminating a Sustainable Future',
   overview:
-    'Welcome to Aqua-Sol Energy, where we have been illuminating a sustainable future for the last 15 years. As a trusted leader in the solar market, we specialize in delivering high-efficiency solar energy solutions tailored to commercial, residential, and institutional needs.',
+    'Welcome to Aquasol Energy, where we have been illuminating a sustainable future for the last 15 years. As a trusted leader in the solar market, we specialize in delivering high-efficiency solar energy solutions tailored to commercial, residential, and institutional needs.',
   reputation:
     'Over the past decade and a half, we have built a reputation for engineering excellence, reliability, and unparalleled service. Our commitment to green energy is reflected in our proud partnership with some of the region’s most prominent organizations and developers.',
   philosophy:
-    'At Aqua-Sol Energy, we don’t just install solar panels—we build long-term relationships anchored in trust and sustainable growth. Partner with us to transition to cleaner, smarter, and more cost-effective power.',
+    'At Aquasol Energy, we don’t just install solar panels—we build long-term relationships anchored in trust and sustainable growth. Partner with us to transition to cleaner, smarter, and more cost-effective power.',
 };
 
 export const esteemedClients = [

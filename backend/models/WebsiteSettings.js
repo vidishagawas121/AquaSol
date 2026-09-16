@@ -4,7 +4,7 @@ const websiteSettingsSchema = new mongoose.Schema(
   {
     companyName: {
       type: String,
-      default: 'Aqua-Sol Energy',
+      default: 'Aquasol Energy',
     },
     tagline: {
       type: String,

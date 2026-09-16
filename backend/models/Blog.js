@@ -37,7 +37,7 @@ const blogSchema = new mongoose.Schema(
     },
     author: {
       type: String,
-      default: 'Aqua-Sol Technical Editorial Team',
+      default: 'Aquasol Technical Editorial Team',
     },
     readTimeMinutes: {
       type: Number,

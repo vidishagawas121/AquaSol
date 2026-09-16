@@ -103,7 +103,7 @@ const HomePage = () => {
   };
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20am%20interested%20in%20rooftop%20solar%20under%20PM%20Surya%20Ghar.`;
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20am%20interested%20in%20rooftop%20solar%20under%20PM%20Surya%20Ghar.`;
 
   return (
     <div className="space-y-20 pb-16">
@@ -143,7 +143,7 @@ const HomePage = () => {
 
               {/* Description */}
               <p className="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Aqua-Sol Energy delivers turnkey On-Grid Rooftop Solar PV with up to <strong className="text-white font-bold">₹78,000 direct subsidy</strong>, heavy-duty stainless steel Solar Water Heaters, Heat Pumps, and prompt repair/AMC services across Pune.
+                Aquasol Energy delivers turnkey On-Grid Rooftop Solar PV with up to <strong className="text-white font-bold">₹78,000 direct subsidy</strong>, heavy-duty stainless steel Solar Water Heaters, Heat Pumps, and prompt repair/AMC services across Pune.
               </p>
 
               {/* CTAs */}
@@ -197,7 +197,7 @@ const HomePage = () => {
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden bg-slate-800/60 p-2 sm:p-2.5 border border-slate-700/60 shadow-2xl group">
                 <img
                   src={familyHero}
-                  alt="PM Surya Ghar Solar Installation Aqua-Sol Energy"
+                  alt="PM Surya Ghar Solar Installation Aquasol Energy"
                   className="w-full h-auto rounded-xl sm:rounded-2xl object-cover shadow-inner transition-transform duration-500 group-hover:scale-[1.01]"
                 />
               </div>
@@ -295,7 +295,7 @@ const HomePage = () => {
               Trusted by Maharashtra's Leading Developers & Institutions
             </h2>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-              For over a decade and a half, Aqua-Sol Energy has delivered specialized, high-efficiency solar power and water heating installations across commercial, residential, and defense infrastructures.
+              For over a decade and a half, Aquasol Energy has delivered specialized, high-efficiency solar power and water heating installations across commercial, residential, and defense infrastructures.
             </p>
           </div>
 
@@ -532,7 +532,7 @@ const HomePage = () => {
                 PM Surya Ghar: Muft Bijli Yojana
               </h2>
               <p className="text-sm sm:text-base text-slate-300 leading-relaxed">
-                The Government of India provides a direct subsidy of up to <strong className="text-brand-amber-400 font-bold">₹78,000</strong> directly deposited into your bank account. Install rooftop solar with Aqua-Sol Energy in Pune and receive up to 300 units of free power each month!
+                The Government of India provides a direct subsidy of up to <strong className="text-brand-amber-400 font-bold">₹78,000</strong> directly deposited into your bank account. Install rooftop solar with Aquasol Energy in Pune and receive up to 300 units of free power each month!
               </p>
 
               {/* Subsidy Matrix Grid */}
@@ -711,7 +711,7 @@ const HomePage = () => {
               />
               <img
                 src={maintenanceImg}
-                alt="Aqua-Sol Energy technician washing and descaling solar collector panels and water tank on Pune rooftop"
+                alt="Aquasol Energy technician washing and descaling solar collector panels and water tank on Pune rooftop"
                 className="relative z-10 w-full h-full max-h-[340px] object-contain rounded-xl drop-shadow-2xl group-hover:scale-[1.02] transition-transform duration-300"
               />
               <div className="absolute bottom-3 left-3 z-20 bg-slate-900/90 backdrop-blur-md text-brand-amber-400 text-[11px] font-bold px-3 py-1 rounded-full border border-slate-700 flex items-center gap-1.5 shadow">

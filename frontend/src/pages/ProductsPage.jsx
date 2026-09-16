@@ -26,7 +26,7 @@ const ProductsPage = () => {
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-brand-amber-500/20 text-brand-amber-400 border border-brand-amber-500/30">
-            Aqua-Sol Hardware & Systems
+            Aquasol Hardware & Systems
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
             Solar Products Catalog
@@ -77,7 +77,7 @@ const ProductsPage = () => {
                       />
                     </>
                   ) : (
-                    <div className="text-slate-400 text-xs font-semibold">Aqua-Sol Product Image</div>
+                    <div className="text-slate-400 text-xs font-semibold">Aquasol Product Image</div>
                   )}
                   <span className="absolute top-3 right-3 z-20 px-2.5 py-1 rounded-full text-[10px] font-bold bg-slate-900/90 text-white backdrop-blur-sm border border-slate-700">
                     {item.category}

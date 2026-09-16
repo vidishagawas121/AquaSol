@@ -20,7 +20,7 @@ const ContactPage = () => {
   const [error, setError] = useState('');
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aqua-Sol%20Energy,%20I%20am%20contacting%20you%20regarding%20solar%20services%20in%20Pune.`;
+  const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20am%20contacting%20you%20regarding%20solar%20services%20in%20Pune.`;
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,7 +36,7 @@ const ContactPage = () => {
     setLoading(true);
     setError('');
 
-    const text = `☀️ *Website Contact Enquiry - Aqua-Sol Energy*\n\n` +
+    const text = `☀️ *Website Contact Enquiry - Aquasol Energy*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Email:* ${formData.email || 'N/A'}\n` +
@@ -68,7 +68,7 @@ const ContactPage = () => {
             Get In Touch
           </span>
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Contact Aqua-Sol Energy
+            Contact Aquasol Energy
           </h1>
           <p className="text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
             Visit our Pune office in Chandan Nagar, call our solar engineering desk, or send an enquiry below.
@@ -160,7 +160,7 @@ const ContactPage = () => {
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-700 mb-3 px-2">Location Map</h4>
               <div className="h-56 w-full rounded-2xl overflow-hidden bg-slate-100 flex items-center justify-center relative">
                 <iframe
-                  title="Aqua-Sol Pune Office Map"
+                  title="Aquasol Pune Office Map"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15130.419402511478!2d73.91897455!3d18.54900765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2c1404c0ec2e9%3A0x6b4ee8e84df12a7a!2sChandan%20Nagar%2C%20Pune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                   width="100%"
                   height="100%"
@@ -188,7 +188,7 @@ const ContactPage = () => {
                 <CheckCircle2 className="w-12 h-12 text-green-600 mx-auto" />
                 <h4 className="text-lg font-bold">Message Sent Successfully!</h4>
                 <p className="text-xs text-green-800 max-w-sm mx-auto">
-                  Thank you for contacting Aqua-Sol Energy. Our Pune technical advisor will review your query and call you back shortly.
+                  Thank you for contacting Aquasol Energy. Our Pune technical advisor will review your query and call you back shortly.
                 </p>
                 <button
                   onClick={() => setSuccess(false)}
@@ -315,7 +315,7 @@ const ContactPage = () => {
 
                 <div className="flex items-center justify-center gap-2 text-[11px] text-slate-500">
                   <ShieldCheck className="w-4 h-4 text-emerald-600" />
-                  <span>Your enquiry is sent directly to Aqua-Sol Energy's Chandan Nagar office.</span>
+                  <span>Your enquiry is sent directly to Aquasol Energy's Chandan Nagar office.</span>
                 </div>
               </form>
             )}

@@ -97,7 +97,7 @@ const MAX_BODY_SIZE = process.env.MAX_BODY_SIZE || '10mb';
 if (process.env.MONGODB_URI) {
   connectDB();
 } else {
-  console.log('[Aqua-Sol Backend] Running in zero-database standalone mode (no MongoDB required).');
+  console.log('[Aquasol Backend] Running in zero-database standalone mode (no MongoDB required).');
 }
 
 // Enable Trust Proxy for Vercel/reverse-proxy edge servers & rate limiters
@@ -183,7 +183,7 @@ app.use('/api', apiLimiter);
 app.get('/', (req, res) => {
   res.json({
     status: 'online',
-    service: 'Aqua-Sol Energy Production API',
+    service: 'Aquasol Energy Production API',
     healthCheck: '/api/health',
     port: PORT,
     endpoints: [
@@ -205,7 +205,7 @@ app.get('/api/health', (req, res) => {
   res.json({
     status: 'online',
     timestamp: new Date().toISOString(),
-    service: 'Aqua-Sol Energy Production API',
+    service: 'Aquasol Energy Production API',
     location: 'Pune, Maharashtra',
     environment: process.env.VERCEL ? 'vercel-serverless' : NODE_ENV,
     port: PORT,
@@ -235,7 +235,7 @@ app.use(errorHandler);
 // In Vercel serverless, Vercel invokes the exported handler; in standalone node, start HTTP server
 if (!process.env.VERCEL && NODE_ENV !== 'test') {
   const server = app.listen(PORT, () => {
-    console.log(`[Aqua-Sol Backend] Running in ${NODE_ENV} mode on port ${PORT}`);
+    console.log(`[Aquasol Backend] Running in ${NODE_ENV} mode on port ${PORT}`);
   });
 
   server.on('error', (error) => {

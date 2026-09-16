@@ -8,7 +8,7 @@ export const PrivacyPolicyPage = () => {
       <p className="text-xs text-slate-500">Last updated: January 2026</p>
 
       <p>
-        Aqua-Sol Energy ("we", "our", or "us"), based in Chandan Nagar, Pune, values your trust and is committed to protecting your personal information. This Privacy Policy describes how we handle information collected via our website and lead enquiry forms.
+        Aquasol Energy ("we", "our", or "us"), based in Chandan Nagar, Pune, values your trust and is committed to protecting your personal information. This Privacy Policy describes how we handle information collected via our website and lead enquiry forms.
       </p>
 
       <h3 className="text-base font-bold text-slate-900 mt-4">1. Information We Collect</h3>
@@ -40,7 +40,7 @@ export const TermsPage = () => {
       <p className="text-xs text-slate-500">Last updated: January 2026</p>
 
       <p>
-        By using this website, you agree to comply with the terms and conditions outlined below. All solar product specifications, warranties, and installations are governed by formalized commercial contracts issued by Aqua-Sol Energy.
+        By using this website, you agree to comply with the terms and conditions outlined below. All solar product specifications, warranties, and installations are governed by formalized commercial contracts issued by Aquasol Energy.
       </p>
 
       <h3 className="text-base font-bold text-slate-900 mt-4">1. Solar Estimates & Quotations</h3>
@@ -50,7 +50,7 @@ export const TermsPage = () => {
 
       <h3 className="text-base font-bold text-slate-900 mt-4">2. Government Schemes & Subsidies</h3>
       <p>
-        Central subsidies under PM Surya Ghar are subject to national ministry guidelines, technical feasibility clearance, and DISCOM net-metering approvals. Aqua-Sol Energy coordinates the application process as an authorized vendor.
+        Central subsidies under PM Surya Ghar are subject to national ministry guidelines, technical feasibility clearance, and DISCOM net-metering approvals. Aquasol Energy coordinates the application process as an authorized vendor.
       </p>
 
       <div className="pt-6 border-t border-slate-200">
@@ -67,12 +67,12 @@ export const DisclaimerPage = () => {
       <p className="text-xs text-slate-500">Last updated: January 2026</p>
 
       <p>
-        Aqua-Sol Energy is a private renewable energy solutions provider and authorized solar vendor registered under MSME in Pune, Maharashtra.
+        Aquasol Energy is a private renewable energy solutions provider and authorized solar vendor registered under MSME in Pune, Maharashtra.
       </p>
 
       <h3 className="text-base font-bold text-slate-900 mt-4">PM Surya Ghar Scheme Distinction</h3>
       <p>
-        Aqua-Sol Energy is not a government ministry or statutory electricity board. We provide professional engineering, procurement, installation, and liaison services assisting residential consumers to avail benefits under the central government's PM Surya Ghar Muft Bijli Yojana. Official scheme details and direct portal access can be found at <a href="https://pmsuryaghar.gov.in" target="_blank" rel="noreferrer" className="text-brand-blue-600 underline">pmsuryaghar.gov.in</a>.
+        Aquasol Energy is not a government ministry or statutory electricity board. We provide professional engineering, procurement, installation, and liaison services assisting residential consumers to avail benefits under the central government's PM Surya Ghar Muft Bijli Yojana. Official scheme details and direct portal access can be found at <a href="https://pmsuryaghar.gov.in" target="_blank" rel="noreferrer" className="text-brand-blue-600 underline">pmsuryaghar.gov.in</a>.
       </p>
 
       <div className="pt-6 border-t border-slate-200">

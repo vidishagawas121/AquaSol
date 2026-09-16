@@ -9,7 +9,7 @@ const WhatsAppButton = ({ customMessage }) => {
   const phone = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
 
   const defaultMsg = customMessage || 
-    `Hello Aqua-Sol Energy, I am interested in rooftop solar / solar water heating solutions in Pune. Please share details and pricing.`;
+    `Hello Aquasol Energy, I am interested in rooftop solar / solar water heating solutions in Pune. Please share details and pricing.`;
 
   const encodedMessage = encodeURIComponent(defaultMsg);
   const whatsappUrl = `https://wa.me/${phone}?text=${encodedMessage}`;
@@ -22,7 +22,7 @@ const WhatsAppButton = ({ customMessage }) => {
           <div className="flex items-center justify-between border-b border-slate-100 pb-2 mb-2">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span>
-              <span className="text-xs font-bold text-slate-800">Aqua-Sol Solar Desk</span>
+              <span className="text-xs font-bold text-slate-800">Aquasol Solar Desk</span>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-400 hover:text-slate-600 p-1">
               <X className="w-4 h-4" />
@@ -46,7 +46,7 @@ const WhatsAppButton = ({ customMessage }) => {
       {/* Main Trigger Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        title="Chat on WhatsApp with Aqua-Sol Energy"
+        title="Chat on WhatsApp with Aquasol Energy"
         className="group relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#25D366] text-white shadow-xl shadow-green-500/30 hover:scale-105 active:scale-95 transition-all duration-200"
       >
         <span className="absolute -top-1 -right-1 flex h-3.5 w-3.5">

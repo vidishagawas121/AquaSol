@@ -67,7 +67,7 @@ const SolarCalculatorPage = () => {
     setError('');
 
     const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
-    const text = `⚡ *Solar Calculator Estimate - Aqua-Sol Energy*\n\n` +
+    const text = `⚡ *Solar Calculator Estimate - Aquasol Energy*\n\n` +
       `*Name:* ${formData.name}\n` +
       `*Phone:* ${formData.phone}\n` +
       `*Email:* ${formData.email || 'N/A'}\n` +
