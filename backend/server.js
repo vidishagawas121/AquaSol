@@ -3,12 +3,28 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import helmet from 'helmet';
 import morgan from 'morgan';
+import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dns from 'dns';
 
-// Load environment variables immediately
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Load environment variables with multi-path resolution
+const envPathCandidates = [
+  path.resolve(__dirname, '.env'),
+  path.resolve(process.cwd(), '.env'),
+  path.resolve(__dirname, '..', '.env'),
+];
+
+for (const envPath of envPathCandidates) {
+  if (fs.existsSync(envPath)) {
+    dotenv.config({ path: envPath });
+    break;
+  }
+}
+dotenv.config(); // Fallback standard dotenv search
 
 // Configure DNS servers for reliable MongoDB Atlas SRV resolution
 try {
@@ -47,11 +63,10 @@ import settingRoutes from './routes/settingRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
 const app = express();
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
-// Application Constants from Environment
-const PORT = process.env.PORT || 5000;
+// Application Constants from Environment (Defaults to Port 5111)
+const rawPort = (process.env.PORT || process.env.port || '5111').toString().trim();
+const PORT = parseInt(rawPort, 10) || 5111;
 const NODE_ENV = process.env.NODE_ENV || 'production';
 const MAX_BODY_SIZE = process.env.MAX_BODY_SIZE || '10mb';
 
@@ -147,6 +162,7 @@ app.get('/', (req, res) => {
     status: 'online',
     service: 'Aqua-Sol Energy Production API',
     healthCheck: '/api/health',
+    port: PORT,
     endpoints: [
       '/api/health',
       '/api/products',
@@ -204,7 +220,7 @@ if (!process.env.VERCEL && NODE_ENV !== 'test') {
       console.error(`\n❌ [Fatal Error]: Port ${PORT} is already in use by another process on your server.`);
       console.error(`💡 Quick Fix Options:`);
       console.error(`   Option 1: Free port ${PORT} with: fuser -k ${PORT}/tcp  (or: npx kill-port ${PORT})`);
-      console.error(`   Option 2: Change PORT in your .env file (e.g., PORT=5001 or PORT=8000)\n`);
+      console.error(`   Option 2: Change PORT in your .env file (e.g., PORT=5112 or PORT=8000)\n`);
       process.exit(1);
     } else {
       console.error(`[Server Listen Error]:`, error.message);
