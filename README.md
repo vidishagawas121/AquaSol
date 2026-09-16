@@ -1,14 +1,14 @@
-# ☀️ Aqua-Sol Energy — Official Static React Website
+# ☀️ Aquasol Energy — Official Static React Website
 
-A high-performance, maintenance-free **Static React Web Application** engineered for **Aqua-Sol Energy**, an authorized solar and renewable energy solutions enterprise headquartered in **Pune, Maharashtra**.
+A high-performance, maintenance-free **Static React Web Application** engineered for **Aquasol Energy**, an authorized solar and renewable energy solutions enterprise headquartered in **Pune, Maharashtra**.
 
 ---
 
-## 📋 Executive Summary
+## ⚡ Project Overview
 
-* **Company**: Aqua-Sol Energy
+* **Company**: Aquasol Energy
 * **Registered Office**: Office No. 05, Ground Floor, Laxmi Kunj, Near Ganpati Mandir, Chandan Nagar, Pune - 411014, Maharashtra
-* **Helpline & Contacts**: +91 8275067701 (Office) | +91 7391037702 (Samarth)
+* **Helpline & Contacts**: +91 8275067701 (Office) | +91 7391037702
 * **Official Email**: aquasolpune@gmail.com
 * **Official WhatsApp**: `https://wa.me/918275067701`
 * **Credentials**: Registered under Ministry of MSME, Govt. of India; Authorized PM Surya Ghar Vendor Partner.
