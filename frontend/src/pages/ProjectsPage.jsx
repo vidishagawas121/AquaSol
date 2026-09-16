@@ -20,7 +20,7 @@ import {
 } from 'lucide-react';
 import { products, esteemedClients, brandLegacy } from '../data';
 import { useSettings } from '../context/SettingsContext';
-import solarCanopyImg from '../assets/rooftop_solar_canopy.jpg';
+import solarCanopyImg from '../assets/rooftop_solar_1.jpg';
 
 const ProjectsPage = () => {
   const { settings } = useSettings();

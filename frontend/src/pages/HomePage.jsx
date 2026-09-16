@@ -43,7 +43,7 @@ import QuoteModal from '../components/QuoteModal';
 
 // Authentic brochure assets
 import familyHero from '../assets/pm_surya_ghar_family.png';
-import solarCanopyImg from '../assets/rooftop_solar_canopy.jpg';
+import solarCanopyImg from '../assets/rooftop_solar_1.jpg';
 import swhImg from '../assets/solar_water_heater_1.jpg';
 import streetLightImg from '../assets/solar_street_light_5.png';
 import heatPumpImg from '../assets/heat_pump_1.png';
