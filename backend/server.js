@@ -7,14 +7,24 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dns from 'dns';
 
+// Load environment variables immediately
+dotenv.config();
+
 // Configure DNS servers for reliable MongoDB Atlas SRV resolution
 try {
-  dns.setServers(['8.8.8.8', '8.8.4.4', '1.1.1.1', '1.0.0.1']);
+  const dnsServers = process.env.DNS_SERVERS
+    ? process.env.DNS_SERVERS.split(',').map((s) => s.trim()).filter(Boolean)
+    : ['8.8.8.8', '8.8.4.4', '1.1.1.1', '1.0.0.1'];
+
+  if (dnsServers.length > 0) {
+    dns.setServers(dnsServers);
+  }
+
   if (typeof dns.setDefaultResultOrder === 'function') {
     dns.setDefaultResultOrder('ipv4first');
   }
 } catch (dnsErr) {
-  console.warn('[DNS Notice]:', dnsErr.message);
+  console.warn('[DNS Configuration Notice]:', dnsErr.message);
 }
 
 import connectDB from './config/db.js';
@@ -36,13 +46,16 @@ import galleryRoutes from './routes/galleryRoutes.js';
 import settingRoutes from './routes/settingRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 
-dotenv.config();
-
 const app = express();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Connect to Database on startup (only if MONGODB_URI is provided)
+// Application Constants from Environment
+const PORT = process.env.PORT || 5000;
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const MAX_BODY_SIZE = process.env.MAX_BODY_SIZE || '10mb';
+
+// Connect to Database on startup (only if MONGODB_URI is configured)
 if (process.env.MONGODB_URI) {
   connectDB();
 } else {
@@ -59,9 +72,10 @@ app.use(
   })
 );
 
-// Flexible CORS setup for Vercel deployments & preview environments
-const configuredClients = process.env.CLIENT_URL
-  ? process.env.CLIENT_URL.split(',').map((url) => url.trim().replace(/\/+$/, ''))
+// Flexible CORS setup for Vercel deployments & production domains
+const rawClientUrls = process.env.CLIENT_URL || process.env.CORS_ORIGIN || '';
+const configuredClients = rawClientUrls
+  ? rawClientUrls.split(',').map((url) => url.trim().replace(/\/+$/, ''))
   : [];
 
 const allowedOrigins = [
@@ -74,10 +88,10 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: (origin, callback) => {
-      // Allow requests with no origin (e.g. mobile apps, curl, postman)
+      // Allow requests with no origin (e.g. mobile apps, server-to-server, curl, postman)
       if (!origin) return callback(null, true);
 
-      // Allow configured origins
+      // Allow explicitly configured origins
       if (allowedOrigins.includes(origin)) {
         return callback(null, true);
       }
@@ -88,7 +102,7 @@ app.use(
       }
 
       // In local development mode, allow all origins
-      if (process.env.NODE_ENV === 'development') {
+      if (NODE_ENV === 'development') {
         return callback(null, true);
       }
 
@@ -98,11 +112,13 @@ app.use(
   })
 );
 
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+app.use(express.json({ limit: MAX_BODY_SIZE }));
+app.use(express.urlencoded({ extended: true, limit: MAX_BODY_SIZE }));
 
-if (process.env.NODE_ENV === 'development') {
+if (NODE_ENV === 'development') {
   app.use(morgan('dev'));
+} else {
+  app.use(morgan('combined'));
 }
 
 // Ensure database connection is ready for incoming requests if MONGODB_URI is set
@@ -111,7 +127,7 @@ app.use(async (req, res, next) => {
   try {
     await connectDB();
   } catch (err) {
-    console.error('[DB Middleware Error]:', err.message);
+    console.error('[DB Middleware Connection Error]:', err.message);
   }
   next();
 });
@@ -129,7 +145,7 @@ app.use('/api', apiLimiter);
 app.get('/', (req, res) => {
   res.json({
     status: 'online',
-    message: 'Welcome to Aqua-Sol Energy Production API',
+    service: 'Aqua-Sol Energy Production API',
     healthCheck: '/api/health',
     endpoints: [
       '/api/health',
@@ -152,11 +168,11 @@ app.get('/api/health', (req, res) => {
     timestamp: new Date().toISOString(),
     service: 'Aqua-Sol Energy Production API',
     location: 'Pune, Maharashtra',
-    environment: process.env.VERCEL ? 'vercel-serverless' : (process.env.NODE_ENV || 'development'),
+    environment: process.env.VERCEL ? 'vercel-serverless' : NODE_ENV,
+    port: PORT,
     database: process.env.MONGODB_URI ? 'connected' : 'not required (standalone mode)',
   });
 });
-
 
 // Mount Routes
 app.use('/api/auth', authRoutes);
@@ -177,18 +193,16 @@ app.use('/api/uploads', uploadRoutes);
 app.use(notFound);
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
-
-// In Vercel serverless, Vercel invokes the exported handler; do not run app.listen()
-if (!process.env.VERCEL && process.env.NODE_ENV !== 'test') {
+// In Vercel serverless, Vercel invokes the exported handler; in standalone node, start HTTP server
+if (!process.env.VERCEL && NODE_ENV !== 'test') {
   app.listen(PORT, () => {
-    console.log(`[Aqua-Sol Backend] Running in ${process.env.NODE_ENV || 'development'} mode on port ${PORT}`);
+    console.log(`[Aqua-Sol Backend] Running in ${NODE_ENV} mode on port ${PORT}`);
   });
 }
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (err) => {
-  console.error(`[Unhandled Error]: ${err.message}`);
+  console.error(`[Unhandled Rejection]: ${err.message}`);
 });
 
 export default app;

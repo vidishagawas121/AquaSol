@@ -1,19 +1,37 @@
 import rateLimit from 'express-rate-limit';
 
+const leadWindowMs = process.env.LEAD_RATE_LIMIT_WINDOW_MS
+  ? parseInt(process.env.LEAD_RATE_LIMIT_WINDOW_MS, 10)
+  : 15 * 60 * 1000;
+
+const leadMax = process.env.LEAD_RATE_LIMIT_MAX
+  ? parseInt(process.env.LEAD_RATE_LIMIT_MAX, 10)
+  : 20;
+
+const apiWindowMs = process.env.RATE_LIMIT_WINDOW_MS
+  ? parseInt(process.env.RATE_LIMIT_WINDOW_MS, 10)
+  : 60 * 1000;
+
+const apiMax = process.env.RATE_LIMIT_MAX
+  ? parseInt(process.env.RATE_LIMIT_MAX, 10)
+  : 120;
+
+const supportPhone = process.env.WHATSAPP_NUMBER || '+91 8275067701';
+
 export const leadLimiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 20, // max 20 enquiries per IP per 15 min
+  windowMs: leadWindowMs,
+  max: leadMax,
   message: {
     success: false,
-    message: 'Too many requests submitted from this network. Please try again after 15 minutes or call us directly at +91 8275067701.',
+    message: `Too many requests submitted from this network. Please try again later or contact us directly at ${supportPhone}.`,
   },
   standardHeaders: true,
   legacyHeaders: false,
 });
 
 export const apiLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minute
-  max: 120, // 120 requests per min
+  windowMs: apiWindowMs,
+  max: apiMax,
   standardHeaders: true,
   legacyHeaders: false,
 });
