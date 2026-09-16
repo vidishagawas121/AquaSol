@@ -195,8 +195,20 @@ app.use(errorHandler);
 
 // In Vercel serverless, Vercel invokes the exported handler; in standalone node, start HTTP server
 if (!process.env.VERCEL && NODE_ENV !== 'test') {
-  app.listen(PORT, () => {
+  const server = app.listen(PORT, () => {
     console.log(`[Aqua-Sol Backend] Running in ${NODE_ENV} mode on port ${PORT}`);
+  });
+
+  server.on('error', (error) => {
+    if (error.code === 'EADDRINUSE') {
+      console.error(`\n❌ [Fatal Error]: Port ${PORT} is already in use by another process on your server.`);
+      console.error(`💡 Quick Fix Options:`);
+      console.error(`   Option 1: Free port ${PORT} with: fuser -k ${PORT}/tcp  (or: npx kill-port ${PORT})`);
+      console.error(`   Option 2: Change PORT in your .env file (e.g., PORT=5001 or PORT=8000)\n`);
+      process.exit(1);
+    } else {
+      console.error(`[Server Listen Error]:`, error.message);
+    }
   });
 }
 
