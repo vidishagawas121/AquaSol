@@ -204,7 +204,7 @@ const Footer = () => {
                     {settings.primaryPhone}
                   </a>
                   <a href={`tel:${settings.secondaryPhone || '+91 7391037702'}`} className="hover:text-white font-semibold text-slate-200 transition">
-                    {settings.secondaryPhone || '+91 7391037702'} <span className="text-slate-400 text-[11px] font-normal">(Samarth)</span>
+                    {settings.secondaryPhone || '+91 7391037702'}
                   </a>
                 </div>
               </li>

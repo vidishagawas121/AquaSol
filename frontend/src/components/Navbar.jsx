@@ -70,7 +70,6 @@ const Navbar = () => {
                   className="flex items-center gap-1 hover:text-brand-amber-400 transition text-[11px] sm:text-xs shrink-0"
                 >
                   <span className="font-semibold text-white">{settings.secondaryPhone || '+91 7391037702'}</span>
-                  <span className="text-slate-400 text-[10px] hidden xs:inline">(Samarth)</span>
                 </a>
               </div>
               <span className="hidden sm:inline text-slate-600">|</span>

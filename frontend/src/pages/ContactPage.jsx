@@ -112,7 +112,7 @@ const ContactPage = () => {
                         <a href={`tel:${settings.secondaryPhone || '+91 7391037702'}`} className="text-brand-blue-700 font-bold hover:underline">
                           {settings.secondaryPhone || '+91 7391037702'}
                         </a>
-                        <span className="text-slate-500 text-[11px] font-medium">Samarth</span>
+                        <span className="text-slate-400 text-[11px]">Alternate Line / Support Desk</span>
                       </div>
                     </div>
                   </div>

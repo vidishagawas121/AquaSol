@@ -43,7 +43,7 @@ const seedDB = async () => {
       displayPhone: '8275067701',
       secondaryPhone: '+91 7391037702',
       secondaryDisplayPhone: '7391037702',
-      secondaryContactName: 'Samarth',
+      secondaryContactName: '',
       whatsappNumber: '+918275067701',
       primaryEmail: 'aquasolpune@gmail.com',
       officeAddress: 'Office No. 05, Laxmi Kunj (Laxmikunj), Chandan Nagar, Pune, Maharashtra 411014',

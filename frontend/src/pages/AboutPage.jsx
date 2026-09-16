@@ -218,7 +218,7 @@ const AboutPage = () => {
               </a>{' '}
               /{' '}
               <a href={`tel:${settings.secondaryPhone || '+91 7391037702'}`} className="text-brand-amber-400 font-bold hover:underline">
-                {settings.secondaryPhone || '+91 7391037702'} (Samarth)
+                {settings.secondaryPhone || '+91 7391037702'}
               </a>
             </p>
           </div>

@@ -32,7 +32,7 @@ const websiteSettingsSchema = new mongoose.Schema(
     },
     secondaryContactName: {
       type: String,
-      default: 'Samarth',
+      default: '',
     },
     whatsappNumber: {
       type: String,

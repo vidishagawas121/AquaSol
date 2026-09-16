@@ -8,7 +8,6 @@ export const companyInfo = {
   displayPhone: '8275067701',
   secondaryPhone: '+91 7391037702',
   secondaryDisplayPhone: '7391037702',
-  secondaryContactName: 'Samarth',
   whatsappNumber: '918275067701',
   primaryEmail: 'aquasolpune@gmail.com',
   workingHours: 'Monday – Saturday: 9:00 AM – 7:30 PM (Sun By Appointment)',
