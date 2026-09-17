@@ -7,7 +7,7 @@ A high-performance, maintenance-free **Static React Web Application** engineered
 ## ⚡ Project Overview
 
 * **Company**: Aquasol Energy
-* **Registered Office**: Office No. 05, Ground Floor, Laxmi Kunj, Near Ganpati Mandir, Chandan Nagar, Pune - 411014, Maharashtra
+* **Registered Office**: Office No. 05, Ground Floor, Laxmi Kunj, Near Sai Mandir, Chandan Nagar, Pune - 411014, Maharashtra
 * **Helpline & Contacts**: +91 8275067701 (Office) | +91 7391037702
 * **Official Email**: aquasolpune@gmail.com
 * **Official WhatsApp**: `https://wa.me/918275067701`

@@ -44,7 +44,7 @@ const websiteSettingsSchema = new mongoose.Schema(
     },
     officeAddress: {
       type: String,
-      default: 'Office No. 05, Laxmi Kunj, Chandan Nagar, Pune, Maharashtra 411014',
+      default: 'Office No. 05, Ground Floor, Laxmi Kunj, Near Sai Mandir, Chandan Nagar, Pune - 411014, Maharashtra',
     },
     workingHours: {
       type: String,

@@ -46,7 +46,7 @@ const seedDB = async () => {
       secondaryContactName: '',
       whatsappNumber: '+918275067701',
       primaryEmail: 'aquasolpune@gmail.com',
-      officeAddress: 'Office No. 05, Laxmi Kunj (Laxmikunj), Chandan Nagar, Pune, Maharashtra 411014',
+      officeAddress: 'Office No. 05, Ground Floor, Laxmi Kunj, Near Sai Mandir, Chandan Nagar, Pune - 411014, Maharashtra',
       workingHours: 'Monday – Saturday: 9:00 AM – 7:30 PM',
       msmeRegistration: 'Registered under Micro, Small & Medium Enterprises (MSME)',
       isOfficialVendor: true,

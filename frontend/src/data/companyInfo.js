@@ -3,7 +3,7 @@ export const companyInfo = {
   legalName: 'Aquasol Energy Pune',
   tagline: 'Empowering Maharashtra with Clean Solar Energy & Water Heating Solutions',
   marathiTagline: 'घराच्या छतावर सोलर बसवा, वीजबिलातून कायमची सुटका मिळवा!',
-  officeAddress: 'Office No. 05, Ground Floor, Laxmi Kunj, Near Ganpati Mandir, Chandan Nagar, Pune - 411014, Maharashtra',
+  officeAddress: 'Office No. 05, Ground Floor, Laxmi Kunj, Near Sai Mandir, Chandan Nagar, Pune - 411014, Maharashtra',
   primaryPhone: '+91 8275067701',
   displayPhone: '8275067701',
   secondaryPhone: '+91 7391037702',
