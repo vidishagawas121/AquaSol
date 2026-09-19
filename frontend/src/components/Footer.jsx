@@ -223,8 +223,21 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
-        <div className="border-t border-slate-900 mt-5 pt-3 pb-1 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-slate-500">
-          <p>© {new Date().getFullYear()} Aquasol Energy. All rights reserved. Clean Solar & Renewable Energy Solutions.</p>
+        <div className="border-t border-slate-900 mt-5 pt-3 pb-1 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500 text-center md:text-left">
+          <div>
+            <p>© {new Date().getFullYear()} Aquasol Energy. All rights reserved. Clean Solar & Renewable Energy Solutions.</p>
+            <p className="mt-0.5 text-slate-400">
+              Designed &amp; Developed by{' '}
+              <a
+                href="https://fouriseindia.com/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-amber-400 hover:text-brand-amber-300 font-semibold hover:underline transition"
+              >
+                Fourise India
+              </a>
+            </p>
+          </div>
           <div className="flex items-center gap-3.5 text-[11px]">
             <Link to="/privacy-policy" className="hover:text-slate-300 transition">
               Privacy Policy
