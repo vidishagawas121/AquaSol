@@ -40,6 +40,7 @@ import {
 } from '../data';
 import SectionHeading from '../components/SectionHeading';
 import QuoteModal from '../components/QuoteModal';
+import SEO from '../components/SEO';
 
 // Authentic brochure assets
 import familyHero from '../assets/pm_surya_ghar_family.png';
@@ -107,6 +108,12 @@ const HomePage = () => {
 
   return (
     <div className="space-y-20 pb-16">
+      <SEO
+        title="Solar Rooftop PV, PM Surya Ghar Subsidy & Solar Water Heaters"
+        description="Pune's top rated solar power installer. Claim ₹78,000 PM Surya Ghar subsidy, get solar panel installation, stainless steel water heaters, heat pumps & solar AMC across Pune."
+        keywords="Solar Rooftop Pune, PM Surya Ghar Pune, Solar Panel Installation Pune, Solar Water Heater Servicing Pune, Solar AMC Pune, Heat Pump Pune Maharashtra, Aquasol Energy Chandan Nagar"
+        canonical="https://aquasolenergy.in"
+      />
       {/* 1. HERO SECTION */}
       <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white pt-10 pb-20 lg:pt-16 lg:pb-28">
         {/* Subtle decorative solar grid ambient background */}

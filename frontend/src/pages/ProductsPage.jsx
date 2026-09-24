@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { products as allProducts } from '../data';
 import QuoteModal from '../components/QuoteModal';
+import SEO from '../components/SEO';
 
 const categories = [
   'All',
@@ -22,6 +23,12 @@ const ProductsPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Solar Water Heaters, Solar Panels & Heat Pumps Catalog Pune"
+        description="Browse Aquasol Energy's range of Stainless Steel ETC & FPC Solar Water Heaters, Tier-1 Mono PERC Solar Panels, On-Grid Inverters, and Commercial Heat Pumps in Pune."
+        keywords="Solar water heater Pune price, ETC solar water heater Pune, FPC solar heater, Mono PERC solar panel Pune, On grid solar inverters, Heat pump water heater Pune"
+        canonical="https://aquasolenergy.in/products"
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">

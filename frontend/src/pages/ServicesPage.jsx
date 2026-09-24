@@ -17,6 +17,7 @@ import {
 import { services, maintenanceGallery } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
+import SEO from '../components/SEO';
 
 const ServicesPage = () => {
   const { settings } = useSettings();
@@ -59,6 +60,12 @@ const ServicesPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Solar Water Heater Repair, Descaling & Solar Panel AMC in Pune"
+        description="Fast doorstep solar servicing in Pune. Tank leak repairs, chemical descaling, glass tube replacement, MSEDCL net metering and Annual Maintenance Contracts (AMC)."
+        keywords="Solar water heater repair Pune, Solar AMC Pune, Solar descaling service Pune, Solar tank leaking repair, Solar panel cleaning service Pune, Aquasol solar service"
+        canonical="https://aquasolenergy.in/services"
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Calendar, Clock, MapPin, CheckCircle2, Send, Loader2, ShieldCheck, Phone } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
+import SEO from '../components/SEO';
 
 const BookSurveyPage = () => {
   const { settings } = useSettings();
@@ -56,6 +57,12 @@ const BookSurveyPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Book Free Rooftop Solar Survey & Consultation in Pune"
+        description="Book a free on-site solar engineering survey in Pune & PCMC. Our technical team conducts roof shadow analysis, structure evaluation, and solar capacity feasibility."
+        keywords="Book solar survey Pune, Free solar site visit Pune, Rooftop solar feasibility study Pune, Solar panel engineer visit Chandan Nagar Pune"
+        canonical="https://aquasolenergy.in/book-survey"
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">

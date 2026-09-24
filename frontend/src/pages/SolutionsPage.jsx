@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, Check } from 'lucide-react';
 import { solutions as allSolutions } from '../data';
 import QuoteModal from '../components/QuoteModal';
+import SEO from '../components/SEO';
 
 const SolutionsPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -15,6 +16,12 @@ const SolutionsPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Solar & Renewable Energy Solutions Pune | Residential & Commercial"
+        description="Explore custom residential rooftop solar, commercial & industrial solar PV plants, solar water heaters and heat pump solutions designed by Aquasol Energy Pune."
+        keywords="Solar solutions Pune, Commercial solar installation Pune, Industrial solar rooftop Maharashtra, Solar heating systems Pune"
+        canonical="https://aquasolenergy.in/solutions"
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">

@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
+import SEO from '../components/SEO';
 
 const SolarCalculatorPage = () => {
   const { settings } = useSettings();
@@ -89,6 +90,12 @@ const SolarCalculatorPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Solar Rooftop & PM Surya Ghar Subsidy Calculator Pune"
+        description="Calculate rooftop solar capacity (kW), units generated per year, MSEDCL bill savings, and PM Surya Ghar government subsidy (up to ₹78,000) for your home or business in Pune."
+        keywords="Solar calculator Pune, PM Surya Ghar subsidy calculator, Rooftop solar ROI calculator, Solar panel units calculator Maharashtra, Solar savings Pune"
+        canonical="https://aquasolenergy.in/solar-calculator"
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">

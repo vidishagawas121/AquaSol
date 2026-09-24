@@ -16,6 +16,7 @@ import {
 } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
+import SEO from '../components/SEO';
 import familyHero from '../assets/pm_surya_ghar_family.png';
 
 const PMSuryaGharPage = () => {
@@ -63,6 +64,12 @@ const PMSuryaGharPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="PM Surya Ghar Muft Bijli Yojana Pune | ₹78,000 Subsidy Assistance"
+        description="Apply for PM Surya Ghar Muft Bijli Yojana in Pune with Aquasol Energy. Get up to ₹78,000 direct bank subsidy, MSEDCL net metering and zero electricity bills."
+        keywords="PM Surya Ghar Pune, PM Surya Ghar Muft Bijli Yojana, Solar Subsidy Pune, PM Surya Ghar apply online Pune, Rooftop Solar Scheme Maharashtra, MSEDCL solar subsidy"
+        canonical="https://aquasolenergy.in/pm-surya-ghar"
+      />
       {/* 1. HERO SECTION */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">

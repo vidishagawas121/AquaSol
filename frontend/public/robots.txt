@@ -1,0 +1,10 @@
+# ==============================================================================
+# Aquasol Energy - Robots.txt for Search Engines (Google, Bing, Yahoo)
+# Website: https://aquasolenergy.in
+# ==============================================================================
+
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://aquasolenergy.in/sitemap.xml

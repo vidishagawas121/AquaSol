@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Loader2, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
+import SEO from '../components/SEO';
 
 const ContactPage = () => {
   const { settings } = useSettings();
@@ -61,6 +62,12 @@ const ContactPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Contact Aquasol Energy Pune | Solar Rooftop & Heating Office"
+        description="Get in touch with Aquasol Energy in Chandan Nagar, Pune. Call +91 8275067701 or visit our office for solar panels, subsidy advice, solar water heaters, and repair queries."
+        keywords="Aquasol Energy contact, Solar office Pune, Solar company phone number Pune, Solar panel dealer Chandan Nagar Pune"
+        canonical="https://aquasolenergy.in/contact"
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-4xl mx-auto text-center space-y-4">
