@@ -133,15 +133,13 @@ const ServiceDetailPage = () => {
                 Schedule Service Visit
               </button>
 
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2"
+              <button
+                onClick={() => setQuoteOpen(true)}
+                className="w-full py-3 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2 cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
                 WhatsApp Quick Booking
-              </a>
+              </button>
             </div>
 
             <div className="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm space-y-2 text-xs text-slate-600">

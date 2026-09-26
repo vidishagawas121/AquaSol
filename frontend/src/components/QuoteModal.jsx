@@ -116,11 +116,19 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header - Fixed/Sticky at top */}
-        <div className="bg-gradient-to-r from-brand-blue-700 via-brand-blue-800 to-slate-900 px-4 py-3.5 sm:px-6 sm:py-4 text-white flex items-center justify-between shrink-0">
-          <div>
-            <span className="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-brand-amber-400">Aquasol Energy</span>
-            <h3 className="text-lg sm:text-xl font-bold leading-tight">Request a Free Solar Quote</h3>
-            <p className="text-[11px] sm:text-xs text-slate-300 mt-0.5">Pune & Maharashtra Rooftop Solutions</p>
+        <div className="bg-gradient-to-r from-slate-900 via-brand-blue-900 to-slate-900 px-4 py-3.5 sm:px-6 sm:py-4 text-white flex items-center justify-between shrink-0 border-b border-white/10">
+          <div className="flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#25D366] text-white flex items-center justify-center shadow-md shadow-green-500/20 shrink-0">
+              <WhatsAppIcon className="w-6 h-6 text-white" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] sm:text-xs uppercase font-bold tracking-wider text-brand-amber-400">Aquasol Energy</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-[#25D366] animate-pulse"></span>
+              </div>
+              <h3 className="text-base sm:text-lg font-bold leading-tight text-white">WhatsApp Enquiry & Quote</h3>
+              <p className="text-[11px] text-slate-300">Fast doorstep quotation & support across Pune</p>
+            </div>
           </div>
           <button
             type="button"
@@ -292,10 +300,10 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-brand-amber-500 to-brand-amber-600 hover:from-brand-amber-600 hover:to-brand-amber-700 active:scale-[0.99] text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-amber-500/20 transition-all duration-200 disabled:opacity-60 cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2.5 px-4 sm:px-6 py-3.5 bg-gradient-to-r from-[#25D366] to-[#20ba59] hover:from-[#20ba59] hover:to-[#1aa84f] active:scale-[0.99] text-white font-bold text-sm sm:text-base rounded-xl shadow-lg shadow-green-500/25 transition-all duration-200 disabled:opacity-60 cursor-pointer"
                 >
-                  <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
-                  <span>Send Quote Request via WhatsApp</span>
+                  <WhatsAppIcon className="w-5 h-5 text-white shrink-0" />
+                  <span>Send on WhatsApp</span>
                 </button>
               </div>
 

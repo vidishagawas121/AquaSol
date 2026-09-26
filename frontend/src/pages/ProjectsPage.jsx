@@ -18,6 +18,7 @@ import {
   Sun,
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import QuoteModal from '../components/QuoteModal';
 import { products, esteemedClients, brandLegacy } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import solarCanopyImg from '../assets/rooftop_solar_1.jpg';
@@ -26,6 +27,7 @@ const ProjectsPage = () => {
   const { settings } = useSettings();
   const [activeCategory, setActiveCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState(null);
+  const [quoteOpen, setQuoteOpen] = useState(false);
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
   const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20we%20would%20like%20to%20discuss%20a%20commercial%20or%20residential%20solar%20project%20in%20Pune.`;
@@ -367,18 +369,23 @@ const ProjectsPage = () => {
               <Phone className="w-4 h-4" />
               Call {settings.primaryPhone}
             </a>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-green-500/20 transition flex items-center justify-center gap-2 text-center"
+            <button
+              onClick={() => setQuoteOpen(true)}
+              className="px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-green-500/20 transition flex items-center justify-center gap-2 text-center cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
               WhatsApp Engineering Desk
-            </a>
+            </button>
           </div>
         </div>
       </section>
+
+      <QuoteModal
+        isOpen={quoteOpen}
+        onClose={() => setQuoteOpen(false)}
+        defaultService="Commercial Solar PV"
+        source="Projects Page"
+      />
     </div>
   );
 };

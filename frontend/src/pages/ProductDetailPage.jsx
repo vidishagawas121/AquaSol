@@ -133,15 +133,13 @@ const ProductDetailPage = () => {
               >
                 Enquire Now
               </button>
-              <a
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="py-3.5 px-6 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm rounded-xl shadow-lg shadow-green-500/20 transition flex items-center gap-2"
+              <button
+                onClick={() => setQuoteOpen(true)}
+                className="py-3.5 px-6 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-bold text-sm rounded-xl shadow-lg shadow-green-500/20 transition flex items-center gap-2 cursor-pointer"
               >
                 <WhatsAppIcon className="w-4 h-4 text-white" />
                 WhatsApp Enquiry
-              </a>
+              </button>
             </div>
 
             {/* Features List */}

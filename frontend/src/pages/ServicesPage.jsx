@@ -343,15 +343,16 @@ const ServicesPage = () => {
               <Phone className="w-4 h-4" />
               Call {settings.primaryPhone}
             </a>
-            <a
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-5 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold rounded-xl shadow transition flex items-center gap-2"
+            <button
+              onClick={() => {
+                setQuoteService('Solar Water Heater Servicing & Descaling');
+                setQuoteOpen(true);
+              }}
+              className="px-5 py-3 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white text-xs font-bold rounded-xl shadow transition flex items-center gap-2 cursor-pointer"
             >
               <WhatsAppIcon className="w-4 h-4 text-white" />
-              WhatsApp
-            </a>
+              WhatsApp Enquiry
+            </button>
           </div>
         </div>
       </section>

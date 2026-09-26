@@ -163,15 +163,13 @@ const HomePage = () => {
                   <span>Get a Free Solar Quote</span>
                 </button>
 
-                <a
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full sm:w-auto px-5 py-3 sm:py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-green-500/20 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
+                <button
+                  onClick={() => handleOpenQuote('PM Surya Ghar Rooftop Solar')}
+                  className="w-full sm:w-auto px-5 py-3 sm:py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-green-500/20 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
                 >
                   <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
                   <span>WhatsApp Us</span>
-                </a>
+                </button>
 
                 <Link
                   to="/solar-calculator"
