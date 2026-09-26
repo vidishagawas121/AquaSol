@@ -15,6 +15,7 @@ import {
   Wrench,
   Award,
   Sparkles,
+  BookOpen,
 } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
 import aquaLogo from '../assets/aqua_sol_logo.png';
@@ -453,13 +454,14 @@ const Navbar = () => {
                 <Calculator className="w-4 h-4 text-emerald-600" />
                 <span>Solar Savings Calculator</span>
               </Link>
-              <Link to="/projects" onClick={() => setMobileMenuOpen(false)} className="p-2.5 rounded-xl hover:bg-slate-50">
+              <Link to="/projects" onClick={() => setMobileMenuOpen(false)} className={`p-2.5 rounded-xl transition ${isActive('/projects') ? 'text-brand-blue-600 bg-brand-blue-50 font-bold' : 'hover:bg-slate-50'}`}>
                 Projects & Case Studies
               </Link>
-              <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className="p-2.5 rounded-xl hover:bg-slate-50">
-                Solar Guides & News
+              <Link to="/blog" onClick={() => setMobileMenuOpen(false)} className={`p-2.5 rounded-xl transition flex items-center gap-2 ${isActive('/blog') ? 'text-brand-blue-600 bg-brand-blue-50 font-bold' : 'hover:bg-slate-50'}`}>
+                <BookOpen className="w-4 h-4 text-brand-amber-500" />
+                <span>Blogs</span>
               </Link>
-              <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className="p-2.5 rounded-xl hover:bg-slate-50">
+              <Link to="/contact" onClick={() => setMobileMenuOpen(false)} className={`p-2.5 rounded-xl transition ${isActive('/contact') ? 'text-brand-blue-600 bg-brand-blue-50 font-bold' : 'hover:bg-slate-50'}`}>
                 Contact Pune Office
               </Link>
 
