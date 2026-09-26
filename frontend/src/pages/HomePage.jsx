@@ -40,6 +40,7 @@ import {
 } from '../data';
 import SectionHeading from '../components/SectionHeading';
 import QuoteModal from '../components/QuoteModal';
+import ScrollDownPrompt from '../components/ScrollDownPrompt';
 import SEO from '../components/SEO';
 
 // Authentic brochure assets
@@ -115,7 +116,7 @@ const HomePage = () => {
         canonical="https://aquasolenergy.in"
       />
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white pt-10 pb-20 lg:pt-16 lg:pb-28">
+      <section className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white pt-6 pb-10 sm:pt-10 sm:pb-16 lg:pt-16 lg:pb-24">
         {/* Subtle decorative solar grid ambient background */}
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"></div>
 
@@ -227,11 +228,14 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+
+          {/* Animated Scroll Down Indicator Prompt */}
+          <ScrollDownPrompt targetId="explore-solutions" />
         </div>
       </section>
 
       {/* 2. TRUST & CREDIBILITY SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="explore-solutions" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-20">
         <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-xl shadow-slate-200/50 border border-slate-100">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="flex items-start gap-4">

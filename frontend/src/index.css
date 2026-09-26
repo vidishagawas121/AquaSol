@@ -65,3 +65,36 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
 }
+
+/* Scroll Down Prompt Animations */
+@keyframes bounceScroll {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(6px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes scrollMouseWheel {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+
+.animate-bounce-scroll {
+  animation: bounceScroll 1.8s infinite ease-in-out;
+}
+
+.animate-mouse-wheel {
+  animation: scrollMouseWheel 1.5s infinite ease-out;
+}
+
