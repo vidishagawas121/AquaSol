@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import WhatsAppButton from '../components/WhatsAppButton';
+import GlobalScrollDown from '../components/GlobalScrollDown';
 
 const PublicLayout = () => {
   return (
@@ -12,6 +13,7 @@ const PublicLayout = () => {
         <Outlet />
       </main>
       <Footer />
+      <GlobalScrollDown />
       <WhatsAppButton />
     </div>
   );

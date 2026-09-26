@@ -224,22 +224,24 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar: Copyright & Legal */}
-        <div className="border-t border-slate-900 mt-5 pt-3 pb-1 flex flex-col md:flex-row items-center justify-between gap-3 text-[11px] text-slate-500 text-center md:text-left">
-          <div>
-            <p>© {new Date().getFullYear()} Aquasol Energy. All rights reserved. Clean Solar & Renewable Energy Solutions.</p>
-            <p className="mt-0.5 text-slate-400">
+        <div className="border-t border-slate-900 mt-6 pt-4 pb-2 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500 text-center md:text-left">
+          <div className="flex flex-col gap-2">
+            <p className="text-slate-500 text-[11px] md:text-xs select-none pointer-events-none">
+              © {new Date().getFullYear()} Aquasol Energy. All rights reserved. Clean Solar &amp; Renewable Energy Solutions.
+            </p>
+            <p className="text-slate-300 text-xs md:text-sm font-medium">
               Designed &amp; Developed by{' '}
               <a
                 href="https://fouriseindia.com/contact"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-brand-amber-400 hover:text-brand-amber-300 font-semibold hover:underline transition"
+                className="text-brand-amber-400 hover:text-brand-amber-300 font-bold hover:underline transition inline-block text-xs md:text-sm tracking-wide py-1 px-1.5 rounded touch-manipulation"
               >
-                Fourise India
+                Fourise Software Solutions Pvt. Ltd
               </a>
             </p>
           </div>
-          <div className="flex items-center gap-3.5 text-[11px]">
+          <div className="flex items-center gap-3.5 text-[11px] md:text-xs">
             <Link to="/privacy-policy" className="hover:text-slate-300 transition">
               Privacy Policy
             </Link>
