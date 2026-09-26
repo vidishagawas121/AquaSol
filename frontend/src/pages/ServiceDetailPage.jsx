@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import {
   CheckCircle2,
-  MessageCircle,
   ShieldCheck,
   Sparkles,
 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import { services } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
@@ -139,7 +139,7 @@ const ServiceDetailPage = () => {
                 rel="noopener noreferrer"
                 className="w-full py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs rounded-xl shadow transition flex items-center justify-center gap-2"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
                 WhatsApp Quick Booking
               </a>
             </div>

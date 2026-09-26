@@ -6,3 +6,5 @@ export { projects, esteemedClients, brandLegacy } from './projects';
 export { faqs } from './faqs';
 export { testimonials } from './testimonials';
 export { blogs } from './blogs';
+export { serviceOptions, getPredefinedMessage, getMatchingServiceOption } from './serviceMessages';
+

@@ -5,7 +5,6 @@ import {
   Check,
   ArrowRight,
   Phone,
-  MessageCircle,
   Sparkles,
   Maximize2,
   X,
@@ -14,6 +13,7 @@ import {
   ShieldCheck,
   Award,
 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import { services, maintenanceGallery } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
@@ -349,7 +349,7 @@ const ServicesPage = () => {
               rel="noopener noreferrer"
               className="px-5 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white text-xs font-bold rounded-xl shadow transition flex items-center gap-2"
             >
-              <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               WhatsApp
             </a>
           </div>

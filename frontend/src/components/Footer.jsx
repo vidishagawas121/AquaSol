@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Clock, ShieldCheck, Sun, ArrowRight, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, Clock, ShieldCheck, Sun, ArrowRight } from 'lucide-react';
+import WhatsAppIcon from './WhatsAppIcon';
 import { useSettings } from '../context/SettingsContext';
 import aquaLogo from '../assets/aqua_sol_logo.png';
 import msmeLogo from '../assets/msme_logo.png';
@@ -85,7 +86,7 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-3.5 py-2 bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] border border-[#25D366]/25 rounded-xl text-xs font-bold transition"
               >
-                <MessageCircle className="w-4 h-4 fill-[#25D366] text-transparent" />
+                <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
                 <span>WhatsApp Hotline: {settings.displayPhone}</span>
               </a>
             </div>

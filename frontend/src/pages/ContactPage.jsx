@@ -1,30 +1,72 @@
-import React, { useState } from 'react';
-import { Phone, Mail, MapPin, Clock, MessageCircle, Send, Loader2, CheckCircle2, ShieldCheck } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Phone, Mail, MapPin, Clock, Send, Loader2, CheckCircle2, ShieldCheck, Sparkles } from 'lucide-react';
 import { useSettings } from '../context/SettingsContext';
+import { serviceOptions, getPredefinedMessage, getMatchingServiceOption } from '../data/serviceMessages';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import SectionHeading from '../components/SectionHeading';
 import SEO from '../components/SEO';
 
 const ContactPage = () => {
   const { settings } = useSettings();
+  const [searchParams] = useSearchParams();
+  const serviceParam = searchParams.get('service') || '';
+
+  const initialSolution = serviceParam ? getMatchingServiceOption(serviceParam) : 'General Enquiry';
+  const initialMessage = serviceParam ? getPredefinedMessage(serviceParam) : '';
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     city: 'Pune',
     propertyType: 'Residential',
-    interestedProduct: 'General Enquiry',
-    message: '',
+    interestedProduct: initialSolution,
+    message: initialMessage,
   });
 
+  const [isMessageCustomized, setIsMessageCustomized] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    if (serviceParam) {
+      const opt = getMatchingServiceOption(serviceParam);
+      const msg = getPredefinedMessage(serviceParam);
+      setFormData((prev) => ({
+        ...prev,
+        interestedProduct: opt,
+        message: msg,
+      }));
+    }
+  }, [serviceParam]);
 
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
   const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20am%20contacting%20you%20regarding%20solar%20services%20in%20Pune.`;
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === 'interestedProduct') {
+      const templ = getPredefinedMessage(value);
+      setFormData((prev) => ({
+        ...prev,
+        interestedProduct: value,
+        message: isMessageCustomized ? prev.message : (value === 'General Enquiry' ? '' : templ),
+      }));
+    } else if (name === 'message') {
+      setIsMessageCustomized(true);
+      setFormData((prev) => ({ ...prev, message: value }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleResetMessage = () => {
+    const templ = getPredefinedMessage(formData.interestedProduct);
+    setFormData((prev) => ({ ...prev, message: templ }));
+    setIsMessageCustomized(false);
   };
 
   const handleSubmit = (e) => {
@@ -156,7 +198,7 @@ const ContactPage = () => {
                   rel="noopener noreferrer"
                   className="w-full py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs rounded-xl shadow-lg shadow-green-500/20 transition flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
                   Chat Directly On WhatsApp
                 </a>
               </div>
@@ -264,20 +306,33 @@ const ContactPage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Interested Solution</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Interested Solution / Service</label>
                     <select
                       name="interestedProduct"
                       value={formData.interestedProduct}
                       onChange={handleChange}
-                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500"
+                      className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 font-medium text-slate-800 bg-white"
                     >
-                      <option value="PM Surya Ghar Rooftop Solar">PM Surya Ghar Rooftop Solar (₹78K Subsidy)</option>
-                      <option value="Solar Water Heater (New)">Solar Water Heater (New System)</option>
-                      <option value="Solar Water Heater Servicing/Repair">Solar Water Heater Servicing / Repair</option>
-                      <option value="Commercial Solar PV">Commercial / Society Solar</option>
-                      <option value="Heat Pump System">Heat Pump Water Heater</option>
-                      <option value="Solar Street Light">Solar Street Lights</option>
-                      <option value="General Enquiry">General Consultation</option>
+                      <optgroup label="☀️ Rooftop Solar PV">
+                        {serviceOptions.filter(o => o.category === 'Rooftop Solar').map(opt => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="💧 Water Heating Solutions">
+                        {serviceOptions.filter(o => o.category === 'Water Heating').map(opt => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="🔧 Servicing, Repair & AMC">
+                        {serviceOptions.filter(o => o.category === 'Maintenance & Repairs').map(opt => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="💡 Other Solar Solutions & Consultation">
+                        {serviceOptions.filter(o => !['Rooftop Solar', 'Water Heating', 'Maintenance & Repairs'].includes(o.category)).map(opt => (
+                          <option key={opt.value} value={opt.value}>{opt.label}</option>
+                        ))}
+                      </optgroup>
                     </select>
                   </div>
 
@@ -298,15 +353,33 @@ const ContactPage = () => {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1">Message / Specific Query</label>
+                  <div className="flex items-center justify-between mb-1">
+                    <label className="block text-xs font-bold text-slate-700">Message / Specific Query</label>
+                    {formData.message && (
+                      <span className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-blue-700 bg-brand-blue-50 px-2 py-0.5 rounded-md">
+                        <Sparkles className="w-3 h-3 text-brand-amber-500" /> Pre-filled for selected service
+                      </span>
+                    )}
+                  </div>
                   <textarea
                     name="message"
                     rows="4"
                     value={formData.message}
                     onChange={handleChange}
                     placeholder="Describe your rooftop requirement, monthly bill, or leak/servicing issue..."
-                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 resize-none"
+                    className="w-full px-3.5 py-2.5 text-xs rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 resize-none bg-slate-50/50 focus:bg-white text-slate-700 font-normal leading-relaxed"
                   ></textarea>
+                  {isMessageCustomized && formData.interestedProduct !== 'General Enquiry' && (
+                    <div className="flex justify-end mt-1">
+                      <button
+                        type="button"
+                        onClick={handleResetMessage}
+                        className="text-[11px] text-brand-blue-600 hover:text-brand-blue-800 underline font-medium"
+                      >
+                        Reset to default service template
+                      </button>
+                    </div>
+                  )}
                 </div>
 
                 <div className="pt-2">

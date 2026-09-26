@@ -9,7 +9,6 @@ import {
   Award,
   Users,
   Phone,
-  MessageCircle,
   CheckCircle2,
   Sparkles,
   Maximize2,
@@ -18,6 +17,7 @@ import {
   ChevronRight,
   Sun,
 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import { products, esteemedClients, brandLegacy } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import solarCanopyImg from '../assets/rooftop_solar_1.jpg';
@@ -373,7 +373,7 @@ const ProjectsPage = () => {
               rel="noopener noreferrer"
               className="px-6 py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-green-500/20 transition flex items-center justify-center gap-2 text-center"
             >
-              <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+              <WhatsAppIcon className="w-4 h-4 text-white" />
               WhatsApp Engineering Desk
             </a>
           </div>

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ShieldCheck, MessageCircle, Check } from 'lucide-react';
+import { ShieldCheck, Check } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import { products } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
@@ -138,7 +139,7 @@ const ProductDetailPage = () => {
                 rel="noopener noreferrer"
                 className="py-3.5 px-6 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-sm rounded-xl shadow-lg shadow-green-500/20 transition flex items-center gap-2"
               >
-                <MessageCircle className="w-4 h-4 fill-white text-transparent" />
+                <WhatsAppIcon className="w-4 h-4 text-white" />
                 WhatsApp Enquiry
               </a>
             </div>

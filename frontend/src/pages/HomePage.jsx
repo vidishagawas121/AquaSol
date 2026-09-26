@@ -9,7 +9,6 @@ import {
   Calculator,
   ArrowRight,
   Phone,
-  MessageCircle,
   CheckCircle2,
   Clock,
   Sparkles,
@@ -28,6 +27,7 @@ import {
   ShoppingBag,
   Users,
 } from 'lucide-react';
+import WhatsAppIcon from '../components/WhatsAppIcon';
 import { useSettings } from '../context/SettingsContext';
 import {
   products,
@@ -169,7 +169,7 @@ const HomePage = () => {
                   rel="noopener noreferrer"
                   className="w-full sm:w-auto px-5 py-3 sm:py-3.5 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg shadow-green-500/20 transition-all duration-200 active:scale-95 flex items-center justify-center gap-2"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white text-transparent shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
                   <span>WhatsApp Us</span>
                 </a>
 

@@ -1,37 +1,78 @@
 import React, { useState, useEffect } from 'react';
-import { X, CheckCircle, Send, ShieldCheck, MessageCircle } from 'lucide-react';
+import { X, CheckCircle, Send, ShieldCheck, Sparkles } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
+import { serviceOptions, getPredefinedMessage, getMatchingServiceOption } from '../data/serviceMessages';
+import WhatsAppIcon from './WhatsAppIcon';
 
 const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '', source = 'Quote Modal' }) => {
+  const initialSelected = defaultProduct || defaultService || 'PM Surya Ghar Rooftop Solar';
+  const initialOption = getMatchingServiceOption(initialSelected);
+  const initialMessage = getPredefinedMessage(initialSelected);
+
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     city: 'Pune',
     propertyType: 'Residential',
-    interestedProduct: defaultProduct || defaultService || 'PM Surya Ghar Rooftop Solar',
+    interestedProduct: initialOption,
     monthlyBill: '',
-    message: '',
+    message: initialMessage,
   });
 
+  const [isMessageCustomized, setIsMessageCustomized] = useState(false);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
 
+  // Sync state whenever modal opens or defaultService/defaultProduct changes
   useEffect(() => {
     if (isOpen) {
+      const selected = defaultProduct || defaultService || 'PM Surya Ghar Rooftop Solar';
+      const matchedOpt = getMatchingServiceOption(selected);
+      const prefillMsg = getPredefinedMessage(selected);
+
+      setFormData((prev) => ({
+        ...prev,
+        interestedProduct: matchedOpt,
+        message: prefillMsg,
+      }));
+      setIsMessageCustomized(false);
+      setError('');
+
       const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
       return () => {
         document.body.style.overflow = originalOverflow;
       };
     }
-  }, [isOpen]);
+  }, [isOpen, defaultProduct, defaultService]);
 
   if (!isOpen) return null;
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+
+    if (name === 'interestedProduct') {
+      // Automatically update the message with the predefined template for the newly selected service
+      const newMessage = getPredefinedMessage(value);
+      setFormData((prev) => ({
+        ...prev,
+        interestedProduct: value,
+        message: isMessageCustomized ? prev.message : newMessage,
+      }));
+    } else if (name === 'message') {
+      setIsMessageCustomized(true);
+      setFormData((prev) => ({ ...prev, message: value }));
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+  };
+
+  const handleResetMessage = () => {
+    const templ = getPredefinedMessage(formData.interestedProduct);
+    setFormData((prev) => ({ ...prev, message: templ }));
+    setIsMessageCustomized(false);
   };
 
   const handleSubmit = (e) => {
@@ -172,19 +213,35 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                 <div>
-                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-700 mb-1">Interested Solution</label>
+                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-700 mb-1">
+                    Interested Solution / Service
+                  </label>
                   <select
                     name="interestedProduct"
                     value={formData.interestedProduct}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 sm:py-2.5 text-sm rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 bg-white"
+                    className="w-full px-3 py-2 sm:py-2.5 text-xs sm:text-sm rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 bg-white font-medium text-slate-800"
                   >
-                    <option value="PM Surya Ghar Rooftop Solar">PM Surya Ghar Rooftop Solar (₹78K Subsidy)</option>
-                    <option value="Solar Water Heater">Solar Water Heater (100-500 LPD)</option>
-                    <option value="Solar Water Heater Servicing/Repair">Solar Water Heater Servicing & Repair</option>
-                    <option value="Commercial Solar PV">Commercial / Industrial Solar</option>
-                    <option value="Heat Pump System">Heat Pump Water Heater</option>
-                    <option value="Solar Street Light">Solar Street Lighting</option>
+                    <optgroup label="☀️ Rooftop Solar PV">
+                      {serviceOptions.filter(o => o.category === 'Rooftop Solar').map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="💧 Water Heating Solutions">
+                      {serviceOptions.filter(o => o.category === 'Water Heating').map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="🔧 Servicing, Repair & AMC">
+                      {serviceOptions.filter(o => o.category === 'Maintenance & Repairs').map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </optgroup>
+                    <optgroup label="💡 Other Solar Solutions">
+                      {serviceOptions.filter(o => !['Rooftop Solar', 'Water Heating', 'Maintenance & Repairs'].includes(o.category)).map(opt => (
+                        <option key={opt.value} value={opt.value}>{opt.label}</option>
+                      ))}
+                    </optgroup>
                   </select>
                 </div>
 
@@ -202,15 +259,33 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
               </div>
 
               <div>
-                <label className="block text-[11px] sm:text-xs font-semibold text-slate-700 mb-1">Message / Specific Requirement (Optional)</label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-[11px] sm:text-xs font-semibold text-slate-700">
+                    Predefined Enquiry Message
+                  </label>
+                  <span className="inline-flex items-center gap-1 text-[10px] font-bold text-brand-blue-700 bg-brand-blue-50 px-2 py-0.5 rounded-md">
+                    <Sparkles className="w-3 h-3 text-brand-amber-500" /> Auto-filled for selected service
+                  </span>
+                </div>
                 <textarea
                   name="message"
-                  rows="2"
+                  rows="3"
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Tell us about your rooftop type or query..."
-                  className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 resize-none bg-white"
+                  placeholder="Details for this service enquiry..."
+                  className="w-full px-3 py-2 text-xs sm:text-sm rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-blue-500 resize-none bg-slate-50/50 focus:bg-white text-slate-700 font-normal leading-relaxed"
                 ></textarea>
+                {isMessageCustomized && (
+                  <div className="flex justify-end mt-1">
+                    <button
+                      type="button"
+                      onClick={handleResetMessage}
+                      className="text-[11px] text-brand-blue-600 hover:text-brand-blue-800 underline font-medium"
+                    >
+                      Reset to default service template
+                    </button>
+                  </div>
+                )}
               </div>
 
               <div className="pt-1">
@@ -219,7 +294,7 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
                   disabled={loading}
                   className="w-full flex items-center justify-center gap-2 px-4 sm:px-6 py-3 sm:py-3.5 bg-gradient-to-r from-brand-amber-500 to-brand-amber-600 hover:from-brand-amber-600 hover:to-brand-amber-700 active:scale-[0.99] text-white font-bold text-sm rounded-xl shadow-lg shadow-brand-amber-500/20 transition-all duration-200 disabled:opacity-60 cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white text-transparent shrink-0" />
+                  <WhatsAppIcon className="w-4 h-4 text-white shrink-0" />
                   <span>Send Quote Request via WhatsApp</span>
                 </button>
               </div>
