@@ -1038,8 +1038,7 @@ const HomePage = () => {
         </div>
       </section>
 
-
-      {/* 9. FAQ SECTION */}
+      {/* 8. FAQ SECTION */}
       {faqs.length > 0 && (
         <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading

@@ -374,6 +374,15 @@ const Navbar = () => {
               </Link>
 
               <Link
+                to="/blog"
+                className={`px-3 py-2 rounded-lg transition ${
+                  isActive('/blog') ? 'text-brand-blue-600 bg-brand-blue-50' : 'hover:text-brand-blue-600 hover:bg-slate-50'
+                }`}
+              >
+                Blogs
+              </Link>
+
+              <Link
                 to="/contact"
                 className={`px-3 py-2 rounded-lg transition ${
                   isActive('/contact') ? 'text-brand-blue-600 bg-brand-blue-50' : 'hover:text-brand-blue-600 hover:bg-slate-50'

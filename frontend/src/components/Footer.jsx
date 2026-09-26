@@ -185,6 +185,12 @@ const Footer = () => {
                   Solar Savings Calculator
                 </Link>
               </li>
+              <li>
+                <Link to="/blog" className="hover:text-white transition flex items-center gap-1.5">
+                  <ArrowRight className="w-3 h-3 text-brand-green-500 shrink-0" />
+                  Solar Blogs &amp; Guides
+                </Link>
+              </li>
             </ul>
           </div>
 
