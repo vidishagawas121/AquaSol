@@ -3,6 +3,7 @@ import { X, CheckCircle, Send, ShieldCheck, Sparkles } from 'lucide-react';
 import { companyInfo } from '../data/companyInfo';
 import { serviceOptions, getPredefinedMessage, getMatchingServiceOption } from '../data/serviceMessages';
 import WhatsAppIcon from './WhatsAppIcon';
+import { trackContactConversion } from '../utils/analytics';
 
 const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '', source = 'Quote Modal' }) => {
   const initialSelected = defaultProduct || defaultService || 'PM Surya Ghar Rooftop Solar';
@@ -97,6 +98,11 @@ const QuoteModal = ({ isOpen, onClose, defaultProduct = '', defaultService = '',
       `*Source:* ${source}`;
 
     window.open(`https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`, '_blank');
+    trackContactConversion({
+      event_category: 'Quote Modal',
+      source: source,
+      solution: formData.interestedProduct,
+    });
     setSuccess(true);
     setLoading(false);
 

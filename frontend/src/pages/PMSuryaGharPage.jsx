@@ -17,6 +17,7 @@ import {
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
 import SEO from '../components/SEO';
+import { trackContactConversion } from '../utils/analytics';
 import familyHero from '../assets/pm_surya_ghar_family.png';
 
 const PMSuryaGharPage = () => {
@@ -58,6 +59,11 @@ const PMSuryaGharPage = () => {
       `*Message:* ${formData.message || 'Need assistance with PM Surya Ghar ₹78,000 subsidy.'}`;
 
     window.open(`https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`, '_blank');
+    trackContactConversion({
+      event_category: 'PM Surya Ghar Form',
+      property_type: formData.propertyType,
+      monthly_bill: formData.monthlyBill,
+    });
     setSuccess(true);
     setLoading(false);
   };

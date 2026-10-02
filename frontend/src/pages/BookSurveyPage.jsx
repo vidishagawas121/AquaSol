@@ -3,6 +3,7 @@ import { Calendar, Clock, MapPin, CheckCircle2, Send, Loader2, ShieldCheck, Phon
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
 import SEO from '../components/SEO';
+import { trackContactConversion } from '../utils/analytics';
 
 const BookSurveyPage = () => {
   const { settings } = useSettings();
@@ -51,6 +52,11 @@ const BookSurveyPage = () => {
       `*Special Notes:* ${formData.notes || 'None'}`;
 
     window.open(`https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`, '_blank');
+    trackContactConversion({
+      event_category: 'Book Survey Form',
+      requirement: formData.requirement,
+      property_type: formData.propertyType,
+    });
     setSuccess(true);
     setLoading(false);
   };

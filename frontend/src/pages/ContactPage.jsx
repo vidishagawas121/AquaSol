@@ -6,6 +6,7 @@ import { serviceOptions, getPredefinedMessage, getMatchingServiceOption } from '
 import WhatsAppIcon from '../components/WhatsAppIcon';
 import SectionHeading from '../components/SectionHeading';
 import SEO from '../components/SEO';
+import { trackContactConversion } from '../utils/analytics';
 
 const ContactPage = () => {
   const { settings } = useSettings();
@@ -89,6 +90,11 @@ const ContactPage = () => {
       `*Message:* ${formData.message || 'Please contact me regarding solar solutions.'}`;
 
     window.open(`https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`, '_blank');
+    trackContactConversion({
+      event_category: 'Contact Form',
+      service: formData.interestedProduct,
+      property_type: formData.propertyType,
+    });
     setSuccess(true);
     setLoading(false);
     setFormData({

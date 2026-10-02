@@ -15,6 +15,7 @@ import {
 import { useSettings } from '../context/SettingsContext';
 import SectionHeading from '../components/SectionHeading';
 import SEO from '../components/SEO';
+import { trackContactConversion } from '../utils/analytics';
 
 const SolarCalculatorPage = () => {
   const { settings } = useSettings();
@@ -84,6 +85,11 @@ const SolarCalculatorPage = () => {
       `*Notes:* ${formData.notes || 'Please share detailed rooftop solar quotation.'}`;
 
     window.open(`https://wa.me/${phoneDigits}?text=${encodeURIComponent(text)}`, '_blank');
+    trackContactConversion({
+      event_category: 'Solar Calculator Lead',
+      recommended_kw: recommendedKw,
+      property_type: propertyType,
+    });
     setSuccess(true);
     setLoading(false);
   };
