@@ -18,6 +18,7 @@ import {
   Sun,
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import SEO from '../components/SEO';
 import QuoteModal from '../components/QuoteModal';
 import { products, esteemedClients, brandLegacy } from '../data';
 import { useSettings } from '../context/SettingsContext';
@@ -97,6 +98,11 @@ const ProjectsPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="Solar Projects & Client Portfolio in Pune | Aquasol Energy"
+        description="Explore completed rooftop solar PV, solar water heater, heat pump, and solar lighting projects across Pune and Maharashtra."
+        canonical="https://aquasolenergy.in/projects"
+      />
       {/* 1. Header & 15-Year Legacy Welcome Banner */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-14 sm:py-16 px-4">
         <div className="max-w-5xl mx-auto text-center space-y-5 sm:space-y-6">

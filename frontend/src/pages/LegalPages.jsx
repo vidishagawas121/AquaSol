@@ -1,9 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import SEO from '../components/SEO';
 
 export const PrivacyPolicyPage = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+      <SEO
+        title="Privacy Policy | Aquasol Energy"
+        description="Privacy policy and customer data protection guidelines for Aquasol Energy solar solutions in Pune."
+        canonical="https://aquasolenergy.in/privacy-policy"
+      />
       <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Privacy Policy</h1>
       <p className="text-xs text-slate-500">Last updated: January 2026</p>
 
@@ -36,6 +42,11 @@ export const PrivacyPolicyPage = () => {
 export const TermsPage = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+      <SEO
+        title="Terms of Service | Aquasol Energy"
+        description="Terms and conditions for solar services, rooftop installations, and water heater contracts by Aquasol Energy in Pune."
+        canonical="https://aquasolenergy.in/terms-of-service"
+      />
       <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Terms & Conditions</h1>
       <p className="text-xs text-slate-500">Last updated: January 2026</p>
 
@@ -63,6 +74,11 @@ export const TermsPage = () => {
 export const DisclaimerPage = () => {
   return (
     <div className="max-w-4xl mx-auto px-4 py-16 space-y-6 text-slate-700 text-xs sm:text-sm leading-relaxed">
+      <SEO
+        title="Disclaimer | Aquasol Energy"
+        description="Disclaimer and regulatory disclosures for Aquasol Energy solar services and PM Surya Ghar assistance in Pune."
+        canonical="https://aquasolenergy.in/disclaimer"
+      />
       <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900">Disclaimer</h1>
       <p className="text-xs text-slate-500">Last updated: January 2026</p>
 

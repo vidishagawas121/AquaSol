@@ -21,6 +21,7 @@ import {
 import { useSettings } from '../context/SettingsContext';
 import { esteemedClients, brandLegacy } from '../data';
 import SectionHeading from '../components/SectionHeading';
+import SEO from '../components/SEO';
 import msmeLogo from '../assets/msme_logo.png';
 import vendorBadge from '../assets/official_vendor_badge.png';
 import familyHero from '../assets/pm_surya_ghar_family.png';
@@ -45,6 +46,11 @@ const AboutPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title="About Us | Aquasol Energy"
+        description="Learn about Aquasol Energy Pune - 15+ years of excellence in solar rooftop PV, PM Surya Ghar subsidy help, solar water heaters, and AMC services."
+        canonical="https://aquasolenergy.in/about"
+      />
       {/* Hero Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-16 px-4">
         <div className="max-w-5xl mx-auto text-center space-y-4">

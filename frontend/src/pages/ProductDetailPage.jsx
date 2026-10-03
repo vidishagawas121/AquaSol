@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShieldCheck, Check } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import SEO from '../components/SEO';
 import { products } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
@@ -30,6 +31,11 @@ const ProductDetailPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title={`${product.title} | Aquasol Energy`}
+        description={product.shortDescription || product.fullDescription?.slice(0, 160)}
+        canonical={`https://aquasolenergy.in/products/${product.slug}`}
+      />
       {/* Breadcrumb Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-12 px-4">
         <div className="max-w-6xl mx-auto space-y-3">

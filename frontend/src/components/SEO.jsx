@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 
-const DEFAULT_TITLE = 'Aquasol Energy | Solar Rooftop PV, PM Surya Ghar Subsidy & Solar Water Heaters Pune';
-const DEFAULT_DESC = "Aquasol Energy is Pune's leading solar provider for PM Surya Ghar Rooftop Solar (up to ₹78,000 subsidy), Solar Panels, Stainless Steel Water Heaters, Heat Pumps & AMC repair services in Pune & PCMC, Maharashtra.";
+const DEFAULT_TITLE = 'Solar Rooftop & Water Heaters in Pune | Aquasol Energy';
+const DEFAULT_DESC = 'Rooftop solar, PM Surya Ghar subsidy help, solar water heaters, repair and AMC in Pune. Book a free site survey with Aquasol Energy.';
 const DEFAULT_KEYWORDS = 'Solar Rooftop Pune, PM Surya Ghar Pune, PM Surya Ghar Muft Bijli Yojana Pune, Solar Panel Installation Pune, Solar Water Heater Pune, Solar Water Heater Repair Pune, Solar AMC Pune, Commercial Solar Rooftop Pune, Heat Pump Water Heater Pune, MSEDCL Solar Net Metering, Aquasol Energy Chandan Nagar';
 const SITE_URL = 'https://aquasolenergy.in';
 
@@ -17,49 +18,119 @@ export default function SEO({
 }) {
   const location = useLocation();
 
+  // 1. Determine final title
+  let finalTitle = DEFAULT_TITLE;
+  if (title) {
+    if (title.includes('Aquasol Energy')) {
+      finalTitle = title;
+    } else {
+      finalTitle = `${title} | Aquasol Energy`;
+    }
+  }
+
+  // 2. Determine final description
+  const finalDesc = description || DEFAULT_DESC;
+
+  // 3. Determine final canonical & OG URL
+  let finalCanonical = canonical;
+  if (!finalCanonical) {
+    const cleanPath = location.pathname === '/' ? '/' : location.pathname.replace(/\/+$/, '');
+    finalCanonical = `${SITE_URL}${cleanPath}`;
+  }
+
+  // 4. Determine keywords
+  const finalKeywords = keywords || DEFAULT_KEYWORDS;
+
+  // 5. DOM Sync Fallback for complete resilience across all crawlers & browsers
   useEffect(() => {
-    // 1. Set Document Title
-    const finalTitle = title
-      ? `${title} | Aquasol Energy Pune`
-      : DEFAULT_TITLE;
+    // Title
     document.title = finalTitle;
 
-    // 2. Set Meta Description
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute('content', description || DEFAULT_DESC);
+    // Meta Description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+      metaDesc = document.createElement('meta');
+      metaDesc.name = 'description';
+      document.head.appendChild(metaDesc);
     }
+    metaDesc.setAttribute('content', finalDesc);
 
-    // 3. Set Meta Keywords
-    const metaKeywords = document.querySelector('meta[name="keywords"]');
-    if (metaKeywords) {
-      metaKeywords.setAttribute('content', keywords || DEFAULT_KEYWORDS);
+    // Meta Keywords
+    let metaKw = document.querySelector('meta[name="keywords"]');
+    if (!metaKw) {
+      metaKw = document.createElement('meta');
+      metaKw.name = 'keywords';
+      document.head.appendChild(metaKw);
     }
+    metaKw.setAttribute('content', finalKeywords);
 
-    // 4. Set Canonical Link
-    const currentUrl = canonical || `${SITE_URL}${location.pathname === '/' ? '' : location.pathname}`;
+    // Canonical Link
     let linkCanonical = document.querySelector('link[rel="canonical"]');
-    if (linkCanonical) {
-      linkCanonical.setAttribute('href', currentUrl);
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.rel = 'canonical';
+      document.head.appendChild(linkCanonical);
     }
+    linkCanonical.setAttribute('href', finalCanonical);
 
-    // 5. Open Graph Meta
-    const ogTitleTag = document.querySelector('meta[property="og:title"]');
-    if (ogTitleTag) ogTitleTag.setAttribute('content', finalTitle);
+    // Open Graph Title
+    let ogTitleTag = document.querySelector('meta[property="og:title"]');
+    if (!ogTitleTag) {
+      ogTitleTag = document.createElement('meta');
+      ogTitleTag.setAttribute('property', 'og:title');
+      document.head.appendChild(ogTitleTag);
+    }
+    ogTitleTag.setAttribute('content', finalTitle);
 
-    const ogDescTag = document.querySelector('meta[property="og:description"]');
-    if (ogDescTag) ogDescTag.setAttribute('content', description || DEFAULT_DESC);
+    // Open Graph Description
+    let ogDescTag = document.querySelector('meta[property="og:description"]');
+    if (!ogDescTag) {
+      ogDescTag = document.createElement('meta');
+      ogDescTag.setAttribute('property', 'og:description');
+      document.head.appendChild(ogDescTag);
+    }
+    ogDescTag.setAttribute('content', finalDesc);
 
-    const ogUrlTag = document.querySelector('meta[property="og:url"]');
-    if (ogUrlTag) ogUrlTag.setAttribute('content', currentUrl);
+    // Open Graph URL
+    let ogUrlTag = document.querySelector('meta[property="og:url"]');
+    if (!ogUrlTag) {
+      ogUrlTag = document.createElement('meta');
+      ogUrlTag.setAttribute('property', 'og:url');
+      document.head.appendChild(ogUrlTag);
+    }
+    ogUrlTag.setAttribute('content', finalCanonical);
 
-    const ogTypeTag = document.querySelector('meta[property="og:type"]');
-    if (ogTypeTag) ogTypeTag.setAttribute('content', ogType);
+    // Open Graph Type
+    let ogTypeTag = document.querySelector('meta[property="og:type"]');
+    if (!ogTypeTag) {
+      ogTypeTag = document.createElement('meta');
+      ogTypeTag.setAttribute('property', 'og:type');
+      document.head.appendChild(ogTypeTag);
+    }
+    ogTypeTag.setAttribute('content', ogType);
 
-    const ogImgTag = document.querySelector('meta[property="og:image"]');
+    // Open Graph Image
+    let ogImgTag = document.querySelector('meta[property="og:image"]');
+    if (!ogImgTag && ogImage) {
+      ogImgTag = document.createElement('meta');
+      ogImgTag.setAttribute('property', 'og:image');
+      document.head.appendChild(ogImgTag);
+    }
     if (ogImgTag && ogImage) ogImgTag.setAttribute('content', ogImage);
 
-    // 6. Dynamic JSON-LD schema (if passed)
+    // Twitter Card Title
+    let twTitleTag = document.querySelector('meta[name="twitter:title"]');
+    if (twTitleTag) twTitleTag.setAttribute('content', finalTitle);
+
+    // Twitter Card Description
+    let twDescTag = document.querySelector('meta[name="twitter:description"]');
+    if (twDescTag) twDescTag.setAttribute('content', finalDesc);
+
+    // Twitter Card URL
+    let twUrlTag = document.querySelector('meta[name="twitter:url"]');
+    if (twUrlTag) twUrlTag.setAttribute('content', finalCanonical);
+
+    // Dynamic JSON-LD Schema
     let schemaScript = document.getElementById('dynamic-page-schema');
     if (schema) {
       if (!schemaScript) {
@@ -72,7 +143,37 @@ export default function SEO({
     } else if (schemaScript) {
       schemaScript.remove();
     }
-  }, [title, description, keywords, canonical, schema, ogType, ogImage, location.pathname]);
+  }, [finalTitle, finalDesc, finalKeywords, finalCanonical, ogType, ogImage, schema]);
 
-  return null;
+  return (
+    <Helmet>
+      {/* Title */}
+      <title>{finalTitle}</title>
+
+      {/* Meta Tags */}
+      <meta name="description" content={finalDesc} />
+      <meta name="keywords" content={finalKeywords} />
+      <link rel="canonical" href={finalCanonical} />
+
+      {/* Open Graph / Facebook / WhatsApp */}
+      <meta property="og:title" content={finalTitle} />
+      <meta property="og:description" content={finalDesc} />
+      <meta property="og:url" content={finalCanonical} />
+      <meta property="og:type" content={ogType} />
+      {ogImage && <meta property="og:image" content={ogImage} />}
+
+      {/* Twitter Card */}
+      <meta name="twitter:title" content={finalTitle} />
+      <meta name="twitter:description" content={finalDesc} />
+      <meta name="twitter:url" content={finalCanonical} />
+      {ogImage && <meta name="twitter:image" content={ogImage} />}
+
+      {/* Structured Data (Schema.org JSON-LD) */}
+      {schema && (
+        <script type="application/ld+json">
+          {JSON.stringify(schema)}
+        </script>
+      )}
+    </Helmet>
+  );
 }

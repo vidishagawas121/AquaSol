@@ -71,8 +71,8 @@ const PMSuryaGharPage = () => {
   return (
     <div className="space-y-16 pb-16">
       <SEO
-        title="PM Surya Ghar Muft Bijli Yojana Pune | ₹78,000 Subsidy Assistance"
-        description="Apply for PM Surya Ghar Muft Bijli Yojana in Pune with Aquasol Energy. Get up to ₹78,000 direct bank subsidy, MSEDCL net metering and zero electricity bills."
+        title="PM Surya Ghar Rooftop Solar in Pune | Subsidy Help"
+        description="Apply for PM Surya Ghar rooftop solar in Pune. Get help with subsidy paperwork, MSEDCL net metering and installation. Book a free survey."
         keywords="PM Surya Ghar Pune, PM Surya Ghar Muft Bijli Yojana, Solar Subsidy Pune, PM Surya Ghar apply online Pune, Rooftop Solar Scheme Maharashtra, MSEDCL solar subsidy"
         canonical="https://aquasolenergy.in/pm-surya-ghar"
       />

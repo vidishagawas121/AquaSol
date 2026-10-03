@@ -6,9 +6,43 @@ import {
   Sparkles,
 } from 'lucide-react';
 import WhatsAppIcon from '../components/WhatsAppIcon';
+import SEO from '../components/SEO';
 import { services } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
+
+const SERVICE_SEO_MAP = {
+  'solar-tank-repairing': {
+    title: 'Solar Water Heater Tank Repair in Pune | Aquasol Energy',
+    description: 'Leaking or damaged solar water heater tank? Argon arc welding repair, leak fixing and doorstep service in Pune. Call Aquasol Energy.',
+    canonical: 'https://aquasolenergy.in/services/solar-tank-repairing',
+  },
+  'solar-water-heater-servicing': {
+    title: 'Solar Water Heater Service & Descaling in Pune',
+    description: 'Doorstep solar water heater servicing, descaling and pressure testing in Pune. Restore hot water performance. Call for a visit.',
+    canonical: 'https://aquasolenergy.in/services/solar-water-heater-servicing',
+  },
+  'rooftop-solar-pv-installation': {
+    title: 'Rooftop Solar Installation & Net Metering in Pune',
+    description: 'Rooftop solar panel installation in Pune with MSEDCL net metering support. Free site survey and a clear quote from Aquasol Energy.',
+    canonical: 'https://aquasolenergy.in/services/rooftop-solar-pv-installation',
+  },
+  'tank-solar-leakage-removal': {
+    title: 'Tank & Solar Panel Leakage Removal in Pune | Aquasol Energy',
+    description: 'Emergency leak detection and repair for solar tanks, pipe manifolds, vacuum tube joints, and rooftop plumbing in Pune.',
+    canonical: 'https://aquasolenergy.in/services/tank-solar-leakage-removal',
+  },
+  'solar-water-heater-amc': {
+    title: 'Solar Water Heater AMC & Maintenance in Pune | Aquasol Energy',
+    description: 'Annual maintenance contracts (AMC) for residential societies and commercial solar water heaters in Pune.',
+    canonical: 'https://aquasolenergy.in/services/solar-water-heater-amc',
+  },
+  'solar-panel-brush-cleaning': {
+    title: 'Solar Panel Cleaning & Washing in Pune | Aquasol Energy',
+    description: 'Professional scratch-free brush cleaning and demineralized washing to boost solar panel power generation in Pune.',
+    canonical: 'https://aquasolenergy.in/services/solar-panel-brush-cleaning',
+  },
+};
 
 const ServiceDetailPage = () => {
   const { slug } = useParams();
@@ -17,6 +51,12 @@ const ServiceDetailPage = () => {
 
   const service = services.find((s) => s.slug === slug) || services[0];
 
+  const seo = SERVICE_SEO_MAP[service.slug] || {
+    title: `${service.title} | Aquasol Energy`,
+    description: service.shortDescription || 'Professional solar water heater and solar rooftop service in Pune by Aquasol Energy.',
+    canonical: `https://aquasolenergy.in/services/${service.slug}`,
+  };
+
   const phoneDigits = settings.whatsappNumber?.replace(/[^0-9]/g, '') || '918275067701';
   const whatsappUrl = `https://wa.me/${phoneDigits}?text=Hello%20Aquasol%20Energy,%20I%20want%20to%20book%20${encodeURIComponent(
     service.title
@@ -24,6 +64,11 @@ const ServiceDetailPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        canonical={seo.canonical}
+      />
       {/* Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-14 px-4">
         <div className="max-w-5xl mx-auto space-y-3">

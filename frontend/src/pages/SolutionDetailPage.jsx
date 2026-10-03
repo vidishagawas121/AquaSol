@@ -4,6 +4,7 @@ import { CheckCircle2, Phone } from 'lucide-react';
 import { solutions } from '../data';
 import { useSettings } from '../context/SettingsContext';
 import QuoteModal from '../components/QuoteModal';
+import SEO from '../components/SEO';
 
 const SolutionDetailPage = () => {
   const { slug } = useParams();
@@ -14,6 +15,11 @@ const SolutionDetailPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title={`${solution.title} | Aquasol Energy`}
+        description={solution.shortDescription || solution.subtitle}
+        canonical={`https://aquasolenergy.in/solutions/${solution.slug}`}
+      />
       {/* Breadcrumb & Header */}
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-14 px-4">
         <div className="max-w-5xl mx-auto space-y-4">

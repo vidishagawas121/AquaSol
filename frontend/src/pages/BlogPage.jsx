@@ -28,6 +28,7 @@ const BlogPage = () => {
         title="Solar Energy Blogs, Subsidies & Maintenance Guides Pune | Aquasol Energy"
         description="Read comprehensive guides on PM Surya Ghar subsidies, solar water heater descaling, MSEDCL net-metering, commercial rooftop solar ROI, and energy savings in Pune."
         keywords="solar blog Pune, PM Surya Ghar subsidy guide, solar water heater servicing tips, net metering MSEDCL Pune, rooftop solar cost Pune"
+        canonical="https://aquasolenergy.in/blog"
       />
 
       {/* Header Banner */}

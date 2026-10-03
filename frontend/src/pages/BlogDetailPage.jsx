@@ -147,9 +147,10 @@ const BlogDetailPage = () => {
   return (
     <div className="space-y-12 pb-16">
       <SEO
-        title={`${blog.title} | Aquasol Energy Pune`}
+        title={`${blog.title} | Aquasol Energy`}
         description={blog.summary}
         keywords={blog.tags?.join(', ') || 'solar blog, Pune solar'}
+        canonical={`https://aquasolenergy.in/blog/${blog.slug}`}
       />
 
       {/* Header Banner */}

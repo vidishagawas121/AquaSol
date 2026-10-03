@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
 import { projects } from '../data';
 import QuoteModal from '../components/QuoteModal';
+import SEO from '../components/SEO';
 
 const ProjectDetailPage = () => {
   const { slug } = useParams();
@@ -12,6 +13,11 @@ const ProjectDetailPage = () => {
 
   return (
     <div className="space-y-16 pb-16">
+      <SEO
+        title={`${project.title} | Aquasol Energy`}
+        description={project.description}
+        canonical={`https://aquasolenergy.in/projects/${project.slug}`}
+      />
       <section className="bg-gradient-to-b from-slate-900 via-brand-blue-950 to-slate-900 text-white py-14 px-4">
         <div className="max-w-5xl mx-auto space-y-3">
           <div className="flex items-center gap-2 text-xs text-slate-400">
